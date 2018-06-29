@@ -1,0 +1,5 @@
+# cat=XClasses; type=boolean; label=Enable XClass of youtube renderer
+xclass_youtube = 0
+
+# cat=XClasses; type=boolean; label=Enable XClass of vimeo renderer
+xclass_vimeo = 0

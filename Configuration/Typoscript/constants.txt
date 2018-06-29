@@ -1,0 +1,283 @@
+ameos {
+	tarteaucitron {
+		#cat=plugin.ameos_tarteaucitron.init; type=string; label=hashtag that opens the administration panel
+		hashtag = #cookies
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=HighPrivacy : true/false
+		highPrivacy = true
+
+		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Domain of the cookies : .example.com
+		cookieDomain = .example.com
+
+		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Position of the banner : top/bottom
+		orientation = bottom
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Display a message if an adblocker is found : true/false
+		adblocker = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Shows a small banner at the bottom right of the screen : true/false
+		showAlertSmall = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Shows the list of installed cookies : true/false
+		cookieslist = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Removes credits of the script : true/false
+		removeCredit = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Deny everything if DNT is on : true/false
+		handleBrowserDNTRequest = true
+		
+		services {
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Google jsapi
+			jsapi = 0
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Google Maps
+			gmaps = 0
+			gmaps {
+				#cat=plugin.ameos_tarteaucitron.services.apis; type=string; label=Google Maps (Key)
+				googlemapsKey =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Google Maps (search query)
+			googlemapssearch = 0
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Google Tag Manager
+			googletagmanager = 0
+			googletagmanager {
+				#cat=plugin.ameos_tarteaucitron.services.apis; type=string; label=Google Tag Manager (Key)
+				googletagmanagerId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=reCAPTCHA
+			recaptcha = 0
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Timeline JS
+			timelinejs = 0
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Typekit (adobe)
+			typekit = 0
+			typekit {
+				#cat=plugin.ameos_tarteaucitron.services.apis; type=string; label=Typekit (adobe) (Key)
+				typekitId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.comments; type=boolean; label=Disqus
+			disqus = 0
+			disqus {
+				#cat=plugin.ameos_tarteaucitron.services.comments; type=string; label=Disqus short name
+				disqusShortname = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.comments; type=boolean; label=Facebook (comments)
+			facebookcomment = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Alexa
+			alexa = 0
+			alexa {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Alexa Account ID
+				alexaAccountID =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Clicky
+			clicky = 0
+			clicky {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Clicky ID
+				clickyId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Crazy Egg
+			crazyegg = 0
+			crazyegg {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Crazy Egg ID
+				crazyeggId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=eTracker
+			etracker = 0
+			etracker {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=etracker Secure Code
+				etracker =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=FERank
+			ferank = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Get+
+			getplus = 0
+			getplus {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Get+ ID
+				getplusId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Analytics (ga.js)
+			gajs = 0
+			gajs {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Google Analytics Account (ga.js)
+				gajsUa = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Analytics (gtag.js)
+			gtag = 0
+			gtag {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Google Analytics Account (gtag.js)
+				gtagUa = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Analytics on Steroids
+			gas = 0
+			gas {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Google Analytics on Steroids Account (universal)
+				gasUa =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Analytics (universal)
+			analytics = 0
+			analytics {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Google Analytics Account (universal)
+				analyticsUa =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Mautic
+			mautic = 0
+			mautic {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Mautic URL
+				mauticurl =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Microsoft Campaign Analytics
+			microsoftcampaignanalytics = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Stat Counter
+			statcounter = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=VisualRevenue
+			visualrevenue = 0
+			visualrevenue {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=VisualRevenue ID
+				visualrevenueId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Webmecanik
+			webmecanik = 0
+			webmecanik {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Webmecanik URL
+				webmecanikurl =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Wysistat
+			wysistat = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Xiti
+			xiti = 0
+			xiti {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Witi ID
+				xitiId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Ad Up Technology (ads)
+			aduptech_ads = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Ad Up Technology (conversion)
+			aduptech_conversion = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Ad Up Technology (retargeting)
+			aduptech_retargeting = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Amazon
+			amazon = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Clicmanager
+			clicmanager = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Criteo
+			criteo = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Dating Affiliation
+			datingaffiliation = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Dating Affiliation (popup)
+			datingaffiliationpopup = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=FERank (pub)
+			ferankpub = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Google Adsense
+			adsense = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Google Adsense Search (form)
+			adsensesearchform = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Google Adsense Search (Result)
+			adsensesearchresult = 0
+			adsensesearchresult {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Google Adsense Search (Result) Partner pub
+				adsensesearchresultCx = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Google Adwords (conversion)
+			googleadwordsconversion = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Google Adwords (remarketing)
+			googleadwordsremarketing = 0
+			googleadwordsremarketing {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Google Adwords (remarketing) ID
+				adwordsremarketingId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Google Partners Badge
+			googlepartners = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Prelinker
+			prelinker = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Pubdirecte
+			pubdirecte = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=ShareASale
+			shareasale = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Twenga
+			twenga = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=VShop
+			vshop = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Add This
+			addthis = 0
+			addthis {
+				#cat=plugin.ameos_tarteaucitron.services.social; type=string; label=Add This Pub ID
+				addthisPubId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=AddToAny (feed)
+			addtoanyfeed = 0
+			addtoanyfeed {
+				#cat=plugin.ameos_tarteaucitron.services.social; type=string; label=AddToAny (feed) URI
+				addtoanyfeedUri = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Ekomi
+			ekomi = 0
+			ekomi {
+				#cat=plugin.ameos_tarteaucitron.services.social; type=string; label=Ekomi CertID
+				ekomiCertId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Facebook
+			facebook = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Facebook (likebox)
+			facebooklikebox = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Facebook Pixel
+			facebookpixel = 0
+			facebookpixel {
+				#cat=plugin.ameos_tarteaucitron.services.social; type=string; label=Facebook Pixel ID
+				facebookpixelId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Google+
+			gplus = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Google+ (badge)
+			gplusbadge = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Linkedin
+			linkedin = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Pinterest
+			pinterest = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Shareaholic
+			shareaholic = 0
+			shareaholic {
+				#cat=plugin.ameos_tarteaucitron.services.social; type=string; label=Shareaholic Site ID
+				shareaholicSiteId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=ShareThis
+			sharethis = 0
+			sharethis {
+				#cat=plugin.ameos_tarteaucitron.services.social; type=string; label=ShareThis Publisher
+				sharethisPublisher = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Twitter
+			twitter = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Twitter (cards)
+			twitterembed = 0
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Twitter (timelines)
+			twittertimeline = 0
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=PureChat
+			purechat = 0
+			purechat {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=PureChat ID
+				purechatId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=UserVoice
+			uservoice = 0
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Zopim
+			zopim = 0
+			zopim {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Zopim ID
+				zopimID = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Calameo
+			calameo = 0
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Dailymotion
+			dailymotion = 0
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Issuu
+			issuu = 0
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Prezi
+			prezi = 0
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Slideshare
+			slideshare = 0
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Vimeo
+			vimeo = 0
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Youtube
+			youtube = 0
+		}
+	}
+}
