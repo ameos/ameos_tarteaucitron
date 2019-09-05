@@ -1,0 +1,33 @@
+{
+    "name": "ameos/ameos_tarteaucitron",
+    "description": "Integrates tarteaucitron.js in TYPO3 (see : https://opt-out.ferank.eu )",
+    "type": "typo3-cms-extension",
+    "homepage": "https://github.com/ameos/ameos_tarteaucitron",
+    "require": {
+        "typo3/cms-core": "^8.7 | ^9 | dev-master",
+        "typo3/cms-backend": "^8.7 | ^9 | dev-master",
+        "typo3/cms-frontend": "^8.7 | ^9 | dev-master",
+        "typo3/cms-recordlist": "^8.7 | ^9 | dev-master",
+        "php": ">=7.0.0"
+    },
+    "keywords": [
+        "TYPO3",
+        "CMS",
+        "Dailymotion",
+        "Media asset provider"
+    ],
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Ameos Team",
+            "email": "typo3dev@ameos.com",
+            "homepage": "http://www.ameos.com/"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Ameos\\AmeosDailymotion\\": "Classes"
+        }
+    },
+    "non-feature-branches": ["development", "staging"]
+}
