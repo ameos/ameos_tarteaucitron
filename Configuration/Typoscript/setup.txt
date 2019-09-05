@@ -1,5 +1,4 @@
 page {
-
     includeJSFooter{
         tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron/tarteaucitron.js
         /*
@@ -11,6 +10,10 @@ page {
             disableCompression = 1
         }
         ameostarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/js/ameostarteaucitron.js   
+    }
+
+    meta {
+        viewport = width=device-width, user-scalable=yes
     }
 
     jsFooterInline {
