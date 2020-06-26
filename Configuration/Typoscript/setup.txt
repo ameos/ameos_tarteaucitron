@@ -179,7 +179,7 @@ page {
             130 {
                 value (
                     tarteaucitron.user.clickyId = '{$ameos.tarteaucitron.services.clicky.clickyId}';
-                    tarteaucitron.user.clickyMore = AmeosTacClickyMore();
+                    tarteaucitron.user.clickyMore = AmeosTacClickyMore;
                     (tarteaucitron.job = tarteaucitron.job || []).push('clicky');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.clicky}
@@ -224,7 +224,7 @@ page {
             180 {
                 value (
                     tarteaucitron.user.gajsUa = '{$ameos.tarteaucitron.services.gajs.gajsUa}';
-                    tarteaucitron.user.gajsMore = AmeosTacGajsMore(); /* add here your optionnal _ga.push() */
+                    tarteaucitron.user.gajsMore = AmeosTacGajsMore; /* add here your optionnal _ga.push() */
                     (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.gajs}
@@ -234,7 +234,7 @@ page {
 			190 {
 				value (
 					tarteaucitron.user.gtagUa = '{$ameos.tarteaucitron.services.gtag.gtagUa}';
-    				tarteaucitron.user.gtagMore = AmeosTacGtagMore(); /* add here your optionnal gtag() */
+    				tarteaucitron.user.gtagMore = AmeosTacGtagMore; /* add here your optionnal gtag() */
     				(tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 				)
 				if.isTrue = {$ameos.tarteaucitron.services.gtag}
@@ -244,7 +244,7 @@ page {
             200 {
                 value (
                     tarteaucitron.user.analyticsUa = '{$ameos.tarteaucitron.services.analytics.analyticsUa}';
-                    tarteaucitron.user.analyticsMore = AmeosTacAnalyticsMore(); /* add here your optionnal ga.push() */
+                    tarteaucitron.user.analyticsMore = AmeosTacAnalyticsMore; /* add here your optionnal ga.push() */
                     (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.analytics}
@@ -305,7 +305,7 @@ page {
             270 {
                 value (
                     tarteaucitron.user.xitiId = '{$ameos.tarteaucitron.services.xiti.xitiId}';
-                    tarteaucitron.user.xitiMore = AmeosTacXitiMore(); /* add here your optionnal xiti function */
+                    tarteaucitron.user.xitiMore = AmeosTacXitiMore; /* add here your optionnal xiti function */
                     (tarteaucitron.job = tarteaucitron.job || []).push('xiti');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.xiti}
@@ -520,7 +520,7 @@ page {
             530 {
                 value (
                     tarteaucitron.user.facebookpixelId = '{$ameos.tarteaucitron.services.facebookpixel.facebookpixelId}';
-                    tarteaucitron.user.facebookpixelMore = AmeosTacFacebookPixelMore(); /* add here your optionnal facebook pixel function */
+                    tarteaucitron.user.facebookpixelMore = AmeosTacFacebookPixelMore; /* add here your optionnal facebook pixel function */
                     (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.facebookpixel}
