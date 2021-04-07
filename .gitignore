@@ -1,0 +1,5 @@
+.idea/
+Resources/Public/libs/autoload.php
+Resources/Public/libs/composer/
+Resources/Public/libs/npm-asset/
+Resources/Public/libs/tarteaucitron/

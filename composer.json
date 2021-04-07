@@ -1,6 +1,6 @@
 {
     "name": "ameos/ameos_tarteaucitron",
-    "description": "Integrates tarteaucitron.js in TYPO3 (see : https://opt-out.ferank.eu )",
+    "description": "Integrates tarteaucitron.js in TYPO3 (see : https://tarteaucitron.io/en/ )",
     "type": "typo3-cms-extension",
     "homepage": "https://github.com/ameos/ameos_tarteaucitron",
     "require": {
@@ -15,6 +15,12 @@
         "Tarte Au Citron",
         "GDPR"
     ],
+    "require-dev": {
+        "npm-asset/tarteaucitronjs": "20210306"
+    },
+    "config": {
+        "vendor-dir": "Resources/Public/libs/"
+    },
     "license": "GPL-3.0-or-later",
     "authors": [
         {
@@ -28,5 +34,17 @@
             "Ameos\\AmeosTarteaucitron\\": "Classes"
         }
     },
-    "non-feature-branches": ["development", "staging"]
+    "non-feature-branches": ["development", "staging"],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "ameos_tarteaucitron"
+        }
+    },
+    "minimum-stability": "dev"
 }

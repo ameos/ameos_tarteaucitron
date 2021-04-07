@@ -1,7 +1,7 @@
 page {
 
-    includeJSFooter{
-        tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron.js/tarteaucitron.js
+    includeJSFooter {
+        tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/npm-asset/tarteaucitronjs/tarteaucitron.js
         /*
         IMPORTANT ! CONCATENATION AND COMPRESSION ARE DISABLED BECAUSE TAC LOAD ITS OWN SCRIPT FROM IT'S PATH
         */
@@ -10,9 +10,9 @@ page {
             excludeFromConcatenation = 1
             disableCompression = 1
         }
-        ameostarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/js/ameostarteaucitron.js   
+        ameostarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/js/ameostarteaucitron.js
     }
-    
+
     jsFooterInline {
     	29052018 = COA
     	29052018 {
@@ -21,7 +21,7 @@ page {
                 wrap = tarteaucitron.init({|});
                 10 = TEXT
                 10 {
-                    value = 
+                    value =
                     typolink {
                         parameter = {$ameos.tarteaucitron.privacyPid}
                         returnLast = url
@@ -38,10 +38,10 @@ page {
                         "orientation": "{$ameos.tarteaucitron.orientation}", /* Banner position (top - bottom) */
 
                         "groupServices": {$ameos.tarteaucitron.groupServices}, /* Group services by category */
-                                       
+
                         "showAlertSmall": {$ameos.tarteaucitron.showAlertSmall}, /* Show the small banner on bottom right */
                         "cookieslist": {$ameos.tarteaucitron.cookieslist}, /* Show the cookie list */
-                                       
+
                         "closePopup": {$ameos.tarteaucitron.closePopup}, /* Show a close X on the banner */
 
                         "showIcon": {$ameos.tarteaucitron.closePopup}, /* Show cookie icon to manage cookies */
@@ -58,11 +58,11 @@ page {
                         "iconPosition": "{$ameos.tarteaucitron.iconPosition}", /* BottomRight, BottomLeft, TopRight and TopLeft */
 
                         "adblocker": {$ameos.tarteaucitron.adblocker}, /* Show a Warning if an adblocker is detected */
-                                       
+
                         "DenyAllCta" : {$ameos.tarteaucitron.DenyAllCta}, /* Show the deny all button */
                         "AcceptAllCta" : {$ameos.tarteaucitron.AcceptAllCta}, /* Show the accept all button when highPrivacy on */
                         "highPrivacy": {$ameos.tarteaucitron.highPrivacy}, /* HIGHLY RECOMMANDED Disable auto consent */
-                                       
+
                         "handleBrowserDNTRequest": {$ameos.tarteaucitron.handleBrowserDNTRequest}, /* If Do Not Track == 1, disallow all */
 
                         "removeCredit": {$ameos.tarteaucitron.removeCredit}, /* Remove credit link */
@@ -78,7 +78,7 @@ page {
 
                 50 = TEXT
                 50 {
-                    value = 
+                    value =
                     typolink {
                         parameter = {$ameos.tarteaucitron.readmoreLinkPageId}
                         returnLast = url
@@ -1198,8 +1198,6 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.intercomChat}
             }
-
-            (tarteaucitron.job = tarteaucitron.job || []).push('discord');
 
             1310 = TEXT
             1310 {
