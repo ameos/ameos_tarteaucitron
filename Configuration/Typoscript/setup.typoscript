@@ -1,6 +1,6 @@
 page {
 
-    includeJSFooter{
+    includeJSFooter {
         tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron.js/tarteaucitron.js
         /*
         IMPORTANT ! CONCATENATION AND COMPRESSION ARE DISABLED BECAUSE TAC LOAD ITS OWN SCRIPT FROM IT'S PATH
@@ -712,6 +712,7 @@ page {
             750 = TEXT
             750 {
                 value (
+                    tarteaucitron.user.openwebanalyticsId = '{$ameos.tarteaucitron.services.openwebanalytics.openwebanalyticsId}';
                     tarteaucitron.user.openwebanalyticsHost = '{$ameos.tarteaucitron.services.openwebanalytics.openwebanalyticsHost}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('openwebanalytics');
                 )
@@ -1054,6 +1055,7 @@ page {
             1140 {
                 value (
                     tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomohightrack.matomoId}';
+                    tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomohightrack.matomoHost}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('matomohightrack');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.matomohightrack}
@@ -1063,6 +1065,7 @@ page {
             1150 {
                 value (
                     tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomo.matomoId}';
+                    tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomo.matomoHost}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.matomo}
