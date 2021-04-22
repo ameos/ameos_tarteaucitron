@@ -1,5 +1,6 @@
 /*global tarteaucitron */
 tarteaucitron.lang = {
+    "middleBarHead": "☝ 🍪",
     "adblock": "Buna! Acest site este transparent și vă permite să alegeți serviciile terță parte pe care doriți să le permiteți.",
     "adblock_call": "Dezactivați-vă adblocker-ul pentru a începe personalizarea.",
     "reload": "Reincarca Pagina",
@@ -37,8 +38,12 @@ tarteaucitron.lang = {
     "newWindow": "(fereastră nouă)",
     "allowAll": "Permiteți toate cookie-urile",
     "denyAll": "Respinge toate cookie-urile",
+
+    "icon": "Cookies",
     
     "fallback": "este dezactivat.",
+    "allowed": "permis",
+    "disallowed": "nepermis",
 
     "ads": {
         "title": "Rețea de publicitate",
@@ -71,5 +76,8 @@ tarteaucitron.lang = {
     "other": {
         "title": "Alte",
         "details": "Servicii pentru afișarea conținutului web."
-    }
+    },
+    
+    "mandatoryTitle": "Mandatory cookies",
+    "mandatoryText": "This site uses cookies necessary for its proper functioning which cannot be deactivated."
 };
