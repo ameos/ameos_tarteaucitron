@@ -1,31 +1,89 @@
 function AmeosTacClickyMore(){
-	$(document).trigger('clicky-loaded');
+	if(typeof(Event) === 'function') {
+        clickyloaded = new Event("clicky-loaded");
+    }else{
+        clickyloaded = document.createEvent('Event');
+        clickyloaded.initEvent("clicky-loaded", true, true);
+    }
 }
 
 function AmeosTacGajsMore(){
-	$(document).trigger('gajs-loaded');
+	if(typeof(Event) === 'function') {
+        gajsloaded = new Event("gajs-loaded");
+    }else{
+        gajsloaded = document.createEvent('Event');
+        gajsloaded.initEvent("gajs-loaded", true, true);
+    }
 }
 
 function AmeosTacGtagMore(){
-	$(document).trigger('gtag-loaded');
+	if(typeof(Event) === 'function') {
+        gtagloaded = new Event("gtag-loaded");
+    }else{
+        gtagloaded = document.createEvent('Event');
+        gtagloaded.initEvent("gtag-loaded", true, true);
+    }
 }
 
 function AmeosTacMapscallback(){
-	$(document).trigger('maps-loaded');
+	if(typeof(Event) === 'function') {
+        mapsloaded = new Event("maps-loaded");
+    }else{
+        mapsloaded = document.createEvent('Event');
+        mapsloaded.initEvent("maps-loaded", true, true);
+    }
 }
 
 function AmeosTacAnalyticsMore(){
-	$(document).trigger('analytics-loaded');
+	if(typeof(Event) === 'function') {
+        analyticsloaded = new Event("analytics-loaded");
+    }else{
+        analyticsloaded = document.createEvent('Event');
+        analyticsloaded.initEvent("analytics-loaded", true, true);
+    }
 }
 
 function AmeosTacGasMore(){
-	$(document).trigger('gas-loaded');
+	if(typeof(Event) === 'function') {
+        gasloaded = new Event("gas-loaded");
+    }else{
+        gasloaded = document.createEvent('Event');
+        gasloaded.initEvent("gas-loaded", true, true);
+    }
 }
 
 function AmeosTacXitiMore(){
-	$(document).trigger('xiti-loaded');
+	if(typeof(Event) === 'function') {
+        xitiloaded = new Event("xiti-loaded");
+    }else{
+        xitiloaded = document.createEvent('Event');
+        xitiloaded.initEvent("xiti-loaded", true, true);
+    }
 }
 
 function AmeosTacFacebookPixelMore(){
-	$(document).trigger('facebookpixel-loaded');
+	if(typeof(Event) === 'function') {
+        facebookpixelloaded = new Event("facebookpixel-loaded");
+    }else{
+        facebookpixelloaded = document.createEvent('Event');
+        facebookpixelloaded.initEvent("facebookpixel-loaded", true, true);
+    }
+}
+
+function AmeosTacatMore(){
+	if(typeof(Event) === 'function') {
+        atinternetloaded = new Event("atinternet-loaded");
+    }else{
+        atinternetloaded = document.createEvent('Event');
+        atinternetloaded.initEvent("atinternet-loaded", true, true);
+    }
+}
+
+function tacRecaptchaOnLoad(){
+	if(typeof(Event) === 'function') {
+        recaptchaloaded = new Event("recaptcha-loaded");
+    }else{
+        recaptchaloaded = document.createEvent('Event');
+        recaptchaloaded.initEvent("recaptcha-loaded", true, true);
+    }
 }
