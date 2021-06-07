@@ -466,6 +466,7 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Verizon Dot Tag Project Id
 			verizondottag {
 				verizondottagProjectId = 
+				verizondottagPixelId = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=AT Internet (privacy by design)
 			atinternet = 0

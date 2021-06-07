@@ -100,7 +100,6 @@ page {
             30 {
                 value (
                     tarteaucitron.user.googlemapsKey = '{$ameos.tarteaucitron.services.gmaps.googlemapsKey}';
-                    tarteaucitron.user.mapscallback = 'AmeosTacMapscallback';
                     (tarteaucitron.job = tarteaucitron.job || []).push('googlemaps');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.gmaps}
@@ -223,7 +222,7 @@ page {
             180 = TEXT
             180 {
                 value (
-                    tarteaucitron.user.gajsUa = {$ameos.tarteaucitron.services.gajs.gajsUa};
+                    tarteaucitron.user.gajsUa = '{$ameos.tarteaucitron.services.gajs.gajsUa}';
                     tarteaucitron.user.gajsMore = AmeosTacGajsMore(); /* add here your optionnal _ga.push() */
                     (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
                 )
@@ -244,7 +243,7 @@ page {
             200 {
                 value (
                     tarteaucitron.user.analyticsUa = '{$ameos.tarteaucitron.services.analytics.analyticsUa}';
-                    tarteaucitron.user.analyticsMore = AmeosTacAnalyticsMore() /* add here your optionnal ga.push() */
+                    tarteaucitron.user.analyticsMore = AmeosTacAnalyticsMore(); /* add here your optionnal ga.push() */
                     (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.analytics}
@@ -979,6 +978,7 @@ page {
             1060 {
                 value (
                     tarteaucitron.user.verizondottagProjectId = '{$ameos.tarteaucitron.services.verizondottag.verizondottagProjectId}';
+                    tarteaucitron.user.verizondottagPixelId = '{$ameos.tarteaucitron.services.verizondottag.verizondottagPixelId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('verizondottag');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.verizondottag}
