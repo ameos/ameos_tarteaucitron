@@ -3,6 +3,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Privacy Page Id
 		privacyPid = 
 
+		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Name of the cookie
+		cookieName = tarteaucitron
+		
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=hashtag that opens the administration panel
 		hashtag = #cookies
 
