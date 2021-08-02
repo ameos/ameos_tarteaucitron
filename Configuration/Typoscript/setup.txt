@@ -33,7 +33,7 @@ page {
                 20 = TEXT
                 20.value (
                         "hashtag": "{$ameos.tarteaucitron.hashtag}", /* Open the panel with this hashtag */
-                        "cookieName": "tarteaucitron", /* Cookie name */
+                        "cookieName": "{$ameos.tarteaucitron.cookieName}", /* Cookie name */
 
                         "orientation": "{$ameos.tarteaucitron.orientation}", /* Banner position (top - bottom) */
 
@@ -100,6 +100,7 @@ page {
             30 {
                 value (
                     tarteaucitron.user.googlemapsKey = '{$ameos.tarteaucitron.services.gmaps.googlemapsKey}';
+                    tarteaucitron.user.mapscallback = 'AmeosTacMapscallback';
                     (tarteaucitron.job = tarteaucitron.job || []).push('googlemaps');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.gmaps}
