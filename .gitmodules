@@ -1,0 +1,3 @@
+[submodule "Resources/Public/libs/tarteaucitron.js"]
+	path = Resources/Public/libs/tarteaucitron.js
+	url = https://github.com/AmauriC/tarteaucitron.js.git

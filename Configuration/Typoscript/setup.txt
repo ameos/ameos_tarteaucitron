@@ -1,7 +1,7 @@
 page {
 
     includeJSFooter{
-        tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron/tarteaucitron.js
+        tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron.js/tarteaucitron.js
         /*
         IMPORTANT ! CONCATENATION AND COMPRESSION ARE DISABLED BECAUSE TAC LOAD ITS OWN SCRIPT FROM IT'S PATH
         */
