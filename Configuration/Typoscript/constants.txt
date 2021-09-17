@@ -665,8 +665,10 @@ ameos {
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Canal-U.tv
-			canalu = 0			
-						
+			canalu = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=WebTV Normandie Université
+			webtvnu = 0
 		}
 	}
 }

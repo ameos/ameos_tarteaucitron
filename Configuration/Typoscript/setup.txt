@@ -1332,6 +1332,14 @@ page {
                 if.isTrue = {$ameos.tarteaucitron.services.canalu}
             }
 
+            1470 = TEXT
+            1470 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('webtvnu');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.webtvnu}
+            }
+
     	}
     }
 }
