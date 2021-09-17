@@ -1189,6 +1189,157 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.ausha}
             }
+
+            1300 = TEXT
+            1300 {
+                value(
+                    tarteaucitron.user.intercomKey = '{$ameos.tarteaucitron.services.intercomChat.intercomKey}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('intercomChat');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.intercomChat}
+            }
+
+            (tarteaucitron.job = tarteaucitron.job || []).push('discord');
+
+            1310 = TEXT
+            1310 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('discord');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.discord}
+            }
+
+            1320 = TEXT
+            1320 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('maps_noapi');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.maps_noapi}
+            }
+
+            1330 = TEXT
+            1330 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('hcaptcha');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.hcaptcha}
+            }
+
+            1340 = TEXT
+            1340 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('fculture');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.fculture}
+            }
+
+            1350 = TEXT
+            1350 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('acast');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.acast}
+            }
+
+            1360 = TEXT
+            1360 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('mixcloud');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.mixcloud}
+            }
+
+            1370 = TEXT
+            1370 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gagenda');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gagenda}
+            }
+
+            1380 = TEXT
+            1380 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gdocs');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gdocs}
+            }
+
+            1390 = TEXT
+            1390 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gsheets');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gsheets}
+            }
+
+            1400 = TEXT
+            1400 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gslides');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gslides}
+            }
+
+            1410 = TEXT
+            1410 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gforms');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gforms}
+            }
+
+            1420 = TEXT
+            1420 {
+                value (
+                    tarteaucitron.user.goptimize = '{$ameos.tarteaucitron.services.goptimize.id}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('goptimize');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.goptimize}
+            }
+
+            1430 = TEXT
+            1430 {
+                value (
+                    tarteaucitron.user.marketomunchkinkey  = '{$ameos.tarteaucitron.services.marketomunchkin.marketomunchkinkey }';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('marketomunchkin');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.marketomunchkin}
+            }
+
+            1440 = TEXT
+            1440 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('outbrain');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.outbrain}
+            }
+
+            1450 = TEXT
+            1450 {
+                value (
+                    tarteaucitron.user.affilae = '{$ameos.tarteaucitron.services.affilae.pid}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('affilae');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.affilae}
+            }
+
+            1460 = TEXT
+            1460 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('canalu');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.canalu}
+            }
+
+            1470 = TEXT
+            1470 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('webtvnu');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.webtvnu}
+            }
+
     	}
     }
 }

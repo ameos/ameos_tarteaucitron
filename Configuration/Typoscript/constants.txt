@@ -599,6 +599,76 @@ ameos {
 			}
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Ausha
 			ausha = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label= Intercom Chat
+			intercomChat = 0
+			intercomChat{
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label= Intercom Chat Key
+				intercomKey = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Discord (Server Widget)
+			discord = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Maps (no api)
+			maps_noapi = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=hCaptcha
+			hcaptcha = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=France Culture
+			fculture = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=A Cast
+			acast = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Mixcloud
+			mixcloud = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Agenda
+			gagenda = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Document
+			gdocs = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Sheets
+			gsheets = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Slides
+			gslides = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Form
+			gforms = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Optimize
+			goptimize = 0
+			goptimize{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Optimize ID
+				id = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin
+			marketomunchkin = 0
+			marketomunchkin{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin Key
+				marketomunchkinkey  = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Outbrain
+			outbrain = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Affilae
+			affilae = 0
+			affilae{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Affilae Pid
+				pid  = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Canal-U.tv
+			canalu = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=WebTV Normandie Université
+			webtvnu = 0
 		}
 	}
 }
