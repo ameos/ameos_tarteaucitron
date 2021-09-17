@@ -1216,6 +1216,14 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.maps_noapi}
             }
+
+            1330 = TEXT
+            1330 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('hcaptcha');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.hcaptcha}
+            }
     	}
     }
 }
