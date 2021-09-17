@@ -1224,6 +1224,14 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.hcaptcha}
             }
+
+            1340 = TEXT
+            1340 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('fculture');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.fculture}
+            }
     	}
     }
 }

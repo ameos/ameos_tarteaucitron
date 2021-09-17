@@ -615,6 +615,11 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=hCaptcha
 			hcaptcha = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=France Culture
+			fculture = 0
+
+			
 			
 		}
 	}
