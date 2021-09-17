@@ -1208,6 +1208,14 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.discord}
             }
+
+            1320 = TEXT
+            1320 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('maps_noapi');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.maps_noapi}
+            }
     	}
     }
 }

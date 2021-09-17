@@ -609,6 +609,9 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Discord (Server Widget)
 			discord = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Maps (no api)
+			maps_noapi = 0
 		}
 	}
 }
