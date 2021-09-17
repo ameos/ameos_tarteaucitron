@@ -619,7 +619,8 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=France Culture
 			fculture = 0
 
-			
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=A Cast
+			acast = 0
 			
 		}
 	}
