@@ -1306,6 +1306,14 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.marketomunchkin}
             }
+
+            1440 = TEXT
+            1440 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('outbrain');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.outbrain}
+            }
     	}
     }
 }

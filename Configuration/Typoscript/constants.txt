@@ -653,8 +653,8 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin Key
 				marketomunchkinkey  = 
 			}
-
-			
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Outbrain
+			outbrain = 0
 			
 						
 		}
