@@ -606,6 +606,9 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label= Intercom Chat Key
 				intercomKey = 
 			}
+
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Discord (Server Widget)
+			discord = 0
 		}
 	}
 }

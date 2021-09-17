@@ -1200,6 +1200,14 @@ page {
             }
 
             (tarteaucitron.job = tarteaucitron.job || []).push('discord');
+
+            1310 = TEXT
+            1310 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('discord');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.discord}
+            }
     	}
     }
 }
