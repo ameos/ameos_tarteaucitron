@@ -1240,6 +1240,14 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.acast}
             }
+
+            1360 = TEXT
+            1360 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('mixcloud');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.mixcloud}
+            }
     	}
     }
 }

@@ -621,6 +621,9 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=A Cast
 			acast = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Mixcloud
+			mixcloud = 0
 			
 		}
 	}
