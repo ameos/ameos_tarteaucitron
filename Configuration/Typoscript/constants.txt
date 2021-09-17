@@ -646,6 +646,15 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Optimize ID
 				id = 
 			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin
+			marketomunchkin = 0
+			marketomunchkin{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin Key
+				marketomunchkinkey  = 
+			}
+
+			
 			
 						
 		}

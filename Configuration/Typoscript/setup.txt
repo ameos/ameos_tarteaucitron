@@ -1297,6 +1297,15 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.goptimize}
             }
+
+            1430 = TEXT
+            1430 {
+                value (
+                    tarteaucitron.user.marketomunchkinkey  = '{$ameos.tarteaucitron.services.marketomunchkin.marketomunchkinkey }';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('marketomunchkin');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.marketomunchkin}
+            }
     	}
     }
 }
