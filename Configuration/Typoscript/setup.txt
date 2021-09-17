@@ -1248,6 +1248,55 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.mixcloud}
             }
+
+            1370 = TEXT
+            1370 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gagenda');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gagenda}
+            }
+
+            1380 = TEXT
+            1380 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gdocs');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gdocs}
+            }
+
+            1390 = TEXT
+            1390 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gsheets');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gsheets}
+            }
+
+            1400 = TEXT
+            1400 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gslides');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gslides}
+            }
+
+            1410 = TEXT
+            1410 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gforms');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gforms}
+            }
+
+            1420 = TEXT
+            1420 {
+                value (
+                    tarteaucitron.user.goptimize = '{$ameos.tarteaucitron.services.goptimize.id}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('goptimize');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.goptimize}
+            }
     	}
     }
 }
