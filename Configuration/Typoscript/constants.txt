@@ -653,9 +653,16 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin Key
 				marketomunchkinkey  = 
 			}
+
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Outbrain
 			outbrain = 0
-			
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Affilae
+			affilae = 0
+			affilae{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Affilae Pid
+				pid  = 
+			}			
 						
 		}
 	}

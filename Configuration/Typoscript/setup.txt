@@ -1314,6 +1314,15 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.outbrain}
             }
+
+            1450 = TEXT
+            1450 {
+                value (
+                    tarteaucitron.user.affilae = '{$ameos.tarteaucitron.services.affilae.pid}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('affilae');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.affilae}
+            }
     	}
     }
 }
