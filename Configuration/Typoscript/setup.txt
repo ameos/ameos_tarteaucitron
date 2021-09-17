@@ -1189,6 +1189,17 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.ausha}
             }
+
+            1300 = TEXT
+            1300 {
+                value(
+                    tarteaucitron.user.intercomKey = '{$ameos.tarteaucitron.services.intercomChat.intercomKey}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('intercomChat');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.intercomChat}
+            }
+
+            (tarteaucitron.job = tarteaucitron.job || []).push('discord');
     	}
     }
 }

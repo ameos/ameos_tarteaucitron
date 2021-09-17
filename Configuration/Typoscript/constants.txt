@@ -599,6 +599,13 @@ ameos {
 			}
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Ausha
 			ausha = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label= Intercom Chat
+			intercomChat = 0
+			intercomChat{
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label= Intercom Chat Key
+				intercomKey = 
+			}
 		}
 	}
 }
