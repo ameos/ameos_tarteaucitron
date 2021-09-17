@@ -1323,6 +1323,15 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.affilae}
             }
+
+            1460 = TEXT
+            1460 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('canalu');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.canalu}
+            }
+
     	}
     }
 }

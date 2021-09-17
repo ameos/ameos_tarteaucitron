@@ -662,7 +662,10 @@ ameos {
 			affilae{
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Affilae Pid
 				pid  = 
-			}			
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Canal-U.tv
+			canalu = 0			
 						
 		}
 	}
