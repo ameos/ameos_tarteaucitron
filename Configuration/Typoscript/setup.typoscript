@@ -1341,6 +1341,14 @@ page {
                 if.isTrue = {$ameos.tarteaucitron.services.webtvnu}
             }
 
+            1480 = TEXT
+            1480 {
+                value (
+                    tarteaucitron.user.studizzToken = '{$ameos.tarteaucitron.services.studizz.token}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('studizz');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.studizz}
+            }
     	}
     }
 }
