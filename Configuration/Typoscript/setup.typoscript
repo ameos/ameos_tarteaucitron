@@ -1,6 +1,6 @@
 page {
 
-    includeJSFooter{
+    includeJSFooter {
         tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron.js/tarteaucitron.js
         /*
         IMPORTANT ! CONCATENATION AND COMPRESSION ARE DISABLED BECAUSE TAC LOAD ITS OWN SCRIPT FROM IT'S PATH
@@ -10,9 +10,9 @@ page {
             excludeFromConcatenation = 1
             disableCompression = 1
         }
-        ameostarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/js/ameostarteaucitron.js   
+        ameostarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/js/ameostarteaucitron.js
     }
-    
+
     jsFooterInline {
     	29052018 = COA
     	29052018 {
@@ -21,7 +21,7 @@ page {
                 wrap = tarteaucitron.init({|});
                 10 = TEXT
                 10 {
-                    value = 
+                    value =
                     typolink {
                         parameter = {$ameos.tarteaucitron.privacyPid}
                         returnLast = url
@@ -38,10 +38,10 @@ page {
                         "orientation": "{$ameos.tarteaucitron.orientation}", /* Banner position (top - bottom) */
 
                         "groupServices": {$ameos.tarteaucitron.groupServices}, /* Group services by category */
-                                       
+
                         "showAlertSmall": {$ameos.tarteaucitron.showAlertSmall}, /* Show the small banner on bottom right */
                         "cookieslist": {$ameos.tarteaucitron.cookieslist}, /* Show the cookie list */
-                                       
+
                         "closePopup": {$ameos.tarteaucitron.closePopup}, /* Show a close X on the banner */
 
                         "showIcon": {$ameos.tarteaucitron.closePopup}, /* Show cookie icon to manage cookies */
@@ -58,11 +58,11 @@ page {
                         "iconPosition": "{$ameos.tarteaucitron.iconPosition}", /* BottomRight, BottomLeft, TopRight and TopLeft */
 
                         "adblocker": {$ameos.tarteaucitron.adblocker}, /* Show a Warning if an adblocker is detected */
-                                       
+
                         "DenyAllCta" : {$ameos.tarteaucitron.DenyAllCta}, /* Show the deny all button */
                         "AcceptAllCta" : {$ameos.tarteaucitron.AcceptAllCta}, /* Show the accept all button when highPrivacy on */
                         "highPrivacy": {$ameos.tarteaucitron.highPrivacy}, /* HIGHLY RECOMMANDED Disable auto consent */
-                                       
+
                         "handleBrowserDNTRequest": {$ameos.tarteaucitron.handleBrowserDNTRequest}, /* If Do Not Track == 1, disallow all */
 
                         "removeCredit": {$ameos.tarteaucitron.removeCredit}, /* Remove credit link */
@@ -78,7 +78,7 @@ page {
 
                 50 = TEXT
                 50 {
-                    value = 
+                    value =
                     typolink {
                         parameter = {$ameos.tarteaucitron.readmoreLinkPageId}
                         returnLast = url
@@ -178,8 +178,8 @@ page {
             130 = TEXT
             130 {
                 value (
-                    tarteaucitron.user.clickyId = {$ameos.tarteaucitron.services.clicky.clickyId};
-                    tarteaucitron.user.clickyMore = AmeosTacClickyMore();
+                    tarteaucitron.user.clickyId = '{$ameos.tarteaucitron.services.clicky.clickyId}';
+                    tarteaucitron.user.clickyMore = AmeosTacClickyMore;
                     (tarteaucitron.job = tarteaucitron.job || []).push('clicky');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.clicky}
@@ -224,7 +224,7 @@ page {
             180 {
                 value (
                     tarteaucitron.user.gajsUa = '{$ameos.tarteaucitron.services.gajs.gajsUa}';
-                    tarteaucitron.user.gajsMore = AmeosTacGajsMore(); /* add here your optionnal _ga.push() */
+                    tarteaucitron.user.gajsMore = AmeosTacGajsMore; /* add here your optionnal _ga.push() */
                     (tarteaucitron.job = tarteaucitron.job || []).push('gajs');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.gajs}
@@ -234,7 +234,7 @@ page {
 			190 {
 				value (
 					tarteaucitron.user.gtagUa = '{$ameos.tarteaucitron.services.gtag.gtagUa}';
-    				tarteaucitron.user.gtagMore = AmeosTacGtagMore(); /* add here your optionnal gtag() */
+    				tarteaucitron.user.gtagMore = AmeosTacGtagMore; /* add here your optionnal gtag() */
     				(tarteaucitron.job = tarteaucitron.job || []).push('gtag');
 				)
 				if.isTrue = {$ameos.tarteaucitron.services.gtag}
@@ -244,7 +244,7 @@ page {
             200 {
                 value (
                     tarteaucitron.user.analyticsUa = '{$ameos.tarteaucitron.services.analytics.analyticsUa}';
-                    tarteaucitron.user.analyticsMore = AmeosTacAnalyticsMore(); /* add here your optionnal ga.push() */
+                    tarteaucitron.user.analyticsMore = AmeosTacAnalyticsMore; /* add here your optionnal ga.push() */
                     (tarteaucitron.job = tarteaucitron.job || []).push('analytics');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.analytics}
@@ -278,7 +278,7 @@ page {
             240 = TEXT
             240 {
                 value (
-                    tarteaucitron.user.visualrevenueId = {$ameos.tarteaucitron.services.visualrevenue.visualrevenueId};
+                    tarteaucitron.user.visualrevenueId = '{$ameos.tarteaucitron.services.visualrevenue.visualrevenueId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('visualrevenue');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.visualrevenue}
@@ -305,7 +305,7 @@ page {
             270 {
                 value (
                     tarteaucitron.user.xitiId = '{$ameos.tarteaucitron.services.xiti.xitiId}';
-                    tarteaucitron.user.xitiMore = AmeosTacXitiMore(); /* add here your optionnal xiti function */
+                    tarteaucitron.user.xitiMore = AmeosTacXitiMore; /* add here your optionnal xiti function */
                     (tarteaucitron.job = tarteaucitron.job || []).push('xiti');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.xiti}
@@ -419,7 +419,7 @@ page {
             410 = TEXT
             410 {
                 value (
-                    tarteaucitron.user.adwordsremarketingId = {$ameos.tarteaucitron.services.googleadwordsremarketing.adwordsremarketingId};
+                    tarteaucitron.user.adwordsremarketingId = '{$ameos.tarteaucitron.services.googleadwordsremarketing.adwordsremarketingId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('googleadwordsremarketing');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.googleadwordsremarketing}
@@ -520,7 +520,7 @@ page {
             530 {
                 value (
                     tarteaucitron.user.facebookpixelId = '{$ameos.tarteaucitron.services.facebookpixel.facebookpixelId}';
-                    tarteaucitron.user.facebookpixelMore = AmeosTacFacebookPixelMore(); /* add here your optionnal facebook pixel function */
+                    tarteaucitron.user.facebookpixelMore = AmeosTacFacebookPixelMore; /* add here your optionnal facebook pixel function */
                     (tarteaucitron.job = tarteaucitron.job || []).push('facebookpixel');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.facebookpixel}
@@ -570,7 +570,7 @@ page {
             590 = TEXT
             590 {
                 value (
-                    tarteaucitron.user.sharethisPublisher = {$ameos.tarteaucitron.services.sharethis.sharethisPublisher};
+                    tarteaucitron.user.sharethisPublisher = '{$ameos.tarteaucitron.services.sharethis.sharethisPublisher}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('sharethis');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.sharethis}
@@ -712,6 +712,7 @@ page {
             750 = TEXT
             750 {
                 value (
+                    tarteaucitron.user.openwebanalyticsId = '{$ameos.tarteaucitron.services.openwebanalytics.openwebanalyticsId}';
                     tarteaucitron.user.openwebanalyticsHost = '{$ameos.tarteaucitron.services.openwebanalytics.openwebanalyticsHost}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('openwebanalytics');
                 )
@@ -1054,6 +1055,7 @@ page {
             1140 {
                 value (
                     tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomohightrack.matomoId}';
+                    tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomohightrack.matomoHost}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('matomohightrack');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.matomohightrack}
@@ -1063,6 +1065,7 @@ page {
             1150 {
                 value (
                     tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomo.matomoId}';
+                    tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomo.matomoHost}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.matomo}
@@ -1096,7 +1099,7 @@ page {
             1190 = TEXT
             1190 {
                 value (
-                    tarteaucitron.user.adformpm = {$ameos.tarteaucitron.services.adform.adformpm};
+                    tarteaucitron.user.adformpm = '{$ameos.tarteaucitron.services.adform.adformpm}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('adform');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.adform}
@@ -1198,8 +1201,6 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.intercomChat}
             }
-
-            (tarteaucitron.job = tarteaucitron.job || []).push('discord');
 
             1310 = TEXT
             1310 {
