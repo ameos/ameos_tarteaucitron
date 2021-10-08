@@ -23,6 +23,11 @@
             "homepage": "http://www.ameos.com/"
         }
     ],
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "ameos_tarteaucitron"
+        }
+    },
     "autoload": {
         "psr-4": {
             "Ameos\\AmeosTarteaucitron\\": "Classes"
