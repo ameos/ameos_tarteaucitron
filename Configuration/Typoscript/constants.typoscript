@@ -675,6 +675,12 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=WebTV Normandie Université
 			webtvnu = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Studizz
+			studizz = 0
+			studizz{
+				token =
+			}
 		}
 	}
 }
