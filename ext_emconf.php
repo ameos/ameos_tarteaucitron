@@ -34,7 +34,7 @@ $EM_CONF[$_EXTKEY] = [
 		'conflicts' => [],
 		'suggests'  => [],
 		'depends'   => [
-			'typo3'            => '8.6.0-10.99.99',
+			'typo3'            => '8.6.0-11.99.99',
 		],
 	],
     'autoload' => ['psr-4' => ['Ameos\\AmeosTarteaucitron\\' => 'Classes']],	
