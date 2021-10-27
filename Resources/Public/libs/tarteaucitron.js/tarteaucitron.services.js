@@ -563,7 +563,9 @@ tarteaucitron.services.addtoanyshare = {
     "cookies": [],
     "js": function () {
         "use strict";
-        tarteaucitron.fallback(['tac_addtoanyshare'], '');
+        tarteaucitron.fallback(['tac_addtoanyshare'], function (elem) {
+            elem.remove();
+        }, true);
         tarteaucitron.addScript('//static.addtoany.com/menu/page.js');
     },
     "fallback": function () {
@@ -1614,7 +1616,8 @@ tarteaucitron.services.adsense = {
     "name": "Google Adsense",
     "uri": "https://adssettings.google.com/",
     "needConsent": true,
-    "cookies": [],
+    "readmoreLink": "https://policies.google.com/technologies/partner-sites",
+    "cookies": ['__gads'],
     "js": function () {
         "use strict";
         tarteaucitron.addScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js');
@@ -3533,6 +3536,9 @@ tarteaucitron.services.youtube = {
                   return a + "=" + tarteaucitron.getElemAttr(x, a);
                }).join("&");
 
+            if(tarteaucitron.getElemAttr(x, "loop") == 1) {
+               params = params + "&playlist=" + video_id;
+            }
 
             if (video_id === undefined) {
                 return "";
@@ -3706,7 +3712,7 @@ tarteaucitron.services.facebookpixel = {
     "name": "Facebook Pixel",
     "uri": "https://www.facebook.com/policy.php",
     "needConsent": true,
-    "cookies": ['datr', 'fr', 'reg_ext_ref', 'reg_fb_gate', 'reg_fb_ref', 'sb', 'wd', 'x-src'],
+    "cookies": ['datr', 'fr', 'reg_ext_ref', 'reg_fb_gate', 'reg_fb_ref', 'sb', 'wd', 'x-src', '_fbq'],
     "js": function () {
         "use strict";
         var n;
@@ -3884,7 +3890,7 @@ tarteaucitron.services.koban = {
     (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
 
     3. HTML
-    You don't need to add any html code, if the service is autorized, the javascript is added. otherwise no.
+    You don't need to add any html code, if the service is authorized, the javascript is added. otherwise no.
  */
 tarteaucitron.services.matomo = {
     "key": "matomo",
@@ -4870,7 +4876,7 @@ tarteaucitron.services.webtvnu = {
 tarteaucitron.services.studizz = {
     "key": "studizz",
     "type": "other",
-    "name": "studizz",
+    "name": "Studizz Chatbot",
     "uri": "https://group.studizz.fr/",
     "needConsent": true,
     "cookies": [],
@@ -4884,3 +4890,4 @@ tarteaucitron.services.studizz = {
         tarteaucitron.addScript('https://webchat.studizz.fr/webchat.js?token=' + tarteaucitron.user.studizzToken);
     }
 };
+
