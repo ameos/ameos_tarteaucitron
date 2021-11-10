@@ -1,7 +1,7 @@
 <?php
 defined('TYPO3_MODE') or die('Access denied.');
 
-if(! defined(TYPO3_version)) {
+if(!defined('TYPO3_version')) {
     $typo3VersionClass = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
     $typo3Version = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger($typo3VersionClass->getVersion());
 } else {
