@@ -681,6 +681,32 @@ ameos {
 			studizz{
 				token =
 			}
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Criteo One Tag
+			criteoonetag = 0
+			criteoonetag{
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Criteo One Tag Account
+				criteoonetagAccount = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Météo France
+			meteofrance = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=M6 Météo
+			m6meteo = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MT Captcha
+			mtcaptcha = 0
+			mtcaptcha {
+				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MT Captcha Sitekey
+				mtcaptchaSitekey = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Archive.org
+			archive = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Gallica
+			gallica = 0
 		}
 	}
 }
