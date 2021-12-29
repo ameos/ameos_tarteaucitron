@@ -10,7 +10,7 @@
  ***************************************************************/
 
 $EM_CONF[$_EXTKEY] = [
-	'title'              => 'AMEOS - TarteAuCitron (RGPD compliant cookie banner and tracking)',
+	'title'              => 'AMEOS - TarteAuCitron (GDPR cookie banner and tracking management / French RGPD compatible)',
 	'description'        => 'Integrates tarteaucitron.js in TYPO3 (see : https://tarteaucitron.io )',
 	'category'           => 'frontend',
 	'shy'                => 0,
