@@ -87,3 +87,13 @@ function tacRecaptchaOnLoad(){
         recaptchaloaded.initEvent("recaptcha-loaded", true, true);
     }
 }
+
+function AmeosTacCriteoonetagMore(){
+    if(typeof(Event) === 'function') {
+        criteoonetagloaded = new Event("criteoonetag-loaded");
+    }else{
+        criteoonetagloaded = document.createEvent('Event');
+        criteoonetagloaded.initEvent("criteoonetag-loaded", true, true);
+    }
+}
+

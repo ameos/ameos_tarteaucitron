@@ -1023,6 +1023,32 @@ tarteaucitron.services.criteo = {
     }
 };
 
+// criteo onetag
+tarteaucitron.services.criteoonetag = {
+    "key": "criteoonetag",
+    "type": "ads",
+    "name": "Criteo OneTag",
+    "uri": "https://www.criteo.com/privacy/",
+    "needConsent": true,
+    "cookies": ['uid', 'tk', 'uid3pd'],
+    "js": function() {
+        "use strict";
+        if (tarteaucitron.user.criteoonetagAccount === undefined) return;
+
+        window.criteo_q = window.criteo_q || []; 
+        window.criteo_q.push({
+            event: "setAccount",
+            account: tarteaucitron.user.criteoonetagAccount
+        })
+
+        tarteaucitron.addScript('//static.criteo.net/js/ld/ld.js', '', function() {
+            if (typeof tarteaucitron.user.criteoonetagMore === 'function') {
+                tarteaucitron.user.criteoonetagMore();
+            }
+        });
+    }
+};
+
 // artetv
 tarteaucitron.services.artetv = {
     "key": "artetv",
@@ -1760,7 +1786,7 @@ tarteaucitron.services.gajs = {
         tagUaCookie = tagUaCookie.replace(/-/g, '_');
         tagGCookie = tagGCookie.replace(/G-/g, '');
 
-        return ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', tagUaCookie, tagGCookie];
+        return ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', tagUaCookie, tagGCookie, '_gcl_au'];
     })(),
     "js": function () {
         "use strict";
@@ -1800,7 +1826,7 @@ tarteaucitron.services.analytics = {
         tagUaCookie = tagUaCookie.replace(/-/g, '_');
         tagGCookie = tagGCookie.replace(/G-/g, '');
 
-        return ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', tagUaCookie, tagGCookie];
+        return ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', tagUaCookie, tagGCookie, '_gcl_au'];
     })(),
     "js": function () {
         "use strict";
@@ -1851,7 +1877,7 @@ tarteaucitron.services.gtag = {
         tagUaCookie = tagUaCookie.replace(/-/g, '_');
         tagGCookie = tagGCookie.replace(/G-/g, '');
 
-        return ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', tagUaCookie, tagGCookie];
+        return ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', tagUaCookie, tagGCookie, '_gcl_au'];
     })(),
     "js": function () {
         "use strict";
@@ -3714,7 +3740,7 @@ tarteaucitron.services.facebookpixel = {
     "name": "Facebook Pixel",
     "uri": "https://www.facebook.com/policy.php",
     "needConsent": true,
-    "cookies": ['datr', 'fr', 'reg_ext_ref', 'reg_fb_gate', 'reg_fb_ref', 'sb', 'wd', 'x-src', '_fbq'],
+    "cookies": ['datr', 'fr', 'reg_ext_ref', 'reg_fb_gate', 'reg_fb_ref', 'sb', 'wd', 'x-src', '_fbp'],
     "js": function () {
         "use strict";
         var n;
@@ -3824,7 +3850,7 @@ tarteaucitron.services.multiplegtag = {
     "needConsent": true,
     "cookies": (function () {
 
-        var cookies = ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz'];
+        var cookies = ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', '_gcl_au'];
 
         if (tarteaucitron.user.multiplegtagUa !== undefined) {
             tarteaucitron.user.multiplegtagUa.forEach(function (ua) {
@@ -4178,10 +4204,12 @@ tarteaucitron.services.tawkto = {
             return;
         }
 
+        tarteaucitron.user.tawktoWidgetId = tarteaucitron.user.tawktoWidgetId || 'default';
+
         window.Tawk_API = window.Tawk_API || {};
         window.Tawk_LoadStart = new Date();
 
-        tarteaucitron.addScript('https://embed.tawk.to/' + tarteaucitron.user.tawktoId + '/default');
+        tarteaucitron.addScript('https://embed.tawk.to/' + tarteaucitron.user.tawktoId + '/' + tarteaucitron.user.tawktoWidgetId);
     }
 
 };
@@ -4890,6 +4918,163 @@ tarteaucitron.services.studizz = {
         }
 
         tarteaucitron.addScript('https://webchat.studizz.fr/webchat.js?token=' + tarteaucitron.user.studizzToken);
+    }
+};
+
+// meteofrance
+tarteaucitron.services.meteofrance = {
+    "key": "meteofrance",
+    "type": "api",
+    "name": "Météo France",
+    "uri": "https://meteofrance.com/politique-de-confidentialite",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['tac_meteofrance'], function (x) {
+            var frame_title = tarteaucitron.fixSelfXSS(x.getAttribute("title") || 'Météo France iframe'),
+                width = x.getAttribute("width"),
+                height = x.getAttribute("height"),
+                insee = x.getAttribute("data-insee"),
+                allowfullscreen = x.getAttribute("allowfullscreen");
+
+            return '<iframe title="' + frame_title + '" src="https://meteofrance.com/widget/prevision/' + insee + '" width="' + width + '" height="' + height + '" scrolling="auto" allowtransparency ' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe>';
+        });
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'meteofrance';
+        tarteaucitron.fallback(['tac_meteofrance'], function (elem) {
+            elem.style.width = elem.getAttribute('width') + 'px';
+            elem.style.height = elem.getAttribute('height') + 'px';
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// m6meteo
+tarteaucitron.services.m6meteo = {
+    "key": "m6meteo",
+    "type": "api",
+    "name": "M6 Météo",
+    "uri": "https://gdpr.m6tech.net/charte-confidentialite-m6-web-meteocity.pdf",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['tac_m6meteo'], function (x) {
+            var id = x.getAttribute("data-id");
+
+            tarteaucitron.addScript('https://www.meteocity.com/widget/js/'+id);
+
+            return '<div id="cont_'+id+'"><div id="spa_'+id+'"><a id="a_'+id+'" href="#"></a> ©<a target="_top" href="https://www.meteocity.com">M6météo</a></div></div>';
+        });
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'm6meteo';
+        tarteaucitron.fallback(['tac_m6meteo'], function (elem) {
+
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// mtcaptcha
+tarteaucitron.services.mtcaptcha = {
+    "key": "mtcaptcha",
+    "type": "api",
+    "name": "MTcaptcha",
+    "uri": "https://www.mtcaptcha.com",
+    "readmoreLink": "https://www.mtcaptcha.com/faq-cookie-declaration",
+    "needConsent": true,
+    "cookies": ['mtv1Pulse','mtv1ConfSum','mtv1Pong'],
+
+    "js": function () {
+
+        window.mtcaptchaConfig = {
+            "sitekey": tarteaucitron.user.mtcaptchaSitekey
+        };
+
+        tarteaucitron.addScript('https://service.mtcaptcha.com/mtcv1/client/mtcaptcha.min.js');
+        tarteaucitron.addScript('https://service2.mtcaptcha.com/mtcv1/client/mtcaptcha2.min.js');
+    }
+};
+
+// Internet Archive / https://archive.org
+tarteaucitron.services.archive = {
+    "key": "archive",
+    "type": "video",
+    "name": "Internet Archive",
+    "uri": "https://archive.org/about/terms.php",
+    "needConsent": true,
+    "cookies": ['abtest-identifier','donation-identifier'],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['archive_player'], function (x) {
+            var video_id = tarteaucitron.getElemAttr(x, "data-videoID"),
+                video_width = tarteaucitron.getElemAttr(x, "data-width"),
+                frame_width = 'width=',
+                video_height = tarteaucitron.getElemAttr(x, "data-height"),
+                frame_height = 'height=',
+                video_frame;
+
+            if (video_id === undefined) {
+                return "";
+            }
+            if (video_width !== undefined) {
+                frame_width += '"' + video_width + '" ';
+            } else {
+                frame_width += '"" ';
+            }
+            if (video_height !== undefined) {
+                frame_height += '"' + video_height + '" ';
+            } else {
+                frame_height += '"" ';
+            }
+            video_frame = '<iframe src="https://archive.org/embed/' + video_id + '" ' + frame_width + frame_height + ' frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen></iframe>';
+            return video_frame;
+        });
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'archive';
+        tarteaucitron.fallback(['archive_player'], function (elem) {
+            elem.style.width = elem.getAttribute('data-width') + 'px';
+            elem.style.height = elem.getAttribute('data-height') + 'px';
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// Gallica
+tarteaucitron.services.gallica = {
+    "key": "gallica",
+    "type": "other",
+    "name": "Gallica",
+    "uri": "https://gallica.bnf.fr/edit/und/conditions-dutilisation-des-contenus-de-gallica",
+    "needConsent": true,
+    "cookies": ['dtCookie', 'dtLatC', 'dtPC', 'dtSa', 'rxVisitor', 'rxvt', 'xtvrn'],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['gallica_player'], function (x) {
+            var src = tarteaucitron.getElemAttr(x, "data-src"),
+                style = tarteaucitron.getElemAttr(x, "data-style"),
+                frame;
+            if (src === undefined) {
+                return "";
+            }
+            frame = '<iframe style="'+ style + '" src="' + src + '"></iframe>';
+            return frame;
+        });
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'gallica';
+        tarteaucitron.fallback(['gallica_player'], function (elem) {
+            elem.style = elem.getAttribute('data-style');
+            return tarteaucitron.engage(id);
+        });
     }
 };
 
