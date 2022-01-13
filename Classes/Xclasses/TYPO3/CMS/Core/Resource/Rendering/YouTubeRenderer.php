@@ -36,14 +36,8 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
      */
     public function render(FileInterface $file, $width, $height, array $options = null, $usedPathsRelativeToCurrentScript = false)
     {
-        // Check for an autoplay option at the file reference itself, if not overridden yet.
-        if (!isset($options['autoplay']) && $file instanceof FileReference) {
-            $autoplay = $file->getProperty('autoplay');
-            if ($autoplay !== null) {
-                $options['autoplay'] = $autoplay;
-            }
-        }
-
+        $options = $this->collectOptions($options, $file);
+        
         if ($file instanceof FileReference) {
             $orgFile = $file->getOriginalFile();
         } else {
@@ -51,53 +45,14 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
         }
 
         $videoId = $this->getOnlineMediaHelper($file)->getOnlineMediaId($orgFile);
-
-        $urlParams = ['autohide=1'];
-
-        $options['controls'] = MathUtility::canBeInterpretedAsInteger($options['controls']) ? (int)$options['controls'] : 2;
-        $options['controls'] = MathUtility::forceIntegerInRange($options['controls'], 0, 2);
-        $urlParams[] = 'controls=' . $options['controls'];
-        if (!empty($options['autoplay'])) {
-            $urlParams[] = 'autoplay=1';
-        }
-        if (!empty($options['loop'])) {
-            $urlParams[] = 'loop=1&amp;playlist=' . $videoId;
-        }
-        if (isset($options['relatedVideos'])) {
-            $urlParams[] = 'rel=' . (int)(bool)$options['relatedVideos'];
-        }
-        if (!isset($options['enablejsapi']) || !empty($options['enablejsapi'])) {
-            $urlParams[] = 'enablejsapi=1&amp;origin=' . rawurlencode(GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST'));
-        }
-        $urlParams[] = 'showinfo=' . (int)!empty($options['showinfo']);
-
-        $src = sprintf(
-            'https://www.youtube%s.com/embed/%s?%s',
-            !empty($options['no-cookie']) ? '-nocookie' : '',
-            $videoId,
-            implode('&amp;', $urlParams)
-        );
-
-        $attributes = ['allowfullscreen'];
-        if ((int)$width > 0) {
-            $attributes[] = 'width="' . (int)$width . '"';
-        }
-        if ((int)$height > 0) {
-            $attributes[] = 'height="' . (int)$height . '"';
-        }
-        if (is_object($GLOBALS['TSFE']) && $GLOBALS['TSFE']->config['config']['doctype'] !== 'html5') {
-            $attributes[] = 'frameborder="0"';
-        }
-        foreach (['class', 'dir', 'id', 'lang', 'style', 'title', 'accesskey', 'tabindex', 'onclick', 'poster', 'preload'] as $key) {
-            if (!empty($options[$key])) {
-                $attributes[] = $key . '="' . htmlspecialchars($options[$key]) . '"';
-            }
-        }
+        $attributes = $this->collectIframeAttributes($width, $height, $options);
 
         return sprintf(
-            '<div class="youtube_player" videoID="%s"%s></div>',
+            '<div class="youtube_player" data-videoID="%s"%s></div>',
             $videoId,
             empty($attributes) ? '' : ' ' . implode(' ', $attributes)
         );
+
+        
     }
 }
