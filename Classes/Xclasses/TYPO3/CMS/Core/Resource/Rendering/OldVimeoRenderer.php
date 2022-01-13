@@ -23,7 +23,7 @@ use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
 /**
  * Vimeo renderer class
  */
-class VimeoRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VimeoRenderer
+class OldVimeoRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VimeoRenderer
 {
     /**
      * Render for given File(Reference) html output
@@ -37,8 +37,24 @@ class VimeoRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VimeoRenderer
      */
     public function render(FileInterface $file, $width, $height, array $options = null, $usedPathsRelativeToCurrentScript = false)
     {
-        $options = $this->collectOptions($options, $file);
-        $attributes = $this->collectIframeAttributes($width, $height, $options);
+        // Check for an autoplay option at the file reference itself, if not overridden yet.
+        if (!isset($options['autoplay']) && $file instanceof FileReference) {
+            $autoplay = $file->getProperty('autoplay');
+            if ($autoplay !== null) {
+                $options['autoplay'] = $autoplay;
+            }
+        }
+
+        $urlParams = [];
+        if (!empty($options['autoplay'])) {
+            $urlParams[] = 'autoplay=1';
+        }
+        if (!empty($options['loop'])) {
+            $urlParams[] = 'loop=1';
+        }
+        $urlParams[] = 'title=' . (int)!empty($options['showinfo']);
+        $urlParams[] = 'byline=' . (int)!empty($options['showinfo']);
+        $urlParams[] = 'portrait=0';
 
         if ($file instanceof FileReference) {
             $orgFile = $file->getOriginalFile();
@@ -47,6 +63,24 @@ class VimeoRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VimeoRenderer
         }
 
         $videoId = $this->getOnlineMediaHelper($file)->getOnlineMediaId($orgFile);
+        $src = sprintf('https://player.vimeo.com/video/%s?%s', $videoId, implode('&amp;', $urlParams));
+
+        $attributes = ['allowfullscreen'];
+        if ((int)$width > 0) {
+            $attributes[] = 'width="' . (int)$width . '"';
+        }
+        if ((int)$height > 0) {
+            $attributes[] = 'height="' . (int)$height . '"';
+        }
+        if (is_object($GLOBALS['TSFE']) && $GLOBALS['TSFE']->config['config']['doctype'] !== 'html5') {
+            $attributes[] = 'frameborder="0"';
+        }
+        foreach (['class', 'dir', 'id', 'lang', 'style', 'title', 'accesskey', 'tabindex', 'onclick'] as $key) {
+            if (!empty($options[$key])) {
+                $attributes[] = $key . '="' . htmlspecialchars($options[$key]) . '"';
+            }
+        }
+
         return sprintf(
             '<div class="vimeo_player" data-videoID="%s"%s></div>',
             $videoId,

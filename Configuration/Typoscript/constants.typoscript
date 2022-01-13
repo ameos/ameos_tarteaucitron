@@ -529,6 +529,14 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Hostname
 				matomoHost =
 			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Matomo Cloud
+			matomocloud = 0
+			matomocloud {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Matomo Cloud Id
+				matomoId =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Cloud Hostname
+				matomoHost =
+			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Matomo (privacy by design)
 			matomo = 0
 			matomo {
