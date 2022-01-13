@@ -1061,6 +1061,16 @@ page {
                 if.isTrue = {$ameos.tarteaucitron.services.matomohightrack}
             }
 
+            1145 = TEXT
+            1145 {
+                value (
+                    tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomocloud.matomoId}';
+                    tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomocloud.matomoHost}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.matomocloud}
+            }
+
             1150 = TEXT
             1150 {
                 value (
