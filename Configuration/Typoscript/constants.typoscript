@@ -715,6 +715,12 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Gallica
 			gallica = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Openstreetmap Embed
+			openstreetmap = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Geoportail maps Embed
+			geoportail = 0
 		}
 	}
 }

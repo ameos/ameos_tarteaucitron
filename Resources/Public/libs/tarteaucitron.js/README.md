@@ -31,6 +31,7 @@ Bonus:
 <script>
 tarteaucitron.init({
     "privacyUrl": "", /* Privacy policy url */
+    "bodyPosition": "bottom", /* or top to bring it as first element for accessibility */
 
     "hashtag": "#tarteaucitron", /* Open the panel with this hashtag */
     "cookieName": "tarteaucitron", /* Cookie name */
@@ -95,13 +96,16 @@ tarteaucitron.services.mycustomservice = {
 ## Events
 
 The following events are available:
-* `tac.root_available`: the root element with panel has been created, services will be loaded
-* {SERVICE_KEY}`.added` for each enabled service
-* {SERVICE_KEY}`.loaded` for each enabled service
-* `tac.open_alert`
-* `tac.close_alert`
-* `tac.open_panel`
-* `tac.close_panel`
+* (document) `{SERVICE_KEY}_added` for each enabled service
+* (document) `{SERVICE_KEY}_loaded` for each enabled service
+* (document) `{SERVICE_KEY}_allowed` for each service when allowed
+* (document) `{SERVICE_KEY}_disallowed ` for each service when disallowed
+
+* (window) `tac.root_available`: the root element with panel has been created, services will be loaded
+* (window) `tac.open_alert`
+* (window) `tac.close_alert`
+* (window) `tac.open_panel`
+* (window) `tac.close_panel`
 
 ## Customize text
 
