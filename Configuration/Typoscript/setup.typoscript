@@ -1410,6 +1410,22 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.gallica}
             }
+
+            1550 = TEXT
+            1550 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('openstreetmap');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.openstreetmap}
+            }
+
+            1560 = TEXT
+            1560 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('geoportail');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.geoportail}
+            }
             
     	}
     }
