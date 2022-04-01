@@ -1426,7 +1426,84 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.geoportail}
             }
-            
+
+            1570 = TEXT
+            1570 {
+                value (
+                    tarteaucitron.user.myfeelbackId = '{$ameos.tarteaucitron.services.myfeelback.myfeelbackId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('myfeelback');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.myfeelback}
+            }
+
+            1580 = TEXT
+            1580 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('doubleclick');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.doubleclick}
+            }
+
+            1590 = TEXT
+            1590 {
+                value (
+                    tarteaucitron.user.userpilotToken = '{$ameos.tarteaucitron.services.userpilot.userpilotToken}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('userpilot');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.userpilot}
+            }
+
+            1600 = TEXT
+            1600 {
+                value (
+                    tarteaucitron.user.piwikProId = '{$ameos.tarteaucitron.services.piwikpro.piwikProId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('piwikpro');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.piwikpro}
+            }
+
+            1610 = TEXT
+            1610 {
+                value (
+                    tarteaucitron.user.crispID = '{$ameos.tarteaucitron.services.crisp.crispID}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('crisp');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.crisp}
+            }
+
+            1620 = TEXT
+            1620 {
+                value (
+                    tarteaucitron.user.microanalyticsID = '{$ameos.tarteaucitron.services.microanalytics.microanalyticsID}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('microanalytics');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.microanalytics}
+            }
+
+            1630 = TEXT
+            1630 {
+                value (
+                    tarteaucitron.user.facebookChatID = '{$ameos.tarteaucitron.services.facebookcustomerchat.facebookChatID}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('facebookcustomerchat');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.facebookcustomerchat}
+            }
+
+            1640 = TEXT
+            1640 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('weborama');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.weborama}
+            }
     	}
     }
 }
