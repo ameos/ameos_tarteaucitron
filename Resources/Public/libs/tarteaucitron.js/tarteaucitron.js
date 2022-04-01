@@ -17,7 +17,7 @@ var scripts = document.getElementsByTagName('script'),
 
 
 var tarteaucitron = {
-    "version": 20210509,
+    "version": 20220322,
     "cdn": cdn,
     "user": {},
     "lang": {},
@@ -311,6 +311,7 @@ var tarteaucitron = {
                 });
 
                 // Step 3: prepare the html
+                html += '<div role="heading" aria-level="1" id="tac_title" class="tac_visually-hidden">' + tarteaucitron.lang.title + '</div>';
                 html += '<div id="tarteaucitronPremium"></div>';
                 if (tarteaucitron.reloadThePage) {
                     html += '<button type="button" id="tarteaucitronBack" aria-label="' + tarteaucitron.lang.close + ' (' + tarteaucitron.lang.reload + ')" title="' + tarteaucitron.lang.close + ' (' + tarteaucitron.lang.reload + ')"></button>';
@@ -530,7 +531,11 @@ var tarteaucitron = {
                             body.appendChild(div, body);
                         }
 
+                        div.setAttribute('data-nosnippet', 'true');
                         div.setAttribute('lang', language);
+                        div.setAttribute('role', 'region');
+                        div.setAttribute('aria-labelledby', 'tac_title');
+
                         div.innerHTML = html;
 
                         //ie compatibility
@@ -602,6 +607,7 @@ var tarteaucitron = {
                             html += '       ' + tarteaucitron.lang.reload;
                             html += '   </button>';
                             html += '</div>';
+                            html += '<div role="heading" aria-level="1" id="tac_title" class="tac_visually-hidden">' + tarteaucitron.lang.title + '</div>';
                             html += '<div id="tarteaucitronPremium"></div>';
 
                             div.id = 'tarteaucitronRoot';
@@ -615,7 +621,11 @@ var tarteaucitron = {
                                 body.appendChild(div, body);
                             }
 
+                            div.setAttribute('data-nosnippet', 'true');
                             div.setAttribute('lang', language);
+                            div.setAttribute('role', 'region');
+                            div.setAttribute('aria-labelledby', 'tac_title');
+
                             div.innerHTML = html;
                         }
                     }, 1500);

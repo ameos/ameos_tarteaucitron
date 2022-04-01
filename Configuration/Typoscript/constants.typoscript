@@ -721,6 +721,54 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Geoportail maps Embed
 			geoportail = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MyFeelBack (Skeepers)
+			myfeelback = 0
+			myfeelback {
+				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MyFeelBack (Skeepers) ID
+				myfeelbackId = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=DoubleClick
+			doubleclick = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=UserPilot
+			userpilot = 0
+			userpilot {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=UserPilot ID
+				userpilotToken = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piwik Pro
+			piwikpro = 0
+			piwikpro {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piwik Pro ID
+				piwikProId = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Crisp Chat
+			crisp = 0
+			crisp {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Crisp Chat ID
+				crispID = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=MicroAnalytics
+			microanalytics = 0
+			microanalytics {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=MicroAnalytics ID
+				microanalyticsID = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Facebook (Customer Chat)
+			facebookcustomerchat = 0
+			facebookcustomerchat {
+				#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Facebook (Customer Chat) ID
+				facebookChatID = 
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Weborama
+			weborama = 0
 		}
 	}
 }

@@ -32,6 +32,133 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// myfeelback
+tarteaucitron.services.myfeelback = {
+    "key": "myfeelback",
+    "type": "api",
+    "name": "MyFeelBack (Skeepers)",
+    "uri": "https://help.myfeelback.com/fr/quels-sont-les-cookies-d%C3%A9pos%C3%A9s-par-un-dispositif-de-collecte-myfeelback",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        if (tarteaucitron.user.myfeelbackId === undefined) {
+            return;
+        }
+
+        window._Mfb_useCookie = true;
+        window._Mfb_ud = {
+            var1: undefined,
+            var2: undefined,
+            varN: undefined,
+            _context: {
+                lang: undefined,
+                privacyMode: false,
+                _page: {
+                    url: location.pathname,
+                    storageDuration: 30
+                }
+            }
+        };
+        tarteaucitron.addScript('https://actorssl-5637.kxcdn.com/actor/'+tarteaucitron.user.myfeelbackId+'/action', 'MFBActor');
+    }
+};
+
+// doubleclick
+tarteaucitron.services.doubleclick = {
+    "key": "doubleclick",
+    "type": "ads",
+    "name": "DoubleClick",
+    "uri": "https://support.google.com/admanager/answer/2839090",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['doubleclick_container'], function (x) {
+            var id1 = tarteaucitron.getElemAttr(x, "data-id1"),
+                id2 = tarteaucitron.getElemAttr(x, "data-id2"),
+                item = tarteaucitron.getElemAttr(x, "data-item"),
+                quantity = tarteaucitron.getElemAttr(x, "data-quantity"),
+                price = tarteaucitron.getElemAttr(x, "data-price"),
+                postage = tarteaucitron.getElemAttr(x, "data-postage"),
+                seller = tarteaucitron.getElemAttr(x, "data-seller"),
+                axel = Math.random() + "",
+                a = axel * 10000000000000;
+
+             iframe = '<iframe src="http://'+id1+'.fls.doubleclick.net/activityi;src='+id2+';type=;cat=;u1='+item+';u2='+quantity+';u3='+price+';u4='+postage+';u5='+seller+';ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>';
+            return iframe;
+        });
+    }
+};
+
+// userpilot
+tarteaucitron.services.userpilot = {
+    "key": "userpilot",
+    "type": "analytic",
+    "name": "UserPilot",
+    "uri": "https://userpilot.com/privacy-policy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        if (tarteaucitron.user.userpilotToken === undefined) {
+            return;
+        }
+
+        window.userpilotSettings = {token: tarteaucitron.user.userpilotToken};
+        tarteaucitron.addScript('https://js.userpilot.io/sdk/latest.js');
+    }
+};
+
+tarteaucitron.services.piwikpro = {
+    "key": "piwikpro",
+    "type": "analytic",
+    "name": "Piwik Pro",
+    "uri": "https://piwik.pro/privacy-policy/",
+    "needConsent": true,
+    "cookies": ['_pk_ref', '_pk_cvar', '_pk_id', '_pk_ses', '_pk_hsr', 'piwik_ignore', '_pk_uid'],
+    "js": function () {
+        "use strict";
+        if (tarteaucitron.user.piwikProId === undefined) {
+            return;
+        }
+
+        window['dataLayer'] = window['dataLayer'] || [], window['dataLayer'].push({
+            start: (new Date).getTime(),
+            event: "stg.start"
+        });
+
+        function stgCreateCookie(a, b, c) {
+           var d = "";
+           if (c) {
+              var e = new Date;
+              e.setTime(e.getTime() + 24 * c * 60 * 60 * 1e3), d = "; expires=" + e.toUTCString()
+           }
+           document.cookie = a + "=" + b + d + "; path=/"
+        }
+
+        var isStgDebug = (window.location.href.match("stg_debug") || document.cookie.match("stg_debug")) && !window.location.href.match("stg_disable_debug");
+        stgCreateCookie("stg_debug", isStgDebug ? 1 : "", isStgDebug ? 14 : -1);
+        var qP = [];
+
+        var qPString = qP.length > 0 ? ("?" + qP.join("&")) : "";
+        tarteaucitron.addScript('https://carsatse.containers.piwik.pro/'+tarteaucitron.user.piwikProId+'.js'+qPString);
+
+        ! function(a, n, i) {
+           a[n] = a[n] || {};
+           for (var c = 0; c < i.length; c++) ! function(i) {
+              a[n][i] = a[n][i] || {}, a[n][i].api = a[n][i].api || function() {
+                 var a = [].slice.call(arguments, 0);
+                 "string" == typeof a[0] && window['dataLayer'].push({
+                    event: n + "." + i + ":" + a[0],
+                    parameters: [].slice.call(arguments, 1)
+                 })
+              }
+           }(i[c])
+        }(window, "ppms", ["tm", "cm"]);
+    }
+};
+
 // pinterestpixel
 tarteaucitron.services.pinterestpixel = {
     "key": "pinterestpixel",
@@ -393,9 +520,10 @@ tarteaucitron.services.facebookpost = {
                 height = x.getAttribute("height"),
                 url = x.getAttribute("data-url"),
                 appId = x.getAttribute("data-appid"),
-                allowfullscreen = x.getAttribute("allowfullscreen");
+                allowfullscreen = x.getAttribute("allowfullscreen"),
+                showText = x.getAttribute("data-show-text");
 
-            return '<iframe title="' + frame_title + '" src="https://www.facebook.com/plugins/post.php?href=' + encodeURIComponent(url) + '&amp;width=' + width + '&amp;show_text=false&amp;appId=' + appId + '&amp;height=' + height + '" width="' + width + '" height="' + height + '" scrolling="auto" allowtransparency ' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe>';
+            return '<iframe title="' + frame_title + '" src="https://www.facebook.com/plugins/post.php?href=' + encodeURIComponent(url) + '&amp;width=' + width + '&amp;show_text=false&amp;appId=' + appId + '&amp;show_text=' + showText + '&amp;height=' + height + '" width="' + width + '" height="' + height + '" scrolling="auto" allowtransparency ' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe>';
         });
     },
     "fallback": function () {
@@ -4866,14 +4994,14 @@ tarteaucitron.services.canalu = {
     "key": "canalu",
     "type": "video",
     "name": "Canal-U.tv",
-    "uri": "https://www.canal-u.tv/utilisation-des-cookies/",
+    "uri": "https://www.canal-u.tv/conditions-generales-utilisations",
     "needConsent": true,
     "cookies": [],
     "js": function () {
         "use strict";
         tarteaucitron.fallback(['canalu_player'], function (x) {
             var video_title = tarteaucitron.fixSelfXSS(x.getAttribute("videoTitle")),
-                frame_url = 'https://www.canal-u.tv/video/embed_code_plugin.1/' + video_title;
+                frame_url = 'https://www.canal-u.tv/embed/' + video_title;
 
             return '<div style="position:relative;padding-bottom:56.25%;padding-top:10px;height:0;overflow:hidden;">' +
                    '<iframe src="' + frame_url + '?width=100%&amp;height=100%" ' +
@@ -5092,6 +5220,87 @@ tarteaucitron.services.gallica = {
             elem.style = elem.getAttribute('data-style');
             return tarteaucitron.engage(id);
         });
+    }
+};
+
+// crisp
+tarteaucitron.services.crisp = {
+    "key": "crisp",
+    "type": "other",
+    "name": "Crisp Chat",
+    "uri": "https://help.crisp.chat/en/article/crisp-chatbox-cookie-ip-policy-1147xor/",
+    "needConsent": false,
+    "cookies": ['crisp-client', '__cfduid'],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.crispID === undefined) {
+            return;
+        }
+
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = tarteaucitron.user.crispID;
+
+        tarteaucitron.addScript('https://client.crisp.chat/l.js');
+    }
+};
+
+// microanalytics
+tarteaucitron.services.microanalytics = {
+    "key": "microanalytics",
+    "type": "analytic",
+    "name": "MicroAnalytic",
+    "uri": "https://microanalytics.io/page/privacy",
+    "needConsent": false,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.microanalyticsID === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://microanalytics.io/js/script.js', tarteaucitron.user.microanalyticsID, undefined, true, "data-host", "https://microanalytics.io");
+    }
+};
+
+// facebookcustomerchat
+tarteaucitron.services.facebookcustomerchat = {
+    "key": "facebookcustomerchat",
+    "type": "social",
+    "name": "Facebook (Customer Chat)",
+    "uri": "https://www.facebook.com/policies/cookies/",
+    "needConsent": true,
+    "cookies": ['act','c_user','datr','dpr','presence','sb','wd','xs','/tr'],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.facebookChatID === undefined) {
+            return;
+        }
+
+        tarteaucitron.fallback(['fb-customerchat'], '');
+	window.fbAsyncInit=function(){FB.init({appId:tarteaucitron.user.facebookChatID,autoLogAppEvents:!0,xfbml:!0,version:"v3.0"})};
+	tarteaucitron.addScript('https://connect.facebook.net/' + tarteaucitron.getLocale() + '/sdk/xfbml.customerchat.js', 'facebook-jssdk');
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'facebookcustomerchat';
+        tarteaucitron.fallback(['fb-customerchat'], tarteaucitron.engage(id));
+    }
+};
+
+// weborama
+tarteaucitron.services.weborama = {
+    "key": "weborama",
+    "type": "analytic",
+    "name": "Weborama",
+    "uri": "https://weborama.com/faq-cnil-avril-2021/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        tarteaucitron.addScript('https://cstatic.weborama.fr/js/advertiserv2/adperf_conversion.js');
     }
 };
 
