@@ -49,3 +49,11 @@ if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_form')){
 	);
 }
 
+if(\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::isLoaded('ameos_dailymotion')){
+	if($configuration['xclass_dailymotion'] == '1'){
+		$GLOBALS['TYPO3_CONF_VARS']['SYS']['Objects'][Ameos\AmeosDailymotion\Rendering\DailymotionRenderer::class] = array(
+		    'className' => \Ameos\AmeosTarteaucitron\Xclasses\Ameos\AmeosDailymotion\Rendering\DailymotionRenderer::class,
+		);
+	}
+}
+
