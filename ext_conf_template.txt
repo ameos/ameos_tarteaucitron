@@ -3,3 +3,6 @@ xclass_youtube = 0
 
 # cat=XClasses; type=boolean; label=Enable XClass of vimeo renderer
 xclass_vimeo = 0
+
+# cat=XClasses; type=boolean; label=Enable XClass of ameos_dailymotion renderer
+xclass_dailymotion = 0
