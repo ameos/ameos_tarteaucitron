@@ -18,6 +18,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Position of the banner : top/bottom
 		orientation = bottom
 
+		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Position of the generated HTML : top/bottom of the HTML body
+		bodyPosition = bottom
+		
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Group services by category : true/false
 		groupServices = false
 

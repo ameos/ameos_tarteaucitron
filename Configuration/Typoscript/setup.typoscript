@@ -14,8 +14,8 @@ page {
     }
 
     jsFooterInline {
-    	29052018 = COA
-    	29052018 {
+        29052018 = COA
+        29052018 {
             10 = COA
             10 {
                 wrap = tarteaucitron.init({|});
@@ -36,6 +36,7 @@ page {
                         "cookieName": "{$ameos.tarteaucitron.cookieName}", /* Cookie name */
 
                         "orientation": "{$ameos.tarteaucitron.orientation}", /* Banner position (top - bottom) */
+                        "bodyPosition": "{$ameos.tarteaucitron.bodyPosition}", /* bodyPosition (top - bottom) */
 
                         "groupServices": {$ameos.tarteaucitron.groupServices}, /* Group services by category */
 
@@ -230,15 +231,15 @@ page {
                 if.isTrue = {$ameos.tarteaucitron.services.gajs}
             }
 
-			190 = TEXT
-			190 {
-				value (
-					tarteaucitron.user.gtagUa = '{$ameos.tarteaucitron.services.gtag.gtagUa}';
-    				tarteaucitron.user.gtagMore = AmeosTacGtagMore; /* add here your optionnal gtag() */
-    				(tarteaucitron.job = tarteaucitron.job || []).push('gtag');
-				)
-				if.isTrue = {$ameos.tarteaucitron.services.gtag}
-			}
+            190 = TEXT
+            190 {
+                value (
+                    tarteaucitron.user.gtagUa = '{$ameos.tarteaucitron.services.gtag.gtagUa}';
+                    tarteaucitron.user.gtagMore = AmeosTacGtagMore; /* add here your optionnal gtag() */
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gtag');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gtag}
+            }
 
             200 = TEXT
             200 {
@@ -1504,6 +1505,6 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.weborama}
             }
-    	}
+        }
     }
 }
