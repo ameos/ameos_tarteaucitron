@@ -69,6 +69,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show a message about mandatory cookies : true/false
 		mandatory = true
 
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show the disabled accept button when mandatory on  : true/false
+		mandatoryCta = true
+
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Read more Page Id
 		readmoreLinkPageId =
 
