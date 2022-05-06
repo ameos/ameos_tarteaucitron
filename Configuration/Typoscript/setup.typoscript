@@ -75,6 +75,7 @@ page {
                         "cookieDomain": "{$ameos.tarteaucitron.cookieDomain}", /* Shared cookie for multisite */
 
                         "mandatory": {$ameos.tarteaucitron.mandatory}, /* Show a message about mandatory cookies */
+                        "mandatoryCta": {$ameos.tarteaucitron.mandatoryCta}, /* Show the disabled accept button when mandatory on */
                 )
 
                 50 = TEXT
