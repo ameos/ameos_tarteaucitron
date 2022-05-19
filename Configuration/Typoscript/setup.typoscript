@@ -1506,6 +1506,26 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.weborama}
             }
+
+            1650 = TEXT
+            1650 {
+                value (
+                    tarteaucitron.user.tiktokId  = '{$ameos.tarteaucitron.services.tiktok.tiktokId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('tiktok');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.tiktok}
+            }
+
+            1660 = TEXT
+            1660 {
+                value (
+                    tarteaucitron.user.klaviyoCompanyId   = '{$ameos.tarteaucitron.services.klaviyo.klaviyoCompanyId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('klaviyo');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.klaviyo}
+            }
         }
     }
 }

@@ -1994,7 +1994,7 @@ tarteaucitron.services.analytics = {
 tarteaucitron.services.gtag = {
     "key": "gtag",
     "type": "analytic",
-    "name": "Google Analytics (gtag.js)",
+    "name": "Google Analytics (GA4)",
     "uri": "https://policies.google.com/privacy",
     "needConsent": true,
     "cookies": (function () {
@@ -3564,6 +3564,10 @@ tarteaucitron.services.atinternet = {
     "fallback": function () {
         "use strict";
         if (tarteaucitron.user.atLibUrl === undefined) {
+            return;
+        }
+
+        if (tarteaucitron.user.atNoFallback === true) {
             return;
         }
 
@@ -5304,3 +5308,38 @@ tarteaucitron.services.weborama = {
     }
 };
 
+// tiktok
+tarteaucitron.services.tiktok = {
+    "key": "tiktok",
+    "type": "analytic",
+    "name": "Tiktok",
+    "uri": "https://www.tiktok.com/legal/tiktok-website-cookies-policy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.tiktokId === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=' + tarteaucitron.user.tiktokId);
+    }
+};
+
+// Klaviyo
+tarteaucitron.services.klaviyo = {
+    "key": "klaviyo",
+    "type": "ads",
+    "name": "Klaviyo",
+    "uri": "https://help.klaviyo.com/hc/en-us/articles/360034666712-About-Cookies-in-Klaviyo",
+    "needConsent": true,
+    "cookies": ['__kla_id'],
+    "js": function () {
+        "use strict";
+        if (tarteaucitron.user.klaviyoCompanyId === undefined) {
+            return;
+        }
+        tarteaucitron.addScript('//static.klaviyo.com/onsite/js/klaviyo.js?company_id=' + tarteaucitron.user.klaviyoCompanyId);
+    }
+};
