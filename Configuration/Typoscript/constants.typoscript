@@ -775,6 +775,20 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Weborama
 			weborama = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Tiktok
+			tiktok = 0
+			tiktok {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Tiktok ID
+				tiktokId =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Klaviyo
+			klaviyo = 0
+			klaviyo {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Klaviyo Company ID
+				klaviyoCompanyId =
+			}
 		}
 	}
 }
