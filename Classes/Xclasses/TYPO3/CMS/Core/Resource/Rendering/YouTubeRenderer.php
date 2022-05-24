@@ -50,7 +50,7 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
         return sprintf(
             '<div class="youtube_player" data-videoID="%s"%s></div>',
             $videoId,
-            empty($attributes) ? '' : ' ' . implode(' ', $attributes)
+            empty($attributes) ? '' : ' ' . $this->implodeAttributes($attributes)
         );
 
         
