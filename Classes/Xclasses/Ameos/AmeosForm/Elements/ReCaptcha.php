@@ -23,10 +23,10 @@ class ReCaptcha extends \Ameos\AmeosForm\Elements\ElementAbstract
     /**
      * @constuctor
      *
-     * @param    string    $absolutename absolutename
-     * @param    string    $name name
-     * @param    array    $configuration configuration
-     * @param    \Ameos\AmeosForm\Form $form form
+     * @param string                $absolutename  absolutename
+     * @param string                $name          name
+     * @param array                 $configuration configuration
+     * @param \Ameos\AmeosForm\Form $form          form
      */
     public function __construct($absolutename, $name, $configuration, $form)
     {
@@ -50,7 +50,7 @@ class ReCaptcha extends \Ameos\AmeosForm\Elements\ElementAbstract
     /**
      * form to html
      *
-     * @return    string the html
+     * @return string the html
      */
     public function toHtml()
     {
