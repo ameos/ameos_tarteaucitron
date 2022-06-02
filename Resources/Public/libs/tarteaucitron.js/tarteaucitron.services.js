@@ -64,6 +64,24 @@ tarteaucitron.services.myfeelback = {
     }
 };
 
+// arcio
+tarteaucitron.services.arcio = {
+    "key": "arcio",
+    "type": "api",
+    "name": "Arc.io",
+    "uri": "https://arc.io/about",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        if (tarteaucitron.user.arcId === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://arc.io/widget.min.js#'+tarteaucitron.user.arcId);
+    }
+};
+
 // doubleclick
 tarteaucitron.services.doubleclick = {
     "key": "doubleclick",
@@ -1786,6 +1804,26 @@ tarteaucitron.services.adsense = {
     }
 };
 
+// Google Adsense Search
+tarteaucitron.services.adsensesearch = {
+    "key": "adsensesearch",
+    "type": "ads",
+    "name": "Google Adsense Search",
+    "uri": "https://adssettings.google.com/",
+    "needConsent": true,
+    "readmoreLink": "https://policies.google.com/technologies/partner-sites",
+    "cookies": ['__gads'],
+    "js": function () {
+        "use strict";
+        tarteaucitron.addScript('https://www.google.com/adsense/search/ads.js');
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'adsensesearch';
+        tarteaucitron.fallback(['afscontainer1'], tarteaucitron.engage(id));
+    }
+};
+
 // google partners badge
 tarteaucitron.services.googlepartners = {
     "key": "googlepartners",
@@ -1920,6 +1958,9 @@ tarteaucitron.services.gajs = {
         "use strict";
         window._gaq = window._gaq || [];
         window._gaq.push(['_setAccount', tarteaucitron.user.gajsUa]);
+        if (timeExpire !== undefined) {
+            _gaq.push(['_setVisitorCookieTimeout', timeExpire]);
+        }
 
         if (tarteaucitron.user.gajsAnonymizeIp) {
             window._gaq.push(['_gat._anonymizeIp']);
@@ -1965,7 +2006,7 @@ tarteaucitron.services.analytics = {
         };
         window.ga.l = new Date();
         tarteaucitron.addScript('https://www.google-analytics.com/analytics.js', '', function () {
-            var uaCreate = { 'cookieExpires': 34128000 };
+            var uaCreate = { 'cookieExpires': (timeExpire !== undefined) ? timeExpire : 34128000 };
             tarteaucitron.extend(uaCreate, tarteaucitron.user.analyticsUaCreate || {});
             ga('create', tarteaucitron.user.analyticsUa, uaCreate);
 
@@ -1985,6 +2026,40 @@ tarteaucitron.services.analytics = {
 
             if (typeof tarteaucitron.user.analyticsMore === 'function') {
                 tarteaucitron.user.analyticsMore();
+            }
+        });
+    }
+};
+
+// google ads
+tarteaucitron.services.googleads = {
+    "key": "googleads",
+    "type": "ads",
+    "name": "Google Ads",
+    "uri": "https://policies.google.com/privacy",
+    "needConsent": true,
+    "cookies": (function () {
+        var googleIdentifier = tarteaucitron.user.googleadsId,
+            tagUaCookie = '_gat_gtag_' + googleIdentifier,
+            tagGCookie = '_ga_' + googleIdentifier;
+
+        tagUaCookie = tagUaCookie.replace(/-/g, '_');
+        tagGCookie = tagGCookie.replace(/G-/g, '');
+
+        return ['_ga', '_gat', '_gid', '__utma', '__utmb', '__utmc', '__utmt', '__utmz', tagUaCookie, tagGCookie, '_gcl_au'];
+    })(),
+    "js": function () {
+        "use strict";
+        window.dataLayer = window.dataLayer || [];
+        tarteaucitron.addScript('https://www.googletagmanager.com/gtag/js?id=' + tarteaucitron.user.googleadsId, '', function () {
+            window.gtag = function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            var additional_config_info = (timeExpire !== undefined) ? {'anonymize_ip': true, 'cookie_expires': timeExpire / 1000} : {'anonymize_ip': true};
+
+            gtag('config', tarteaucitron.user.googleadsId, additional_config_info);
+
+            if (typeof tarteaucitron.user.googleadsMore === 'function') {
+                tarteaucitron.user.googleadsMore();
             }
         });
     }
@@ -2013,15 +2088,16 @@ tarteaucitron.services.gtag = {
         tarteaucitron.addScript('https://www.googletagmanager.com/gtag/js?id=' + tarteaucitron.user.gtagUa, '', function () {
             window.gtag = function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
+            var additional_config_info = (timeExpire !== undefined) ? {'anonymize_ip': true, 'cookie_expires': timeExpire / 1000} : {'anonymize_ip': true};
 
             if (tarteaucitron.user.gtagCrossdomain) {
                 /**
                  * https://support.google.com/analytics/answer/7476333?hl=en
                  * https://developers.google.com/analytics/devguides/collection/gtagjs/cross-domain
                  */
-                gtag('config', tarteaucitron.user.gtagUa, { 'anonymize_ip': true }, { linker: { domains: tarteaucitron.user.gtagCrossdomain, } });
+                gtag('config', tarteaucitron.user.gtagUa, additional_config_info, { linker: { domains: tarteaucitron.user.gtagCrossdomain, } });
             } else {
-                gtag('config', tarteaucitron.user.gtagUa, { 'anonymize_ip': true });
+                gtag('config', tarteaucitron.user.gtagUa, additional_config_info);
             }
 
             if (typeof tarteaucitron.user.gtagMore === 'function') {
@@ -3957,7 +4033,8 @@ tarteaucitron.services.multiplegtag = {
                 tarteaucitron.addScript('https://www.googletagmanager.com/gtag/js?id=' + ua, '', function () {
                     window.gtag = function gtag() { dataLayer.push(arguments); }
                     gtag('js', new Date());
-                    gtag('config', ua, { 'anonymize_ip': true });
+                    var additional_config_info = (timeExpire !== undefined) ? {'anonymize_ip': true, 'cookie_expires': timeExpire / 1000} : {'anonymize_ip': true};
+                    gtag('config', ua, additional_config_info);
                 });
             });
         }
@@ -4525,6 +4602,7 @@ tarteaucitron.services.ausha = {
                 podcast_id = x.getAttribute('data-podcast-id'),
                 player_id = x.getAttribute('data-player-id'),
                 playlist = x.getAttribute('data-playlist'),
+                useshowid = x.getAttribute('data-useshowid'),
                 color = x.getAttribute('data-color');
 
             if (podcast_id === undefined) {
@@ -4532,6 +4610,10 @@ tarteaucitron.services.ausha = {
             }
 
             var src = 'https://player.ausha.co/index.html?podcastId=' + podcast_id + '&v=3';
+
+            if (useshowid == "1") {
+                src = 'https://player.ausha.co/index.html?showId=' + podcast_id + '&v=3';
+            }
 
             if (playlist && playlist.length > 0) src += '&playlist=' + playlist;
             if (color && color.length > 0) src += '&color=' + color.replace('#', '%23');

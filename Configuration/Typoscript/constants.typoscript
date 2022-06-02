@@ -789,6 +789,23 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Klaviyo Company ID
 				klaviyoCompanyId =
 			}
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label= Arc.io
+			arcio = 0
+			arcio {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Klaviyo Company ID
+				arcId =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Google Adsense
+			adsensesearch = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label= Google Ads
+			googleads = 0
+			googleads {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Google Ads ID
+				googleadsId =
+			}
 		}
 	}
 }

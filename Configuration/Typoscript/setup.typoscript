@@ -1526,6 +1526,35 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.klaviyo}
             }
+
+            1670 = TEXT
+            1670 {
+                value (
+                    tarteaucitron.user.arcId   = '{$ameos.tarteaucitron.services.arcio.arcId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('arcio');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.arcio}
+            }
+
+            1680 = TEXT
+            1680 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('adsensesearch');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.adsensesearch}
+            }
+
+            1690 = TEXT
+            1690 {
+                value (
+                    tarteaucitron.user.googleadsId   = '{$ameos.tarteaucitron.services.googleads.googleadsId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('googleads');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.googleads}
+            }
         }
     }
 }
