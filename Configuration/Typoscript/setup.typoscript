@@ -1555,6 +1555,16 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.googleads}
             }
+
+            1700 = TEXT
+            1700 {
+                value (
+                    tarteaucitron.user.adsensecapub   = '{$ameos.tarteaucitron.services.adsenseauto.adsensecapub}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('adsenseauto');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.adsenseauto}
+            }
         }
     }
 }

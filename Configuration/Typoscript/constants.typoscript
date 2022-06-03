@@ -806,6 +806,13 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Google Ads ID
 				googleadsId =
 			}
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Google Adsense Automatic
+			adsenseauto = 0
+			adsenseauto {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Google Adsense Automatic Pub
+				adsensecapub =
+			}
 		}
 	}
 }
