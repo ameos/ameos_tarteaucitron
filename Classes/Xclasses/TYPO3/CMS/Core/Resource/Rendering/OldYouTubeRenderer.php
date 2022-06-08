@@ -98,7 +98,26 @@ class OldYouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRende
         return sprintf(
             '<div class="youtube_player" data-videoID="%s"%s></div>',
             $videoId,
-            empty($attributes) ? '' : ' ' . implode(' ', $attributes)
+            empty($attributes) ? '' : ' ' . $this->implodeAttributes(' ', $attributes)
         );
+    }
+
+    /**
+     * @internal
+     * @param array $attributes
+     * @return string
+     */
+    protected function implodeAttributes(array $attributes): string
+    {
+        $attributeList = [];
+        foreach ($attributes as $name => $value) {
+            $name = preg_replace('/[^\p{L}0-9_.-]/u', '', $name);
+            if ($value === true) {
+                $attributeList[] = $name;
+            } else {
+                $attributeList[] = $name . '="' . htmlspecialchars($value, ENT_QUOTES | ENT_HTML5) . '"';
+            }
+        }
+        return implode(' ', $attributeList);
     }
 }

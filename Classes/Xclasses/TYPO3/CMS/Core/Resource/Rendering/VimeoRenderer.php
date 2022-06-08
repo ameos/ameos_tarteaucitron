@@ -50,7 +50,7 @@ class VimeoRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VimeoRenderer
         return sprintf(
             '<div class="vimeo_player" data-videoID="%s"%s></div>',
             $videoId,
-            empty($attributes) ? '' : ' ' . implode(' ', $attributes)
+            empty($attributes) ? '' : ' ' . $this->implodeAttributes($attributes)
         );
     }
 }
