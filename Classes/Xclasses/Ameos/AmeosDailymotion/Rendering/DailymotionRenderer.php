@@ -8,6 +8,8 @@ use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
+use Ameos\AmeosTarteaucitron\Utility\ArrayUtility;
+
 /*
  * This file is part of the TYPO3 CMS project.
  *
@@ -123,7 +125,7 @@ class DailymotionRenderer implements \TYPO3\CMS\Core\Resource\Rendering\FileRend
         return sprintf(
             '<div class="dailymotion_player" videoID="%s"%s></div>',
             $videoId,
-            empty($attributes) ? '' : ' ' . implode(' ', $attributes)
+            empty($attributes) ? '' : ' ' . ArrayUtility::implodeAttributes($attributes)
         );
     }
 }

@@ -20,6 +20,8 @@ use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
 
+use Ameos\AmeosTarteaucitron\Utility\ArrayUtility;
+
 /**
  * Vimeo renderer class
  */
@@ -84,26 +86,9 @@ class OldVimeoRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VimeoRenderer
         return sprintf(
             '<div class="vimeo_player" data-videoID="%s"%s></div>',
             $videoId,
-            empty($attributes) ? '' : ' ' . $this->implodeAttributes(' ', $attributes)
+            empty($attributes) ? '' : ' ' . ArrayUtility::implodeAttributes($attributes)
         );
     }
 
-    /**
-     * @internal
-     * @param array $attributes
-     * @return string
-     */
-    protected function implodeAttributes(array $attributes): string
-    {
-        $attributeList = [];
-        foreach ($attributes as $name => $value) {
-            $name = preg_replace('/[^\p{L}0-9_.-]/u', '', $name);
-            if ($value === true) {
-                $attributeList[] = $name;
-            } else {
-                $attributeList[] = $name . '="' . htmlspecialchars($value, ENT_QUOTES | ENT_HTML5) . '"';
-            }
-        }
-        return implode(' ', $attributeList);
-    }
+    
 }
