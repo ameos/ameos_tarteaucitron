@@ -88,6 +88,14 @@ page {
                     wrap = "readmoreLink": "|", /* Change the default readmore link */
                     if.isTrue = {$ameos.tarteaucitron.readmoreLinkPageId}
                 }
+
+                60 = TEXT
+                60 {
+                    value (
+                        "reloadOnAccept": {$ameos.tarteaucitron.reloadOnAccept}, /* reloadOnAccept */
+                    )
+                }
+
             }
 
             20 = TEXT

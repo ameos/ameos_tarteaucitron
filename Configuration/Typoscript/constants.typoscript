@@ -20,7 +20,7 @@ ameos {
 
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Position of the generated HTML : top/bottom of the HTML body
 		bodyPosition = bottom
-		
+
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Group services by category : true/false
 		groupServices = false
 
@@ -74,6 +74,9 @@ ameos {
 
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Read more Page Id
 		readmoreLinkPageId =
+
+		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Refresh the page when user accept one or all service
+        reloadOnAccept = false
 
 		services {
 			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Google jsapi
