@@ -813,6 +813,19 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Google Adsense Automatic Pub
 				adsensecapub =
 			}
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= antvoice
+			antvoice = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Plausible
+			plausible = 0
+			plausible {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Plausible Domain
+				plausibleDomain =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=  Videas
+			videas = 0
 		}
 	}
 }
