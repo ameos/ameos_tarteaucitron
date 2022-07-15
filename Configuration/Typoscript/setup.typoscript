@@ -1565,6 +1565,35 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.adsenseauto}
             }
+
+            1710 = TEXT
+            1710 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('antvoice');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.antvoice}
+            }
+
+            1720 = TEXT
+            1720 {
+                value (
+                    tarteaucitron.user.plausibleDomain   = '{$ameos.tarteaucitron.services.plausible.plausibleDomain}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('plausible');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.plausible}
+            }
+
+            1730 = TEXT
+            1730 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('videas');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.videas}
+            }
+
         }
     }
 }
