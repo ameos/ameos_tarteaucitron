@@ -1511,6 +1511,7 @@ page {
             1650 {
                 value (
                     tarteaucitron.user.tiktokId  = '{$ameos.tarteaucitron.services.tiktok.tiktokId}';
+                    tarteaucitron.user.tiktokMore = AmeosTiktokMore;
                     (tarteaucitron.job = tarteaucitron.job || []).push('tiktok');
 
                 )
@@ -1594,6 +1595,35 @@ page {
                 if.isTrue = {$ameos.tarteaucitron.services.videas}
             }
 
+            1740 = TEXT
+            1740 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('trustpilot');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.trustpilot}
+            }
+
+            1750 = TEXT
+            1750 {
+                value (
+                    tarteaucitron.user.snapchatId   = '{$ameos.tarteaucitron.services.snapchat.snapchatId}';
+                    tarteaucitron.user.snapchatMore = AmeosSnapchatMore;
+                    (tarteaucitron.job = tarteaucitron.job || []).push('snapchat');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.snapchat}
+            }
+
+            1760 = TEXT
+            1760 {
+                value (
+                    tarteaucitron.user.snapchatId   = '{$ameos.tarteaucitron.services.matomotm.matomomtUrl}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('matomotm');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.matomotm}
+            }
         }
     }
 }

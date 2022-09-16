@@ -32,6 +32,62 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// trustpilot
+tarteaucitron.services.trustpilot = {
+    "key": "trustpilot",
+    "type": "other",
+    "name": "Trustpilot",
+    "uri": "https://fr.legal.trustpilot.com/for-reviewers/end-user-privacy-terms",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['trustpilot-widget'], '');
+        tarteaucitron.addScript('https://widget.trustpilot.com/bootstrap/v5/tp.widget.sync.bootstrap.min.js');
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'trustpilot';
+        tarteaucitron.fallback(['trustpilot-widget'], function (elem) {
+            elem.style.width = elem.getAttribute('data-style-width');
+            elem.style.height = elem.getAttribute('data-style-height');
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// snapchat
+tarteaucitron.services.snapchat = {
+    "key": "snapchat",
+    "type": "analytic",
+    "name": "Snapchat",
+    "uri": "https://snap.com/fr-FR/privacy/privacy-policy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.snapchatId === undefined || tarteaucitron.user.snapchatEmail === undefined) {
+            return;
+        }
+
+	var a = window.snaptr = function() {
+		a.handleRequest ? a.handleRequest.apply(a, arguments) : a.queue.push(arguments)
+	};
+	a.queue = [];
+        window.snaptr('init', tarteaucitron.user.snapchatId, {
+	    'user_email': tarteaucitron.user.snapchatEmail
+        });
+        window.snaptr('track', 'PAGE_VIEW');
+
+        tarteaucitron.addScript('https://sc-static.net/scevent.min.js');
+	    
+	if (typeof tarteaucitron.user.snapchatMore === 'function') {
+            tarteaucitron.user.snapchatMore();
+        }
+    }
+};
+
 // antvoice
 tarteaucitron.services.antvoice = {
     "key": "antvoice",
@@ -42,6 +98,18 @@ tarteaucitron.services.antvoice = {
     "cookies": ['antvoice'],
     "js": function () {
         "use strict";
+
+        if (tarteaucitron.user.antvoiceId === undefined) {
+            return;
+        }
+
+        window.avDataLayer = window.avDataLayer || [];
+        window.avtag = window.avtag || function(_cmd,_p) {
+            window.avDataLayer.push({cmd:_cmd,p:_p});
+        }
+        window.avtag('setConsent', {consent:true});
+        window.avtag('init', {id: tarteaucitron.user.antvoiceId});
+
         tarteaucitron.addScript('https://static.avads.net/avtag.min.js');
     }
 };
@@ -159,16 +227,19 @@ tarteaucitron.services.doubleclick = {
         tarteaucitron.fallback(['doubleclick_container'], function (x) {
             var id1 = tarteaucitron.getElemAttr(x, "data-id1"),
                 id2 = tarteaucitron.getElemAttr(x, "data-id2"),
+                type = tarteaucitron.getElemAttr(x, "data-type"),
+                cat = tarteaucitron.getElemAttr(x, "data-cat"),
                 item = tarteaucitron.getElemAttr(x, "data-item"),
                 quantity = tarteaucitron.getElemAttr(x, "data-quantity"),
                 price = tarteaucitron.getElemAttr(x, "data-price"),
                 postage = tarteaucitron.getElemAttr(x, "data-postage"),
                 seller = tarteaucitron.getElemAttr(x, "data-seller"),
-                axel = Math.random() + "",
-                a = axel * 10000000000000;
+                gdpr = tarteaucitron.getElemAttr(x, "data-gdpr"),
+                gdpr_consent = tarteaucitron.getElemAttr(x, "data-gdpr-consent"),
+                ord = tarteaucitron.getElemAttr(x, "data-ord"),
+                num = tarteaucitron.getElemAttr(x, "data-num");
 
-             iframe = '<iframe src="http://'+id1+'.fls.doubleclick.net/activityi;src='+id2+';type=;cat=;u1='+item+';u2='+quantity+';u3='+price+';u4='+postage+';u5='+seller+';ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>';
-            return iframe;
+            return '<iframe src="https://'+id1+'.fls.doubleclick.net/activityi;src='+id2+';type='+type+';cat='+cat+';item='+item+';quantity='+quantity+';price='+price+';postage='+postage+';seller='+seller+';gdpr='+gdpr+';gdpr_consent='+gdpr_consent+';num='+num+';ord='+ord+'?" width="1" height="1" frameborder="0" style="display:none"></iframe>';
         });
     }
 };
@@ -1859,6 +1930,7 @@ tarteaucitron.services.adsense = {
     "cookies": ['__gads'],
     "js": function () {
         "use strict";
+        tarteaucitron.fallback(['adsbygoogle'], '');
         tarteaucitron.addScript('https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js');
     },
     "fallback": function () {
@@ -3648,7 +3720,7 @@ tarteaucitron.services.xiti = {
     "key": "xiti",
     "type": "analytic",
     "name": "Xiti",
-    "uri": "https://helpcentre.atinternet-solutions.com/hc/fr/categories/360002439300-Privacy-Centre",
+    "uri": "https://www.atinternet.com/rgpd-et-vie-privee/",
     "needConsent": true,
     "cookies": [],
     "js": function () {
@@ -3690,7 +3762,7 @@ tarteaucitron.services.atinternet = {
     "key": "atinternet",
     "type": "analytic",
     "name": "AT Internet (privacy by design)",
-    "uri": "https://helpcentre.atinternet-solutions.com/hc/fr/categories/360002439300-Privacy-Centre",
+    "uri": "https://www.atinternet.com/rgpd-et-vie-privee/",
     "needConsent": true,
     "safeanalytic": false,
     "cookies": ['atidvisitor', 'atreman', 'atredir', 'atsession'],
@@ -3708,12 +3780,12 @@ tarteaucitron.services.atinternet = {
 
             window.tag = new ATInternet.Tracker.Tag();
 
-            if (typeof tarteaucitron.user.atMore === 'function') {
-                tarteaucitron.user.atMore();
-            }
-
             if (typeof window.tag.privacy !== 'undefined') {
                 window.tag.privacy.setVisitorOptin();
+            }
+
+            if (typeof tarteaucitron.user.atMore === 'function') {
+                tarteaucitron.user.atMore();
             }
 
             if (tarteaucitron.user.atinternetSendData !== false) {
@@ -3737,10 +3809,6 @@ tarteaucitron.services.atinternet = {
 
             window.tag = new ATInternet.Tracker.Tag();
 
-            if (typeof tarteaucitron.user.atMore === 'function') {
-                tarteaucitron.user.atMore();
-            }
-
             if (typeof window.tag.privacy !== 'undefined') {
 
                 var visitorMode = window.tag.privacy.getVisitorMode();
@@ -3749,6 +3817,10 @@ tarteaucitron.services.atinternet = {
                 } else {
                     window.tag.privacy.setVisitorMode('cnil', 'exempt');
                 }
+            }
+
+            if (typeof tarteaucitron.user.atMore === 'function') {
+                tarteaucitron.user.atMore();
             }
 
             if (tarteaucitron.user.atinternetSendData !== false) {
@@ -3763,7 +3835,7 @@ tarteaucitron.services.atinternethightrack = {
     "key": "atinternethightrack",
     "type": "analytic",
     "name": "AT Internet",
-    "uri": "https://helpcentre.atinternet-solutions.com/hc/fr/categories/360002439300-Privacy-Centre",
+    "uri": "https://www.atinternet.com/rgpd-et-vie-privee/",
     "needConsent": true,
     "cookies": ['atidvisitor', 'atreman', 'atredir', 'atsession'],
     "js": function () {
@@ -3962,7 +4034,7 @@ tarteaucitron.services.xiti_smarttag = {
     "key": "xiti_smarttag",
     "type": "analytic",
     "name": "Xiti (SmartTag)",
-    "uri": "https://helpcentre.atinternet-solutions.com/hc/fr/categories/360002439300-Privacy-Centre",
+    "uri": "https://www.atinternet.com/rgpd-et-vie-privee/",
     "needConsent": true,
     "cookies": ["atidvisitor", "atreman", "atredir", "atsession", "attvtreman", "attvtsession"],
     "js": function () {
@@ -4332,6 +4404,27 @@ tarteaucitron.services.matomocloud = {
                 }
             }
         }, 100)
+    }
+};
+
+// matomotm
+tarteaucitron.services.matomotm = {
+    "key": "matomotm",
+    "type": "api",
+    "name": "Matomo Tag Manager",
+    "uri": "https://matomo.org/privacy/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        if (tarteaucitron.user.matomotmUrl === undefined) {
+            return;
+        }
+
+        var _mtm = window._mtm = window._mtm || [];
+        _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+
+        tarteaucitron.addScript(tarteaucitron.user.matomotmUrl);
     }
 };
 
@@ -5490,6 +5583,10 @@ tarteaucitron.services.tiktok = {
         }
 
         tarteaucitron.addScript('https://analytics.tiktok.com/i18n/pixel/sdk.js?sdkid=' + tarteaucitron.user.tiktokId);
+
+	if (typeof tarteaucitron.user.tiktokMore === 'function') {
+            tarteaucitron.user.tiktokMore();
+        }
     }
 };
 
