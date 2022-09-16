@@ -97,3 +97,20 @@ function AmeosTacCriteoonetagMore(){
     }
 }
 
+function AmeosTiktokMore(){
+    if(typeof(Event) === 'function') {
+        clickyloaded = new Event("tiktok-loaded");
+    }else{
+        clickyloaded = document.createEvent('Event');
+        clickyloaded.initEvent("tiktok-loaded", true, true);
+    }
+}
+
+function AmeosSnapchatMore(){
+    if(typeof(Event) === 'function') {
+        clickyloaded = new Event("snapchat-loaded");
+    }else{
+        clickyloaded = document.createEvent('Event');
+        clickyloaded.initEvent("snapchat-loaded", true, true);
+    }
+}

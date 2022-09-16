@@ -826,6 +826,23 @@ ameos {
 
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=  Videas
 			videas = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Trustpilot
+			trustpilot = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Snapchat
+			snapchat = 0
+			snapchat {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Snapchat Id
+				snapchatId =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Matomo Tag Manager
+			matomotm = 0
+			matomotm {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Matomo Tag Manager Url
+				matomomtUrl =
+			}
 		}
 	}
 }
