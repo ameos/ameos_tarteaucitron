@@ -1063,14 +1063,28 @@ page {
                 if.isTrue = {$ameos.tarteaucitron.services.matomohightrack}
             }
 
-            1145 = TEXT
+            1145 = COA
             1145 {
-                value (
+                
+                10 = TEXT
+                10.value (
                     tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomocloud.matomoId}';
                     tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomocloud.matomoHost}';
-                    (tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');
                 )
-                if.isTrue = {$ameos.tarteaucitron.services.matomocloud}
+
+                20 = TEXT
+                20 {
+                    value = tarteaucitron.user.matomoCustomJSPath = '{$ameos.tarteaucitron.services.matomocloud.matomoCustomJSPath}';
+                    if.isTrue = {$ameos.tarteaucitron.services.matomocloud.matomoCustomJSPath}
+                }
+
+                30 = TEXT
+                30 {
+                    value = (tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');
+                    if.isTrue = {$ameos.tarteaucitron.services.matomocloud}
+                }
+
+                stdWrap.if.isTrue = {$ameos.tarteaucitron.services.matomocloud}
             }
 
             1150 = TEXT
@@ -1624,6 +1638,57 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.matomotm}
             }
+
+            1770 = TEXT
+            1770 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('kwanko');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.kwanko}
+            }
+
+            1780 = TEXT
+            1780 {
+                value (
+                    tarteaucitron.user.leadforensicsId   = '{$ameos.tarteaucitron.services.leadforensics.leadforensicsId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('leadforensics');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.leadforensics}
+            }
+
+            1790 = TEXT
+            1790 {
+                value (
+                    tarteaucitron.user.ubibId   = '{$ameos.tarteaucitron.services.ubib.ubibId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('leadforensics');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.ubib}
+            }
+
+            1800 = TEXT
+            1800 {
+                value (
+                    tarteaucitron.user.wysistatNom   = '{$ameos.tarteaucitron.services.wysistathightrack.wysistatNom}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('wysistathightrack');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.wysistathightrack}
+            }
+
+            1810 = TEXT
+            1810 {
+                value (
+                    tarteaucitron.user.robofabricaUuid   = '{$ameos.tarteaucitron.services.robofabrica.robofabricaUuid}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('robofabrica');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.robofabrica}
+            }
+
+            
         }
     }
 }
