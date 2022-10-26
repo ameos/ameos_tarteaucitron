@@ -32,6 +32,117 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// kwanko
+tarteaucitron.services.kwanko = {
+    "key": "kwanko",
+    "type": "ads",
+    "name": "Kwanko",
+    "uri": "https://www.kwanko.com/fr/rgpd/politique-gestion-donnees/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['tac_kwanko'], function (x) {
+            var mclic = x.getAttribute("data-mclic");
+
+            return '<img src="https://action.metaffiliation.com/trk.php?mclic=' + mclic + '" width="1" height="1" border="0" />';
+        });
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'kwanko';
+        tarteaucitron.fallback(['tac_kwanko'], function (elem) {
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// leadforensics
+tarteaucitron.services.leadforensics = {
+    "key": "leadforensics",
+    "type": "ads",
+    "name": "Lead Forensics",
+    "uri": "https://www.leadforensics.com/cookie-policy/",
+    "needConsent": true,
+    "cookies": ['ifuuid'],
+    "js": function () {
+        "use strict";
+        if (tarteaucitron.user.leadforensicsId === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://secure.team8save.com/js/sc/'+ tarteaucitron.user.leadforensicsId +'.js');
+    }
+};
+
+// ubib
+tarteaucitron.services.ubib = {
+    "key": "ubib",
+    "type": "support",
+    "name": "Ubib Chatbot",
+    "uri": "https://ubib.libanswers.com/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.ubibId === undefined || tarteaucitron.user.ubibHash === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://' + tarteaucitron.user.ubibId + '.libanswers.com/load_chat.php?hash=' + tarteaucitron.user.ubibHash);
+    }
+};
+
+// wysistathightrack
+tarteaucitron.services.wysistathightrack = {
+    "key": "wysistathightrack",
+    "type": "analytic",
+    "name": "Wysistat (privacy by design)",
+    "uri": "https://www.wysistat.net/webanalytics/exemption-cnil/",
+    "needConsent": false,
+    "cookies": ['wysistat'],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.wysistatNom === undefined) {
+            return;
+        }
+
+        window._wsq = window._wsq || [];
+        window._wsq.push(['_setNom', tarteaucitron.user.wysistatNom]);
+        window._wsq.push(['_wysistat']);
+
+        tarteaucitron.addScript('https://www.wysistat.com/ws.jsa');
+    }
+};
+
+// robofabrica
+tarteaucitron.services.robofabrica = {
+    "key": "robofabrica",
+    "type": "support",
+    "name": "Robo Fabrica Chatbot",
+    "uri": "https://robofabrica.tech/charte-vie-privee/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.robofabricaUuid === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://app.robofabrica.tech/widget/script', 'inceptive-cw-script', function() {
+
+            document.getElementById('inceptive-cw-script').setAttribute('unique-url', tarteaucitron.user.robofabricaUuid);
+            document.getElementById('inceptive-cw-script').setAttribute('label', 'start');
+            document.getElementById('inceptive-cw-script').setAttribute('launch-btn-id', 'inceptive-cw-launch');
+            document.getElementById('inceptive-cw-script').setAttribute('chat-server-url', 'https://app.robofabrica.tech:443');
+
+        });
+    }
+};
+
 // trustpilot
 tarteaucitron.services.trustpilot = {
     "key": "trustpilot",
@@ -4381,7 +4492,11 @@ tarteaucitron.services.matomocloud = {
             this.setVisitorCookieTimeout(getOriginalVisitorCookieTimeout());
         }]);
 
-        tarteaucitron.addScript('https://cdn.matomo.cloud/matomo.js', '', '', true, 'defer', true);
+        if (tarteaucitron.user.matomoCustomJSPath === undefined) {
+            tarteaucitron.addScript('https://cdn.matomo.cloud/matomo.js', '', '', true, 'defer', true);
+        } else {
+            tarteaucitron.addScript(tarteaucitron.user.matomoCustomJSPath, '', '', true, 'defer', true);
+        }
 
         // waiting for Matomo to be ready to check first party cookies
         var interval = setInterval(function () {

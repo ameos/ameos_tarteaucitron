@@ -542,6 +542,8 @@ ameos {
 				matomoId =
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Cloud Hostname
 				matomoHost =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Cloud Custom Js Path
+				matomoCustomJSPath =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Matomo (privacy by design)
 			matomo = 0
@@ -842,6 +844,37 @@ ameos {
 			matomotm {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Matomo Tag Manager Url
 				matomomtUrl =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Kwanko
+			kwanko = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Lead Forensics
+			leadforensics = 0
+			leadforensics {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Lead Forensics ID
+				leadforensicsId  =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Ubib Chatbot
+			ubib = 0
+			ubib {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Ubib Chatbot Id
+				ubibId  =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Wysistat (privacy by design)
+			wysistathightrack = 0
+			wysistathightrack {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Wysistat Nom (privacy by design)
+				wysistatNom  =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Robo Fabrica Chatbot
+			robofabrica = 0
+			robofabrica {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Robo Fabrica Chatbot Uuid
+				robofabricaUuid  =
 			}
 		}
 	}
