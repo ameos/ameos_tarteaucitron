@@ -673,7 +673,7 @@ ameos {
 			marketomunchkin = 0
 			marketomunchkin{
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin Key
-				marketomunchkinkey  =
+				marketomunchkinkey =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Outbrain
@@ -683,7 +683,7 @@ ameos {
 			affilae = 0
 			affilae{
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Affilae Pid
-				pid  =
+				pid =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Canal-U.tv
@@ -853,28 +853,55 @@ ameos {
 			leadforensics = 0
 			leadforensics {
 				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Lead Forensics ID
-				leadforensicsId  =
+				leadforensicsId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Ubib Chatbot
 			ubib = 0
 			ubib {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Ubib Chatbot Id
-				ubibId  =
+				ubibId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Wysistat (privacy by design)
 			wysistathightrack = 0
 			wysistathightrack {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Wysistat Nom (privacy by design)
-				wysistatNom  =
+				wysistatNom =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Robo Fabrica Chatbot
 			robofabrica = 0
 			robofabrica {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Robo Fabrica Chatbot Uuid
-				robofabricaUuid  =
+				robofabricaUuid =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Eulerian
+			eulerian = 0
+			eulerian {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Eulerian (Host)
+				eulerianHost =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Posthog
+			posthog = 0
+			posthog {
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Posthog (Api Key)
+				posthogApiKey  =
+			}
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Signin
+			googlesignin = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Calendly
+			calendly = 0
+
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=tolk.ai
+			tolkai = 0
+			tolkai {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=tolk.ai (Bot)
+				tolkaiBot =
 			}
 		}
 	}

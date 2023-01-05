@@ -114,3 +114,12 @@ function AmeosSnapchatMore(){
         clickyloaded.initEvent("snapchat-loaded", true, true);
     }
 }
+
+function matomoMore(){
+    if(typeof(Event) === 'function') {
+        matomoMore = new Event("matomo-loaded");
+    }else{
+        matomoMore = document.createEvent('Event');
+        matomoMore.initEvent("matomo-loaded", true, true);
+    }   
+}
