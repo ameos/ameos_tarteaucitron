@@ -1092,6 +1092,7 @@ page {
                 value (
                     tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomo.matomoId}';
                     tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomo.matomoHost}';
+                    tarteaucitron.user.matomoMore = 'matomoMore';
                     (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.matomo}
@@ -1328,7 +1329,7 @@ page {
             1430 = TEXT
             1430 {
                 value (
-                    tarteaucitron.user.marketomunchkinkey  = '{$ameos.tarteaucitron.services.marketomunchkin.marketomunchkinkey }';
+                    tarteaucitron.user.marketomunchkinkey = '{$ameos.tarteaucitron.services.marketomunchkin.marketomunchkinkey }';
                     (tarteaucitron.job = tarteaucitron.job || []).push('marketomunchkin');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.marketomunchkin}
@@ -1524,7 +1525,7 @@ page {
             1650 = TEXT
             1650 {
                 value (
-                    tarteaucitron.user.tiktokId  = '{$ameos.tarteaucitron.services.tiktok.tiktokId}';
+                    tarteaucitron.user.tiktokId = '{$ameos.tarteaucitron.services.tiktok.tiktokId}';
                     tarteaucitron.user.tiktokMore = AmeosTiktokMore;
                     (tarteaucitron.job = tarteaucitron.job || []).push('tiktok');
 
@@ -1535,7 +1536,7 @@ page {
             1660 = TEXT
             1660 {
                 value (
-                    tarteaucitron.user.klaviyoCompanyId   = '{$ameos.tarteaucitron.services.klaviyo.klaviyoCompanyId}';
+                    tarteaucitron.user.klaviyoCompanyId = '{$ameos.tarteaucitron.services.klaviyo.klaviyoCompanyId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('klaviyo');
 
                 )
@@ -1545,7 +1546,7 @@ page {
             1670 = TEXT
             1670 {
                 value (
-                    tarteaucitron.user.arcId   = '{$ameos.tarteaucitron.services.arcio.arcId}';
+                    tarteaucitron.user.arcId = '{$ameos.tarteaucitron.services.arcio.arcId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('arcio');
 
                 )
@@ -1564,7 +1565,7 @@ page {
             1690 = TEXT
             1690 {
                 value (
-                    tarteaucitron.user.googleadsId   = '{$ameos.tarteaucitron.services.googleads.googleadsId}';
+                    tarteaucitron.user.googleadsId = '{$ameos.tarteaucitron.services.googleads.googleadsId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('googleads');
 
                 )
@@ -1574,7 +1575,7 @@ page {
             1700 = TEXT
             1700 {
                 value (
-                    tarteaucitron.user.adsensecapub   = '{$ameos.tarteaucitron.services.adsenseauto.adsensecapub}';
+                    tarteaucitron.user.adsensecapub = '{$ameos.tarteaucitron.services.adsenseauto.adsensecapub}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('adsenseauto');
 
                 )
@@ -1593,7 +1594,7 @@ page {
             1720 = TEXT
             1720 {
                 value (
-                    tarteaucitron.user.plausibleDomain   = '{$ameos.tarteaucitron.services.plausible.plausibleDomain}';
+                    tarteaucitron.user.plausibleDomain = '{$ameos.tarteaucitron.services.plausible.plausibleDomain}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('plausible');
 
                 )
@@ -1621,7 +1622,7 @@ page {
             1750 = TEXT
             1750 {
                 value (
-                    tarteaucitron.user.snapchatId   = '{$ameos.tarteaucitron.services.snapchat.snapchatId}';
+                    tarteaucitron.user.snapchatId = '{$ameos.tarteaucitron.services.snapchat.snapchatId}';
                     tarteaucitron.user.snapchatMore = AmeosSnapchatMore;
                     (tarteaucitron.job = tarteaucitron.job || []).push('snapchat');
 
@@ -1632,7 +1633,7 @@ page {
             1760 = TEXT
             1760 {
                 value (
-                    tarteaucitron.user.snapchatId   = '{$ameos.tarteaucitron.services.matomotm.matomomtUrl}';
+                    tarteaucitron.user.snapchatId = '{$ameos.tarteaucitron.services.matomotm.matomomtUrl}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('matomotm');
 
                 )
@@ -1651,7 +1652,7 @@ page {
             1780 = TEXT
             1780 {
                 value (
-                    tarteaucitron.user.leadforensicsId   = '{$ameos.tarteaucitron.services.leadforensics.leadforensicsId}';
+                    tarteaucitron.user.leadforensicsId = '{$ameos.tarteaucitron.services.leadforensics.leadforensicsId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('leadforensics');
 
                 )
@@ -1661,7 +1662,7 @@ page {
             1790 = TEXT
             1790 {
                 value (
-                    tarteaucitron.user.ubibId   = '{$ameos.tarteaucitron.services.ubib.ubibId}';
+                    tarteaucitron.user.ubibId = '{$ameos.tarteaucitron.services.ubib.ubibId}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('leadforensics');
 
                 )
@@ -1671,7 +1672,7 @@ page {
             1800 = TEXT
             1800 {
                 value (
-                    tarteaucitron.user.wysistatNom   = '{$ameos.tarteaucitron.services.wysistathightrack.wysistatNom}';
+                    tarteaucitron.user.wysistatNom = '{$ameos.tarteaucitron.services.wysistathightrack.wysistatNom}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('wysistathightrack');
 
                 )
@@ -1681,14 +1682,60 @@ page {
             1810 = TEXT
             1810 {
                 value (
-                    tarteaucitron.user.robofabricaUuid   = '{$ameos.tarteaucitron.services.robofabrica.robofabricaUuid}';
+                    tarteaucitron.user.robofabricaUuid = '{$ameos.tarteaucitron.services.robofabrica.robofabricaUuid}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('robofabrica');
 
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.robofabrica}
             }
 
-            
+            1820 = TEXT
+            1820 {
+                value (
+                    tarteaucitron.user.eulerianHost = '{$ameos.tarteaucitron.services.eulerian.eulerianHost}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('eulerian');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.eulerian}
+            }
+
+            1830 = TEXT
+            1830 {
+                value (
+                    tarteaucitron.user.posthogApiKey = '{$ameos.tarteaucitron.services.posthog.posthogApiKey}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('posthog');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.posthog}
+            }
+
+            1840 = TEXT
+            1840 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('googlesignin');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.googlesignin}
+            }
+
+            1850 = TEXT
+            1850 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('calendly');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.calendly}
+            }
+
+            1860 = TEXT
+            1860 {
+                value (
+                    tarteaucitron.user.tolkaiBot  = '{$ameos.tarteaucitron.services.tolkai.tolkaiBot}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('tolkai');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.tolkai}
+            }
         }
     }
 }

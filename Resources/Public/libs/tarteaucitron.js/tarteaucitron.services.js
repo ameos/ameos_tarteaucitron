@@ -32,6 +32,101 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// eulerian
+tarteaucitron.services.eulerian = {
+    "key": "eulerian",
+    "type": "analytic",
+    "name": "Eulerian",
+    "uri": "https://www.eulerian.com/rgpd",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.eulerianHost === undefined) {
+            return;
+        }
+
+        (function(e,a){var i=e.length,y=5381,k='script',s=window,v=document,o=v.createElement(k);for(;i;){i-=1;y=(y*33)^e.charCodeAt(i)}y='_EA_'+(y>>>=0);(function(e,a,s,y){s[a]=s[a]||function(){(s[y]=s[y]||[]).push(arguments);s[y].eah=e;};}(e,a,s,y));i=new Date/1E7|0;o.ea=y;y=i%26;o.async=1;o.src='//'+e+'/'+String.fromCharCode(97+y,122-y,65+y)+(i%1E3)+'.js?2';s=v.getElementsByTagName(k)[0];s.parentNode.insertBefore(o,s);})
+        (tarteaucitron.user.eulerianHost,'EA_push');
+        EA_push();
+    }
+};
+
+// posthog
+tarteaucitron.services.posthog = {
+    "key": "posthog",
+    "type": "other",
+    "name": "Posthog",
+    "uri": "https://posthog.com/privacy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.posthogApiKey === undefined || tarteaucitron.user.posthogHost === undefined) {
+            return;
+        }
+
+        !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+
+         posthog.init(tarteaucitron.user.posthogApiKey, {api_host: tarteaucitron.user.posthogHost});
+
+    }
+};
+
+// googlesignin
+tarteaucitron.services.googlesignin = {
+    "key": "googlesignin",
+    "type": "other",
+    "name": "Google Signin",
+    "uri": "https://policies.google.com/technologies/cookies#types-of-cookies",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        tarteaucitron.addScript('https://accounts.google.com/gsi/client');
+    }
+};
+
+// calendly
+tarteaucitron.services.calendly = {
+    "key": "calendly",
+    "type": "other",
+    "name": "Calendly",
+    "uri": "https://calendly.com/privacy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        tarteaucitron.addScript('https://assets.calendly.com/assets/external/widget.js');
+    }
+};
+
+// tolkai
+tarteaucitron.services.tolkai = {
+    "key": "tolkai",
+    "type": "other",
+    "name": "tolk.ai",
+    "uri": "https://www.tolk.ai/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.tolkaiBot === undefined) {
+            return;
+        }
+
+        window.tcfbot = tarteaucitron.user.tolkaiBot;
+        window.TcfWbchtParams = { behaviour: 'default' };
+        window.display = 'iframe';
+        tarteaucitron.addScript('https://script.tolk.ai/iframe-latest.js');
+    }
+};
+
 // kwanko
 tarteaucitron.services.kwanko = {
     "key": "kwanko",
@@ -4371,6 +4466,11 @@ tarteaucitron.services.matomo = {
         window._paq.push(["trackPageView"]);
         window._paq.push(["setIgnoreClasses", ["no-tracking", "colorbox"]]);
         window._paq.push(["enableLinkTracking"]);
+
+        if (typeof tarteaucitron.user.matomoMore === 'function') {
+           tarteaucitron.user.matomoMore();
+        }
+
         window._paq.push([function () {
             var self = this;
             function getOriginalVisitorCookieTimeout() {
@@ -4492,7 +4592,7 @@ tarteaucitron.services.matomocloud = {
             this.setVisitorCookieTimeout(getOriginalVisitorCookieTimeout());
         }]);
 
-        if (tarteaucitron.user.matomoCustomJSPath === undefined) {
+        if (tarteaucitron.user.matomoCustomJSPath === undefined || tarteaucitron.user.matomoCustomJSPath == '') {
             tarteaucitron.addScript('https://cdn.matomo.cloud/matomo.js', '', '', true, 'defer', true);
         } else {
             tarteaucitron.addScript(tarteaucitron.user.matomoCustomJSPath, '', '', true, 'defer', true);
@@ -5041,7 +5141,7 @@ tarteaucitron.services.maps_noapi = {
             var id = x.getAttribute("id"),
                 width = x.getAttribute("width"),
                 height = x.getAttribute("height")
-            var widgetURL = "https://google.com/maps/embed?pb=" + id;
+            var widgetURL = "https://www.google.com/maps/embed?pb=" + id;
             return "<iframe width=\"" + width + "\" height=\"" + height + "\" src=\"" + widgetURL + "\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>";
         });
     },
