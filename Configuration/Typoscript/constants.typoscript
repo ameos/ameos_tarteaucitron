@@ -163,6 +163,8 @@ ameos {
 			analytics {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Google Analytics Account (universal)
 				analyticsUa =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Google Analytics Anonymize IP
+				analyticsAnonymizeIp = true
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Mautic
 			mautic = 0

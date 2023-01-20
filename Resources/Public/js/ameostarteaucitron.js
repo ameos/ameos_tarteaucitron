@@ -34,6 +34,15 @@ function AmeosTacMapscallback(){
     }
 }
 
+function AmeosTacAnalyticsPrepare(){
+    if(typeof(Event) === 'function') {
+        analyticsprepare = new Event("analytics-prepare");
+    }else{
+        analyticsprepare = document.createEvent('Event');
+        analyticsprepare.initEvent("analytics-prepare", true, true);
+    }
+}
+
 function AmeosTacAnalyticsMore(){
 	if(typeof(Event) === 'function') {
         analyticsloaded = new Event("analytics-loaded");
