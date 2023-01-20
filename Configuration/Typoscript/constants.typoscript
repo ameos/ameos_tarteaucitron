@@ -905,6 +905,24 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=tolk.ai (Bot)
 				tolkaiBot =
 			}
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Active Campaign 2023
+			activecampaignvgo = 0
+			activecampaignvgo{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Active Campaign 2023 Account
+				activecampaignAccount =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=sendinblue
+			sendinblue = 0
+			sendinblue{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=sendinblue Key
+				sendinblueKey =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Collect Chat
+			collectchat = 0
+			collectchat{
+				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Collect Chat Id
+				collectchatId =
+			}
 		}
 	}
 }

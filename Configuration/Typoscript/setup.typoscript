@@ -1738,6 +1738,36 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.tolkai}
             }
+
+            1870 = TEXT
+            1870 {
+                value (
+                    tarteaucitron.user.activecampaignAccount  = '{$ameos.tarteaucitron.services.activecampaignvgo.activecampaignAccount}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('activecampaignvgo');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.activecampaignvgo}
+            }
+
+            1880 = TEXT
+            1880 {
+                value (
+                    tarteaucitron.user.sendinblueKey  = '{$ameos.tarteaucitron.services.sendinblue.sendinblueKey}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('sendinblue');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.sendinblue}
+            }
+
+            1890 = TEXT
+            1890 {
+                value (
+                    tarteaucitron.user.collectchatId  = '{$ameos.tarteaucitron.services.collectchat.collectchatId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('collectchat');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.collectchat}
+            }
         }
     }
 }
