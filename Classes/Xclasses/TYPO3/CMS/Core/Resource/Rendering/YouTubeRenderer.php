@@ -47,9 +47,27 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
 
         $videoId = $this->getOnlineMediaHelper($file)->getOnlineMediaId($orgFile);
         $attributes = $this->collectIframeAttributes($width, $height, $options);
-
+        if($attributes['class'] ?? false){
+            $attributes['class'] .= ' youtube_player';
+        }else{
+            $attributes['class'] .= ' youtube_player';
+        }
+        if($attributes['allowfullscreen'] ?? false){
+            unset($attributes['allowfullscreen']);
+        }
+        if($attributes['allow'] ?? false){
+            unset($attributes['allow']);
+        }
+        if($attributes['width'] ?? false){
+            $attributes['data-width'] = $attributes['width'];
+            unset($attributes['width']);
+        }
+        if($attributes['height'] ?? false){
+            $attributes['data-height'] = $attributes['height'];
+            unset($attributes['height']);
+        }
         return sprintf(
-            '<div class="youtube_player" data-videoID="%s"%s></div>',
+            '<div data-videoID="%s"%s></div>',
             $videoId,
             empty($attributes) ? '' : ' ' . $this->implodeAttributes($attributes)
         );
