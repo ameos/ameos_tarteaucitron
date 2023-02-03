@@ -913,15 +913,29 @@ ameos {
 			}
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=sendinblue
 			sendinblue = 0
-			sendinblue{
+			sendinblue {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=sendinblue Key
 				sendinblueKey =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Collect Chat
 			collectchat = 0
-			collectchat{
+			collectchat {
 				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Collect Chat Id
 				collectchatId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Force24
+			force24 = 0
+			force24 {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Force24 Tracking Id
+				force24trackingId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Tiktok Video
+			tiktokvideo = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Shinystat
+			shinystat = 0
+			shinystat {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Shinystat User
+				shinystatUser =
 			}
 		}
 	}

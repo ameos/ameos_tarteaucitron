@@ -1768,6 +1768,35 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.collectchat}
             }
+
+            1900 = TEXT
+            1900 {
+                value (
+                    tarteaucitron.user.force24trackingId  = '{$ameos.tarteaucitron.services.force24.force24trackingId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('force24');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.force24}
+            }
+
+            1910 = TEXT
+            1910 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('tiktokvideo');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.tiktokvideo}
+            }
+
+            1920 = TEXT
+            1920 {
+                value (
+                    tarteaucitron.user.shinystatUser  = '{$ameos.tarteaucitron.services.force24.shinystatUser}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('shinystat');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.shinystat}
+            }
         }
     }
 }
