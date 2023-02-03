@@ -37,6 +37,74 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// force24
+tarteaucitron.services.force24 = {
+    "key": "force24",
+    "type": "analytic",
+    "name": "Force24",
+    "uri": "https://support.force24.co.uk/support/solutions/articles/79000128057-cookie-policies",
+    "needConsent": true,
+    "cookies": ['F24_autoID', 'F24_personID'],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.force24trackingId === undefined || tarteaucitron.user.force24clientId === undefined) {
+            return;
+        }
+
+        window.Force24Object = "f24", window["f24"] = window["f24"] || function() {
+            window["f24"].q = window["f24"].q || [],
+                window["f24"].q.push(arguments)
+        }, window["f24"].l = 1 * new Date;
+
+        tarteaucitron.addScript('https://static.websites.data-crypt.com/scripts/activity/v3/inject-v3.min.js');
+
+        f24('config', 'set_tracking_id', tarteaucitron.user.force24trackingId);
+        f24('config', 'set_client_id', tarteaucitron.user.force24clientId);
+    }
+};
+
+// tiktokvideo
+tarteaucitron.services.tiktokvideo = {
+    "key": "tiktokvideo",
+    "type": "video",
+    "name": "Tiktok Video",
+    "uri": "https://www.tiktok.com/legal/page/eea/privacy-policy/en",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        tarteaucitron.addScript('https://www.tiktok.com/embed.js');
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'tiktokvideo';
+        tarteaucitron.fallback(['tiktok-embed'], function (elem) {
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// shinystat
+tarteaucitron.services.shinystat = {
+    "key": "shinystat",
+    "type": "analytic",
+    "name": "Shinystat",
+    "uri": "https://www.shinystat.com/en/opt-out.html",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.shinystatUser === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://codice.shinystat.com/cgi-bin/getcod.cgi?USER=' + tarteaucitron.user.shinystatUser);
+    }
+};
+
 // activecampaignvgo
 tarteaucitron.services.activecampaignvgo = {
     "key": "activecampaignvgo",
@@ -1875,9 +1943,9 @@ tarteaucitron.services.deezer = {
     }
 };
 
-// leadforensics
-tarteaucitron.services.leadforensics = {
-    "key": "leadforensics",
+// leadforensicsold
+tarteaucitron.services.leadforensicsold = {
+    "key": "leadforensicsold",
     "type": "analytic",
     "name": "LeadForensics",
     "uri": "https://www.leadforensics.com/privacy-policy/",
@@ -4312,7 +4380,7 @@ tarteaucitron.services.linkedininsighttag = {
     "name": "Linkedin Insight",
     "uri": "https://www.linkedin.com/legal/cookie_policy",
     "needConsent": true,
-    "cookies": [],
+    "cookies": ['li_fat_id'],
     "js": function () {
         "use strict";
         if (tarteaucitron.user.linkedininsighttag !== undefined) {
