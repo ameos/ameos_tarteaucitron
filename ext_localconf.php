@@ -1,5 +1,5 @@
 <?php
-defined('TYPO3_MODE') or die('Access denied.');
+defined('TYPO3') or defined('TYPO3_MODE') or die('Access denied.');
 
 if(!defined('TYPO3_version')) {
     $typo3VersionClass = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
