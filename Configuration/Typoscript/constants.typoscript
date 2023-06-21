@@ -937,6 +937,42 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Shinystat User
 				shinystatUser =
 			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=ActiSTAT
+			actistat = 0
+			actistat {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=ActiSTAT Id
+				actistatId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Outbrain Amplify
+			outbrainamplify = 0
+			outbrainamplify {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Outbrain Amplify Id
+				outbrainamplifyId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=PlayPlay
+			playplay = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace
+			adobeworkspace = 0
+			adobeworkspace {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace ID1
+				adobeworkspaceId1 =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace ID2
+				adobeworkspaceId2 =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace ID3
+				adobeworkspaceId3 =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Zoho PageSense
+			zohopagesense = 0
+			zohopagesense {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Zoho PageSense Project ID
+				zohoPageSenseProjectId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Leadinfo
+			leadinfo = 0
+			leadinfo {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Leadinfo ID
+				leadinfoId =
+			}
 		}
 	}
 }
