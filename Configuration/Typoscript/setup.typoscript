@@ -1055,16 +1055,6 @@ page {
                 if.isTrue = {$ameos.tarteaucitron.services.koban}
             }
 
-            1140 = TEXT
-            1140 {
-                value (
-                    tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomohightrack.matomoId}';
-                    tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomohightrack.matomoHost}';
-                    (tarteaucitron.job = tarteaucitron.job || []).push('matomohightrack');
-                )
-                if.isTrue = {$ameos.tarteaucitron.services.matomohightrack}
-            }
-
             1145 = COA
             1145 {
                 
@@ -1087,17 +1077,6 @@ page {
                 }
 
                 stdWrap.if.isTrue = {$ameos.tarteaucitron.services.matomocloud}
-            }
-
-            1150 = TEXT
-            1150 {
-                value (
-                    tarteaucitron.user.matomoId = '{$ameos.tarteaucitron.services.matomo.matomoId}';
-                    tarteaucitron.user.matomoHost = '{$ameos.tarteaucitron.services.matomo.matomoHost}';
-                    tarteaucitron.user.matomoMore = 'matomoMore';
-                    (tarteaucitron.job = tarteaucitron.job || []).push('matomo');
-                )
-                if.isTrue = {$ameos.tarteaucitron.services.matomo}
             }
 
             1160 = TEXT
@@ -1796,6 +1775,63 @@ page {
 
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.shinystat}
+            }
+
+            1930 = TEXT
+            1930 {
+                value (
+                    tarteaucitron.user.actistatId = '{$ameos.tarteaucitron.services.actistat.actistatId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('actistat');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.actistat}
+            }
+
+            1940 = TEXT
+            1940 {
+                value (
+                    tarteaucitron.user.outbrainamplifyId = '{$ameos.tarteaucitron.services.outbrainamplify.outbrainamplifyId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('outbrainamplify');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.outbrainamplify}
+            }
+            1950 = TEXT
+            1950 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('playplay');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.playplay}
+            }
+            1960 = TEXT
+            1960 {
+                value (
+                    tarteaucitron.user.adobeworkspaceId1 = '{$ameos.tarteaucitron.services.adobeworkspace.adobeworkspaceId1}';
+                    tarteaucitron.user.adobeworkspaceId2 = '{$ameos.tarteaucitron.services.adobeworkspace.adobeworkspaceId2}';
+                    tarteaucitron.user.adobeworkspaceId3  = '{$ameos.tarteaucitron.services.adobeworkspace.adobeworkspaceId3}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('adobeworkspace');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.adobeworkspace}
+            }
+            1960 = TEXT
+            1960 {
+                value (
+                    tarteaucitron.user.zohoPageSenseProjectId = '{$ameos.tarteaucitron.services.zohopagesense.zohoPageSenseProjectId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('zohopagesense');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.zohopagesense}
+            }
+            1970 = TEXT
+            1970 {
+                value (
+                    tarteaucitron.user.leadinfoId = '{$ameos.tarteaucitron.services.leadinfo.leadinfoId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('leadinfo');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.leadinfo}
             }
         }
     }
