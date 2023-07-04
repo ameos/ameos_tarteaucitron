@@ -37,6 +37,84 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// eskimi
+tarteaucitron.services.eskimi = {
+    "key": "eskimi",
+    "type": "ads",
+    "name": "Eskimi",
+    "uri": "https://fr.eskimi.com/privacy-policy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.eskimiInit === undefined) {
+            return;
+        }
+
+        window.___esk = window.esk = function () {
+            window.___esk.callMethod ? window.___esk.callMethod.apply(window.___esk, arguments) : window.___esk.queue.push(arguments);
+        };
+        window.___esk.push = window.___esk;
+        window.___esk.loaded = true;
+        window.___esk.queue = [];
+
+        tarteaucitron.addScript("https://dsp-media.eskimi.com/assets/js/e/gtr.min.js", '', function () {
+            esk('init', tarteaucitron.user.eskimiInit);
+        });
+    }
+};
+
+// sharethissticky
+tarteaucitron.services.sharethissticky = {
+    "key": "sharethissticky",
+    "type": "social",
+    "name": "ShareThis Sticky",
+    "uri": "https://sharethis.com/fr/privacy/",
+    "needConsent": true,
+    "cookies": ['_stid','_stidv','pubconsent'],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.sharethisStickyProperty === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript("https://platform-api.sharethis.com/js/sharethis.js#property=" + tarteaucitron.user.sharethisStickyProperty + "&product=sticky-share-buttons");
+    }
+};
+
+// pianoanalytics
+tarteaucitron.services.pianoanalytics = {
+    "key": "pianoanalytics",
+    "type": "analytic",
+    "name": "Piano Analytics",
+    "uri": "https://piano.io/privacy-policy/",
+    "needConsent": true,
+    "cookies": ['_pcid','_pctx','_pctx','pa_user', 'pa_privacy'],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.pianoCollectDomain === undefined || tarteaucitron.user.pianoSite === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript("https://tag.aticdn.net/piano-analytics.js", '', function () {
+
+            pa.setConfigurations({
+                site: tarteaucitron.user.pianoSite,
+                collectDomain: tarteaucitron.user.pianoCollectDomain
+            });
+
+            if (tarteaucitron.user.pianoSendData !== false) {
+                pa.sendEvent('page.display', {
+                    'page': document.title
+                });
+            }
+        });
+    }
+};
+
 // actistat
 tarteaucitron.services.actistat = {
     "key": "actistat",
@@ -1723,7 +1801,7 @@ tarteaucitron.services.compteur = {
 // contentsquare
 tarteaucitron.services.contentsquare = {
     "key": "contentsquare",
-    "type": "api",
+    "type": "analytic",
     "name": "ContentSquare",
     "uri": "https://docs.contentsquare.com/uxa-en/#collected-data",
     "needConsent": true,
@@ -5838,7 +5916,7 @@ tarteaucitron.services.webtvnu = {
 // studizz
 tarteaucitron.services.studizz = {
     "key": "studizz",
-    "type": "other",
+    "type": "support",
     "name": "Studizz Chatbot",
     "uri": "https://group.studizz.fr/",
     "needConsent": true,

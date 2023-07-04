@@ -694,9 +694,10 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=WebTV Normandie Université
 			webtvnu = 0
 
-			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Studizz
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Studizz
 			studizz = 0
 			studizz{
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Studizz Token
 				token =
 			}
 
@@ -972,6 +973,27 @@ ameos {
 			leadinfo {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Leadinfo ID
 				leadinfoId =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Eskimit
+			eskimi = 0
+			eskimi {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Eskimit Init
+				eskimiInit =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=ShareThis Sticky
+			sharethissticky = 0
+			sharethissticky {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=ShareThis Sticky Property
+				sharethisStickyProperty =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piano Analytics
+			pianoanalytics = 0
+			pianoanalytics {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piano Analytics Site (int)
+				pianoSite =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piano Analytics SendData (true/false)
+				pianoCollectDomain = 
+				pianoSendData = false
 			}
 		}
 	}

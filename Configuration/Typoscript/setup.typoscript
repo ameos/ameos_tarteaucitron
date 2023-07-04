@@ -1833,6 +1833,33 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.leadinfo}
             }
+            1980 = TEXT
+            1980 {
+                value (
+                    tarteaucitron.user.eskimiInit = '{$ameos.tarteaucitron.services.eskimi.eskimiInit}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('eskimi');
+
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.eskimi}
+            }
+            1990 = TEXT
+            1990 {
+                value (
+                    tarteaucitron.user.sharethisStickyProperty  = '{$ameos.tarteaucitron.services.sharethissticky.sharethisStickyProperty}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('sharethissticky');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.sharethissticky}
+            }
+            2000 = TEXT
+            2000 {
+                value (
+                    tarteaucitron.user.pianoSite = {$ameos.tarteaucitron.services.pianoanalytics.pianoSite};
+                    tarteaucitron.user.pianoCollectDomain = '{$ameos.tarteaucitron.services.pianoanalytics.pianoCollectDomain}';
+                    tarteaucitron.user.pianoSendData  = {$ameos.tarteaucitron.services.pianoanalytics.pianoSendData};
+                    (tarteaucitron.job = tarteaucitron.job || []).push('pianoanalytics');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.pianoanalytics}
+            }
         }
     }
 }
