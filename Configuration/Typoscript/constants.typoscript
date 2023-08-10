@@ -995,6 +995,8 @@ ameos {
 				pianoCollectDomain = 
 				pianoSendData = false
 			}
+			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Twitch
+			twitch = 0
 		}
 	}
 }

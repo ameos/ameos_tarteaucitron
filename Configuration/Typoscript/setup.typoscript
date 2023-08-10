@@ -1860,6 +1860,13 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.pianoanalytics}
             }
+            2010 = TEXT
+            2010 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('twitch');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.twitch}
+            }
         }
     }
 }
