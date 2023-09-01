@@ -47,22 +47,22 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
 
         $videoId = $this->getOnlineMediaHelper($file)->getOnlineMediaId($orgFile);
         $attributes = $this->collectIframeAttributes($width, $height, $options);
-        if($attributes['class'] ?? false){
+        if(array_key_exists('class',$attributes) && $attributes['class'] ?? false){
             $attributes['class'] .= ' youtube_player';
         }else{
-            $attributes['class'] .= ' youtube_player';
+            $attributes['class'] = ' youtube_player';
         }
-        if($attributes['allowfullscreen'] ?? false){
+        if(array_key_exists('allowfullscreen',$attributes) && $attributes['allowfullscreen'] ?? false){
             unset($attributes['allowfullscreen']);
         }
-        if($attributes['allow'] ?? false){
+        if(array_key_exists('allow',$attributes) && $attributes['allow'] ?? false){
             unset($attributes['allow']);
         }
-        if($attributes['width'] ?? false){
+        if(array_key_exists('width',$attributes) && $attributes['width'] ?? false){
             $attributes['data-width'] = $attributes['width'];
             unset($attributes['width']);
         }
-        if($attributes['height'] ?? false){
+        if(array_key_exists('height',$attributes) && $attributes['height'] ?? false){
             $attributes['data-height'] = $attributes['height'];
             unset($attributes['height']);
         }
