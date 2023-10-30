@@ -24,6 +24,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Group services by category : true/false
 		groupServices = false
 
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show service detail on click : true/false
+		showDetailsOnClick = true
+
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Display a message if an adblocker is found : true/false
 		adblocker = false
 
@@ -997,6 +1000,12 @@ ameos {
 			}
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Twitch
 			twitch = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Equativ
+			equativ = 0
+			equativ{
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Equativ Id
+				equativId = 
+			}
 		}
 	}
 }
