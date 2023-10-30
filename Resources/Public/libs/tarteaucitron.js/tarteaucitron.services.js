@@ -37,6 +37,25 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// equativ
+tarteaucitron.services.equativ = {
+    "key": "equativ",
+    "type": "ads",
+    "name": "Equativ",
+    "uri": "https://equativ.com/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.equativId === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://ced.sascdn.com/tag/' + tarteaucitron.user.equativId + '/smart.js');
+    }
+};
+
 // twitch
 tarteaucitron.services.twitch = {
     "key": "twitch",
@@ -386,12 +405,12 @@ tarteaucitron.services.activecampaignvgo = {
     }
 };
 
-// sendinblue
+// Brevo (formerly sendinblue)
 tarteaucitron.services.sendinblue = {
     "key": "sendinblue",
     "type": "other",
-    "name": "sendinblue",
-    "uri": "https://fr.sendinblue.com/legal/cookies/",
+    "name": "Brevo (formerly sendinblue)",
+    "uri": "https://www.brevo.com/fr/legal/cookies/",
     "needConsent": true,
     "cookies": [],
     "js": function () {
@@ -991,7 +1010,7 @@ tarteaucitron.services.plezi = {
             return;
         }
 
-        tarteaucitron.addScript('https://app.plezi.co/scripts/ossleads_analytics.js?tenant=' + tarteaucitron.user.pleziTenant + '&tw=' + tarteaucitron.user.pleziTw);
+        tarteaucitron.addScript('https://brain.plezi.co/api/v1/analytics?tenant=' + tarteaucitron.user.pleziTenant + '&tw=' + tarteaucitron.user.pleziTw);
     }
 };
 
@@ -3324,12 +3343,14 @@ tarteaucitron.services.recaptcha = {
         window.tacRecaptchaOnLoad = tarteaucitron.user.recaptchaOnLoad || function () { };
         tarteaucitron.fallback(['g-recaptcha'], '');
 
-        if (tarteaucitron.user.recaptchaapi === undefined) {
-            tarteaucitron.addScript('https://www.google.com/recaptcha/api.js?onload=tacRecaptchaOnLoad');
-        } else {
-            tarteaucitron.addScript('https://www.google.com/recaptcha/api.js?onload=tacRecaptchaOnLoad&render=' + tarteaucitron.user.recaptchaapi);
+        let url = 'https://www.google.com/recaptcha/api.js?onload=tacRecaptchaOnLoad';
+        if (tarteaucitron.user.recaptchaapi !== undefined) {
+            url += '&render=' + tarteaucitron.user.recaptchaapi;
         }
-
+        if (tarteaucitron.user.recaptcha_hl !== undefined) {
+            url += '&hl=' + tarteaucitron.user.recaptcha_hl;
+        }
+        tarteaucitron.addScript(url);
     },
     "fallback": function () {
         "use strict";

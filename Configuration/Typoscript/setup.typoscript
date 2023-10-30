@@ -39,6 +39,7 @@ page {
                         "bodyPosition": "{$ameos.tarteaucitron.bodyPosition}", /* bodyPosition (top - bottom) */
 
                         "groupServices": {$ameos.tarteaucitron.groupServices}, /* Group services by category */
+                        "showDetailsOnClick": {$ameos.tarteaucitron.showDetailsOnClick}, /* Group services by category */
 
                         "showAlertSmall": {$ameos.tarteaucitron.showAlertSmall}, /* Show the small banner on bottom right */
                         "cookieslist": {$ameos.tarteaucitron.cookieslist}, /* Show the cookie list */
@@ -1866,6 +1867,14 @@ page {
                     (tarteaucitron.job = tarteaucitron.job || []).push('twitch');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.twitch}
+            }
+            2020 = TEXT
+            2020 {
+                value (
+                    tarteaucitron.user.equativId  = '{$ameos.tarteaucitron.services.equativ.equativId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('equativ');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.equativ}
             }
         }
     }
