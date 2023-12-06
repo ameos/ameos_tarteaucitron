@@ -1083,6 +1083,8 @@ page {
             1160 = TEXT
             1160 {
                 value (
+                    tarteaucitron.user.hotjarId = {$ameos.tarteaucitron.services.hotjar.hotjarId};
+                    tarteaucitron.user.HotjarSv = {$ameos.tarteaucitron.services.hotjar.HotjarSv};
                     (tarteaucitron.job = tarteaucitron.job || []).push('hotjar');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.hotjar}
