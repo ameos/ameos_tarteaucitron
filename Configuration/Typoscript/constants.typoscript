@@ -560,6 +560,12 @@ ameos {
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Hotjar
 			hotjar = 0
+			hotjar {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=HotjarId
+				hotjarId =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=HotjarSv
+				HotjarSv = 
+			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Bing Ads Universal Event Tracking
 			bingads = 0
 			bingads {
