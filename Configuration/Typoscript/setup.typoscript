@@ -2,6 +2,7 @@ page {
 
     includeJSFooter {
         tarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron.js/tarteaucitron.js
+        tarteaucitron.if.isFalse = {$ameos.tarteaucitron.minified}
         /*
         IMPORTANT ! CONCATENATION AND COMPRESSION ARE DISABLED BECAUSE TAC LOAD ITS OWN SCRIPT FROM IT'S PATH
         */
@@ -10,6 +11,10 @@ page {
             excludeFromConcatenation = 1
             disableCompression = 1
         }
+        tarteaucitronminified < .tarteaucitron
+        tarteaucitronminified = EXT:ameos_tarteaucitron/Resources/Public/libs/tarteaucitron.js/tarteaucitron.min.js
+        tarteaucitronminified.if.isFalse >
+        tarteaucitronminified.if.isTrue = {$ameos.tarteaucitron.minified}
         ameostarteaucitron = EXT:ameos_tarteaucitron/Resources/Public/js/ameostarteaucitron.js
     }
 
@@ -1877,6 +1882,47 @@ page {
                     (tarteaucitron.job = tarteaucitron.job || []).push('equativ');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.equativ}
+            }
+            2030 = TEXT
+            2030 {
+                value (
+                    tarteaucitron.user.screebId  = '{$ameos.tarteaucitron.services.screeb.screebId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('screeb');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.screeb}
+            }
+            2040 = TEXT
+            2040 {
+                value (
+                    tarteaucitron.user.pipedriveCompany  = '{$ameos.tarteaucitron.services.pipedrive.pipedriveCompany}';
+                    tarteaucitron.user.pipedrivePlaybook  = '{$ameos.tarteaucitron.services.pipedrive.pipedrivePlaybook}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('pipedrive');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.pipedrive}
+            }
+            2050 = TEXT
+            2050 {
+                value (
+                    tarteaucitron.user.dynatraceJSPath  = '{$ameos.tarteaucitron.services.dynatrace.dynatraceJSPath}';
+                    tarteaucitron.user.dynatraceConfig  = '{$ameos.tarteaucitron.services.dynatrace.dynatraceConfig}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('dynatrace');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.dynatrace}
+            }
+            2060 = TEXT
+            2060 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('mixpanel');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.mixpanel}
+            }
+            2070 = TEXT
+            2070 {
+                value (
+                    tarteaucitron.user.freshsalescrmId  = '{$ameos.tarteaucitron.services.freshsalescrm.freshsalescrmId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('freshsalescrm');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.freshsalescrm}
             }
         }
     }
