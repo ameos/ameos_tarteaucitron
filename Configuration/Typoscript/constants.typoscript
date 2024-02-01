@@ -78,6 +78,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Read more Page Id
 		readmoreLinkPageId =
 
+		#cat=plugin.ameos_tarteaucitron.init; type=bool; label=Minified Version of main script
+		minified = 0
+
 		services {
 			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Google jsapi
 			jsapi = 0
@@ -1011,6 +1014,36 @@ ameos {
 			equativ{
 				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Equativ Id
 				equativId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Screeb
+			screeb = 0
+			screeb{
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Screeb Id
+				screebId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Pipedrive
+			pipedrive = 0
+			pipedrive{
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Pipedrive Company
+				pipedriveCompany = 
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Pipedrive Playbook
+				pipedrivePlaybook = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Dynatrace
+			dynatrace = 0
+			dynatrace{
+				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Dynatrace JS Path
+				dynatraceJSPath = 
+				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Dynatrace Config
+				dynatraceConfig = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Mixpanel
+			mixpanel = 0
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=FreshSales (CRM)
+			freshsalescrm = 0
+			freshsalescrm{
+				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=FreshSales (CRM)
+				freshsalescrmId = 
 			}
 		}
 	}

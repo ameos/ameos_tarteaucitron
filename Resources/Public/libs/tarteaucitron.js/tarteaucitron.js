@@ -1,8 +1,10 @@
 /*jslint browser: true, evil: true */
+/* min ready */
 
 var scripts = document.getElementsByTagName('script'),
     path = (document.currentScript || scripts[scripts.length - 1]).src.split('?')[0],
     tarteaucitronForceCDN = (tarteaucitronForceCDN === undefined) ? '' : tarteaucitronForceCDN,
+    tarteaucitronUseMin = (tarteaucitronUseMin === undefined) ? '' : tarteaucitronUseMin,
     cdn = (tarteaucitronForceCDN === '') ? path.split('/').slice(0, -1).join('/') + '/' : tarteaucitronForceCDN,
     alreadyLaunch = (alreadyLaunch === undefined) ? 0 : alreadyLaunch,
     tarteaucitronForceLanguage = (tarteaucitronForceLanguage === undefined) ? '' : tarteaucitronForceLanguage,
@@ -196,9 +198,9 @@ var tarteaucitron = {
         "use strict";
         var cdn = tarteaucitron.cdn,
             language = tarteaucitron.getLanguage(),
-            useJSDelivrMinifiedJS = (cdn.indexOf('cdn.jsdelivr.net') >= 0),
-            pathToLang = cdn + 'lang/tarteaucitron.' + language + (useJSDelivrMinifiedJS ? '.min' : '') + '.js?v=' + tarteaucitron.version,
-            pathToServices = cdn + 'tarteaucitron.services' + (useJSDelivrMinifiedJS ? '.min' : '') + '.js?v=' + tarteaucitron.version,
+            useMinifiedJS = ((cdn.indexOf('cdn.jsdelivr.net') >= 0) || (path.indexOf('.min.') >= 0) || (tarteaucitronUseMin !== '')),
+            pathToLang = cdn + 'lang/tarteaucitron.' + language + (useMinifiedJS ? '.min' : '') + '.js',
+            pathToServices = cdn + 'tarteaucitron.services' + (useMinifiedJS ? '.min' : '') + '.js',
             linkElement = document.createElement('link'),
             defaults = {
                 "adblocker": false,
@@ -259,7 +261,7 @@ var tarteaucitron = {
         if ( !tarteaucitron.parameters.useExternalCss ) {
             linkElement.rel = 'stylesheet';
             linkElement.type = 'text/css';
-            linkElement.href = cdn + 'css/tarteaucitron' + (useJSDelivrMinifiedJS ? '.min' : '') + '.css?v=' + tarteaucitron.version;
+            linkElement.href = cdn + 'css/tarteaucitron' + (useMinifiedJS ? '.min' : '') + '.css';
             document.getElementsByTagName('head')[0].appendChild(linkElement);
         }
         // Step 2: load language and services
@@ -292,7 +294,7 @@ var tarteaucitron = {
                 // css for the popup bar TODO: add it on the css file
                 if (tarteaucitron.orientation === 'popup') {
                     var customThemePopup = document.createElement('style'),
-                        cssRulePopup = 'div#tarteaucitronAlertBig:before {content: \'' + tarteaucitron.lang.middleBarHead + '\';font-size: 22px;}body #tarteaucitronRoot div#tarteaucitronAlertBig {bottom: 0;top: auto!important;left: 8px!important;right: auto!important;transform: initial!important;border-radius: 5px 5px 0 0!important;max-width: 250px!important;width: Calc(100% - 16px)!important;min-width: 0!important;padding: 25px 0;}span#tarteaucitronDisclaimerAlert {padding: 0 30px;font-size: 15px!important;}#tarteaucitronRoot span#tarteaucitronDisclaimerAlert {margin: 10px 0 30px;display: block;text-align: center;font-size: 21px;}div#tarteaucitronAlertBig button {margin: 0 auto 10px!important;display: block!important;width: Calc(100% - 60px);box-sizing: border-box;}';
+                        cssRulePopup = 'div#tarteaucitronAlertBig:before {content: \'' + tarteaucitron.lang.middleBarHead + '\';font-size: 22px;}body #tarteaucitronRoot div#tarteaucitronAlertBig {bottom: 0;top: auto!important;left: 8px!important;right: auto!important;transform: initial!important;border-radius: 5px 5px 0 0!important;max-width: 250px!important;width: calc(100% - 16px)!important;min-width: 0!important;padding: 25px 0;}span#tarteaucitronDisclaimerAlert {padding: 0 30px;font-size: 15px!important;}#tarteaucitronRoot span#tarteaucitronDisclaimerAlert {margin: 10px 0 30px;display: block;text-align: center;font-size: 21px;}div#tarteaucitronAlertBig button {margin: 0 auto 10px!important;display: block!important;width: calc(100% - 60px);box-sizing: border-box;}';
 
                     customThemePopup.type = 'text/css';
                     if (customThemePopup.styleSheet) {
@@ -528,7 +530,7 @@ var tarteaucitron = {
                     html += '</div>';
                 }
 
-                tarteaucitron.addInternalScript(tarteaucitron.cdn + 'advertising' + (useJSDelivrMinifiedJS ? '.min' : '') + '.js?v=' + tarteaucitron.version, '', function () {
+                tarteaucitron.addInternalScript(tarteaucitron.cdn + 'advertising' + (useMinifiedJS ? '.min' : '') + '.js', '', function () {
                     if (tarteaucitronNoAdBlocker === true || tarteaucitron.parameters.adblocker === false) {
 
                         // create a wrapper container at the same level than tarteaucitron so we can add an aria-hidden when tarteaucitron is opened
@@ -787,8 +789,10 @@ var tarteaucitron = {
                     var allowBtnsInSite = document.querySelectorAll(".tarteaucitronAllow:not(#tarteaucitronRoot .tarteaucitronAllow)");
                     for (i = 0; i < allowBtnsInSite.length; i++) {
                         tarteaucitron.addClickEventToElement(allowBtnsInSite[i], function () {
-                            this.closest('.tac_activate').parentNode.setAttribute("tabindex","-1");
-                            this.closest('.tac_activate').parentNode.focus();
+                            if(this.closest('.tac_activate') !== null && this.closest('.tac_activate').parentNode !== null) {
+                                this.closest('.tac_activate').parentNode.setAttribute("tabindex", "-1");
+                                this.closest('.tac_activate').parentNode.focus();
+                            }
                         });
                     }
 
@@ -1404,7 +1408,7 @@ var tarteaucitron = {
             }
             //end ie compatibility
 
-            if (document.getElementById('tarteaucitronAlertBig') !== null) {
+            if (document.getElementById('tarteaucitronAlertBig') !== null && tarteaucitron.parameters.orientation === 'middle') {
                 document.getElementById('tarteaucitronAlertBig').focus();
             }
 
@@ -1657,6 +1661,8 @@ var tarteaucitron = {
 
             d.setTime(expireTime);
             document.cookie = value + '; expires=' + d.toGMTString() + '; path=/' + domain + secure + '; samesite=lax';
+
+            tarteaucitron.sendEvent('tac.consent_updated');
         },
         "read": function () {
             "use strict";
