@@ -66,6 +66,13 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
             $attributes['data-height'] = $attributes['height'];
             unset($attributes['height']);
         }
+        if($attributes['data-height'] || $attributes['data-width']){
+            if(!array_key_exists('style',$attributes)){
+                $attributes['style'] = '';
+            }
+            $attributes['style'] .= ($attributes['data-height']) ? 'height:'.$attributes['data-height'].';' :'';
+            $attributes['style'] .= ($attributes['data-width']) ? 'width:'.$attributes['data-width'].';' :'';
+        }
         return sprintf(
             '<div data-videoID="%s"%s></div>',
             $videoId,
