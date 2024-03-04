@@ -70,8 +70,8 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
             if(!array_key_exists('style',$attributes)){
                 $attributes['style'] = '';
             }
-            $attributes['style'] .= ($attributes['data-height']) ? 'height:'.$attributes['data-height'].';' :'';
-            $attributes['style'] .= ($attributes['data-width']) ? 'width:'.$attributes['data-width'].';' :'';
+            $attributes['style'] .= ($attributes['data-height']) ? 'height:'.$attributes['data-height'].'px;' :'';
+            $attributes['style'] .= ($attributes['data-width']) ? 'width:'.$attributes['data-width'].'px;' :'';
         }
         return sprintf(
             '<div data-videoID="%s"%s></div>',
