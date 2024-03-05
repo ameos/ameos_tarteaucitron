@@ -858,7 +858,7 @@ ameos {
 			matomotm = 0
 			matomotm {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Matomo Tag Manager Url
-				matomomtUrl =
+				matomotmUrl =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Kwanko
