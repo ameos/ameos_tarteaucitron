@@ -1622,7 +1622,7 @@ page {
             1760 = TEXT
             1760 {
                 value (
-                    tarteaucitron.user.snapchatId = '{$ameos.tarteaucitron.services.matomotm.matomomtUrl}';
+                    tarteaucitron.user.matomotmUrl = '{$ameos.tarteaucitron.services.matomotm.matomotmUrl}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('matomotm');
 
                 )
