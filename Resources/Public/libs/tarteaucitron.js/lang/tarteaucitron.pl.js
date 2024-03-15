@@ -80,7 +80,15 @@ tarteaucitron.lang = {
         "title": "Inne",
         "details": "Usługi do wyświetlania treści internetowych."
     },
+
+    "google": {
+        "title": "Specyficzna zgoda na usługi Google",
+        "details": "Google może wykorzystywać Twoje dane do pomiaru zasięgu, wydajności reklamowej lub oferowania spersonalizowanych reklam."
+    },
     
     "mandatoryTitle": "obowiązkowe pliki cookie",
-    "mandatoryText": "Ta strona wykorzystuje pliki cookies niezbędne do jej prawidłowego funkcjonowania, których nie można wyłączyć."
+    "mandatoryText": "Ta strona wykorzystuje pliki cookies niezbędne do jej prawidłowego funkcjonowania, których nie można wyłączyć.",
+
+    "save": "Zapisz",
+    "ourpartners": "Nasi partnerzy"
 };

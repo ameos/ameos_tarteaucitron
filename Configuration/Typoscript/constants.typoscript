@@ -72,8 +72,14 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show a message about mandatory cookies : true/false
 		mandatory = true
 
-		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show the disabled accept button when mandatory on  : true/false
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show the disabled accept button when mandatory on : true/false
 		mandatoryCta = true
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Enable Google Consent Mode v2 for Google ads and GA4 : true/false
+		googleConsentMode = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Details the number of partners on the popup and middle banner : true/false
+		partnersList = false
 
 		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Read more Page Id
 		readmoreLinkPageId =
@@ -1045,6 +1051,24 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=FreshSales (CRM)
 				freshsalescrmId = 
 			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Piximedia
+			piximedia = 0
+			piximedia{
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Piximedia Name
+				piximediaName = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - Analytics
+			gcmanalyticsstorage = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - AdvertisingInstaller
+			gcmadstorage = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - Personalized Advertising
+			gcmadsuserdata = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - Personalization
+			gcmpersonalization = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - Functionality
+			gcmfunctionality = 0
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - Security
+			gcmsecurity = 0
 		}
 	}
 }
