@@ -83,7 +83,15 @@ tarteaucitron.lang = {
         "title": "Muut",
         "details": "Palvelut web-sisältöjen näyttämiseen."
     },
+
+    "google": {
+        "title": "Erityinen suostumus Googlen palveluille",
+        "details": "Google voi käyttää tietojasi yleisön mittaamiseen, mainosvaikutusten arviointiin tai tarjotakseen sinulle personoituja mainoksia."
+    },
     
     "mandatoryTitle": "Tarpeelliset evästeet",
-    "mandatoryText": "Tämä sivusto käyttää evästeitä, jotka ovat välttämättömiä sen asianmukaisen toiminnan kannalta. Niitä ei voi poistaa käytöstä."
+    "mandatoryText": "Tämä sivusto käyttää evästeitä, jotka ovat välttämättömiä sen asianmukaisen toiminnan kannalta. Niitä ei voi poistaa käytöstä.",
+
+    "save": "Tallenna",
+    "ourpartners": "Kumppanimme"
 };

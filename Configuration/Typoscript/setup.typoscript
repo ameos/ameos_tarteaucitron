@@ -82,6 +82,8 @@ page {
 
                         "mandatory": {$ameos.tarteaucitron.mandatory}, /* Show a message about mandatory cookies */
                         "mandatoryCta": {$ameos.tarteaucitron.mandatoryCta}, /* Show the disabled accept button when mandatory on */
+                        "googleConsentMode": {$ameos.tarteaucitron.googleConsentMode}, /* Enable Google Consent Mode v2 for Google ads and GA4 */
+                        "partnersList": {$ameos.tarteaucitron.partnersList}, /* Details the number of partners on the popup and middle banner */
                 )
 
                 50 = TEXT
@@ -1924,6 +1926,57 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.freshsalescrm}
             }
+            2080 = TEXT
+            2080 {
+                value (
+                    tarteaucitron.user.piximediaName  = '{$ameos.tarteaucitron.services.piximedia.piximediaName}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('piximedia');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.piximedia}
+            }
+            2090 = TEXT
+            2090 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gcmanalyticsstorage');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gcmanalyticsstorage}
+            }
+            2100 = TEXT
+            2100 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gcmadstorage');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gcmadstorage}
+            }
+            2110 = TEXT
+            2110 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gcmadsuserdata');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gcmadsuserdata}
+            }
+            2120 = TEXT
+            2120 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gcmpersonalization');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gcmpersonalization}
+            }
+            2130 = TEXT
+            2130 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gcmfunctionality');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gcmfunctionality}
+            }
+            2140 = TEXT
+            2140 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('gcmsecurity');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.gcmsecurity}
+            }
+            
         }
     }
 }
