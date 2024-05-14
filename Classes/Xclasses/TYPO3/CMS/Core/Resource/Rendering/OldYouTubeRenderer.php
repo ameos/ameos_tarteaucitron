@@ -22,7 +22,6 @@ use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Core\Utility\MathUtility;
-
 use Ameos\AmeosTarteaucitron\Utility\ArrayUtility;
 
 class OldYouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer

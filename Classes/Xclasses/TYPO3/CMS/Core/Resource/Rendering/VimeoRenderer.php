@@ -1,4 +1,5 @@
 <?php
+
 namespace Ameos\AmeosTarteaucitron\Xclasses\TYPO3\CMS\Core\Resource\Rendering;
 
 /*

@@ -1,4 +1,5 @@
 <?php
+
 namespace Ameos\AmeosTarteaucitron\Xclasses\TYPO3\CMS\Core\Resource\Rendering;
 
 /*
@@ -19,7 +20,6 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
-
 use Ameos\AmeosTarteaucitron\Utility\ArrayUtility;
 
 /**
@@ -89,6 +89,4 @@ class OldVimeoRenderer extends \TYPO3\CMS\Core\Resource\Rendering\VimeoRenderer
             empty($attributes) ? '' : ' ' . ArrayUtility::implodeAttributes($attributes)
         );
     }
-
-    
 }

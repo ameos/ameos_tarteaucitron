@@ -38,7 +38,7 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
     public function render(FileInterface $file, $width, $height, array $options = null, $usedPathsRelativeToCurrentScript = false)
     {
         $options = $this->collectOptions($options, $file);
-        
+
         if ($file instanceof FileReference) {
             $orgFile = $file->getOriginalFile();
         } else {
@@ -47,31 +47,31 @@ class YouTubeRenderer extends \TYPO3\CMS\Core\Resource\Rendering\YouTubeRenderer
 
         $videoId = $this->getOnlineMediaHelper($file)->getOnlineMediaId($orgFile);
         $attributes = $this->collectIframeAttributes($width, $height, $options);
-        if(array_key_exists('class',$attributes) && $attributes['class'] ?? false){
+        if (array_key_exists('class', $attributes) && $attributes['class'] ?? false) {
             $attributes['class'] .= ' youtube_player';
-        }else{
+        } else {
             $attributes['class'] = ' youtube_player';
         }
-        if(array_key_exists('allowfullscreen',$attributes) && $attributes['allowfullscreen'] ?? false){
+        if (array_key_exists('allowfullscreen', $attributes) && $attributes['allowfullscreen'] ?? false) {
             unset($attributes['allowfullscreen']);
         }
-        if(array_key_exists('allow',$attributes) && $attributes['allow'] ?? false){
+        if (array_key_exists('allow', $attributes) && $attributes['allow'] ?? false) {
             unset($attributes['allow']);
         }
-        if(array_key_exists('width',$attributes) && $attributes['width'] ?? false){
+        if (array_key_exists('width', $attributes) && $attributes['width'] ?? false) {
             $attributes['data-width'] = $attributes['width'];
             unset($attributes['width']);
         }
-        if(array_key_exists('height',$attributes) && $attributes['height'] ?? false){
+        if (array_key_exists('height', $attributes) && $attributes['height'] ?? false) {
             $attributes['data-height'] = $attributes['height'];
             unset($attributes['height']);
         }
-        if($attributes['data-height'] || $attributes['data-width']){
-            if(!array_key_exists('style',$attributes)){
+        if ($attributes['data-height'] || $attributes['data-width']) {
+            if (!array_key_exists('style', $attributes)) {
                 $attributes['style'] = '';
             }
-            $attributes['style'] .= ($attributes['data-height']) ? 'height:'.$attributes['data-height'].'px;' :'';
-            $attributes['style'] .= ($attributes['data-width']) ? 'width:'.$attributes['data-width'].'px;' :'';
+            $attributes['style'] .= ($attributes['data-height']) ? 'height:' . $attributes['data-height'] . 'px;' : '';
+            $attributes['style'] .= ($attributes['data-width']) ? 'width:' . $attributes['data-width'] . 'px;' : '';
         }
         return sprintf(
             '<div data-videoID="%s"%s></div>',
