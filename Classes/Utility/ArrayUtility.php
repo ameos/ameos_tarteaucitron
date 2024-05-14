@@ -2,8 +2,9 @@
 
 namespace Ameos\AmeosTarteaucitron\Utility;
 
-class ArrayUtility {
-	/**
+class ArrayUtility
+{
+    /**
      * @internal
      * @param array $attributes
      * @return string

@@ -10,39 +10,22 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array (
-  'title' => 'AMEOS - TarteAuCitron (GDPR cookie banner and tracking management / French RGPD compatible)',
-  'description' => 'Integrates tarteaucitron.js in TYPO3 (see : https://tarteaucitron.io )',
-  'category' => 'frontend',
-  'version' => '2.6.1',
-  'state' => 'stable',
-  'uploadfolder' => false,
-  'createDirs' => '',
-  'clearCacheOnLoad' => 1,
-  'author' => 'Luc Muller',
-  'author_email' => 'typo3dev@ameos.com',
-  'author_company' => 'Ameos',
-  'constraints' => 
-  array (
-    'conflicts' => 
-    array (
-    ),
-    'suggests' => array(
-      'ameos_dailymotion' => '1.0.0-1.0.99',
-    ),
-    array (
-    ),
-    'depends' => array (
-      'typo3' => '8.6.0-12.99.99',
-    ),
-  ),
-  'autoload' => 
-  array (
-    'psr-4' => 
-    array (
-      'Ameos\\AmeosTarteaucitron\\' => 'Classes',
-    ),
-  ),
-  'clearcacheonload' => true,
+$EM_CONF['ameos_tarteaucitron'] = array (
+    'title' => 'AMEOS - TarteAuCitron (GDPR cookie banner and tracking management / French RGPD compatible)',
+    'description' => 'Integrates tarteaucitron.js in TYPO3 (see : https://tarteaucitron.io )',
+    'category' => 'frontend',
+    'version' => '3.0.0',
+    'state' => 'stable',
+    'uploadfolder' => false,
+    'createDirs' => '',
+    'clearCacheOnLoad' => 1,
+    'author' => 'Luc Muller',
+    'author_email' => 'typo3dev@ameos.com',
+    'author_company' => 'Ameos',
+    'constraints' => [
+      'conflicts' => [],
+      'suggests' => ['ameos_dailymotion' => '1.0.0-2.9.99'],
+      'depends' => ['typo3' => '9.5.0-12.99.99'],
+    ],
+    'clearcacheonload' => true,
 );
-

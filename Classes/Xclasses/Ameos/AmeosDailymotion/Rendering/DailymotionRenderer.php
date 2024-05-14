@@ -1,4 +1,5 @@
 <?php
+
 namespace Ameos\AmeosTarteaucitron\Xclasses\Ameos\AmeosDailymotion\Rendering;
 
 use TYPO3\CMS\Core\Resource\File;
@@ -6,8 +7,6 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-
 use Ameos\AmeosTarteaucitron\Utility\ArrayUtility;
 
 /*
@@ -51,7 +50,7 @@ class DailymotionRenderer implements \TYPO3\CMS\Core\Resource\Rendering\FileRend
     {
         return ($file->getMimeType() === 'video/dailymotion' || $file->getExtension() === 'dailymotion') && $this->getOnlineMediaHelper($file) !== false;
     }
-    
+
     /**
      * Get online media helper
      *
@@ -73,7 +72,7 @@ class DailymotionRenderer implements \TYPO3\CMS\Core\Resource\Rendering\FileRend
         }
         return $this->onlineMediaHelper;
     }
-    
+
     /**
      * Render for given File(Reference) HTML output
      *
@@ -97,7 +96,7 @@ class DailymotionRenderer implements \TYPO3\CMS\Core\Resource\Rendering\FileRend
         if (!empty($options['autoplay'])) {
             $urlParams[] = 'autoPlay=1';
         }
-        
+
         if ($file instanceof FileReference) {
             $orgFile = $file->getOriginalFile();
         } else {

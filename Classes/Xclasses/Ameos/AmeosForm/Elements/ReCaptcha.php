@@ -14,7 +14,7 @@ namespace Ameos\AmeosTarteaucitron\Xclasses\Ameos\AmeosForm\Elements;
  *
  * The TYPO3 project - inspiring people to share!
  */
- 
+
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Ameos\AmeosForm\Constraints\ReCaptcha as ReCaptchaConstraint;
 
@@ -46,7 +46,7 @@ class ReCaptcha extends \Ameos\AmeosForm\Elements\ElementAbstract
         );
         $this->addConstraint($constraint);
     }
-    
+
     /**
      * form to html
      *
