@@ -905,7 +905,7 @@ page {
             960 = TEXT
             960 {
                 value (
-                    tarteaucitron.user.multiplegoogletagmanagerId = [{$ameos.tarteaucitron.services.multiplegoogletagmanager.multiplegoogletagmanagerId}]
+                    tarteaucitron.user.multiplegoogletagmanagerId = [{$ameos.tarteaucitron.services.multiplegoogletagmanager.multiplegoogletagmanagerId}];
                     (tarteaucitron.job = tarteaucitron.job || []).push('multiplegoogletagmanager');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.multiplegoogletagmanager}
