@@ -21,6 +21,12 @@ page {
     jsFooterInline {
         29052018 = COA
         29052018 {
+            5 = TEXT
+            5 {
+                value = tarteaucitronForceLanguage = '{$ameos.tarteaucitron.tarteaucitronForceLanguage}';
+                if.isTrue = {$ameos.tarteaucitron.tarteaucitronForceLanguage}
+            }
+            
             10 = COA
             10 {
                 wrap = tarteaucitron.init({|});
