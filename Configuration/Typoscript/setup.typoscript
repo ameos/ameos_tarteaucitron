@@ -90,6 +90,7 @@ page {
                         "mandatoryCta": {$ameos.tarteaucitron.mandatoryCta}, /* Show the disabled accept button when mandatory on */
                         "googleConsentMode": {$ameos.tarteaucitron.googleConsentMode}, /* Enable Google Consent Mode v2 for Google ads and GA4 */
                         "partnersList": {$ameos.tarteaucitron.partnersList}, /* Details the number of partners on the popup and middle banner */
+                        "alwaysNeedConsent": {$ameos.tarteaucitron.alwaysNeedConsent}, /* Ask the consent for "Privacy by design" services */
                 )
 
                 50 = TEXT
@@ -1084,6 +1085,18 @@ page {
                     if.isTrue = {$ameos.tarteaucitron.services.matomocloud.matomoCustomJSPath}
                 }
 
+                25 = TEXT
+                25 {
+                    value = tarteaucitron.user.matomoDontTrackPageView = '{$ameos.tarteaucitron.services.matomocloud.matomoDontTrackPageView}';
+                    if.isTrue = {$ameos.tarteaucitron.services.matomocloud.matomoDontTrackPageView}
+                }
+
+                26 = TEXT
+                26 {
+                    value = tarteaucitron.user.matomoFullTracking = '{$ameos.tarteaucitron.services.matomocloud.matomoFullTracking}';
+                    if.isTrue = {$ameos.tarteaucitron.services.matomocloud.matomoFullTracking}
+                }
+
                 30 = TEXT
                 30 {
                     value = (tarteaucitron.job = tarteaucitron.job || []).push('matomocloud');
@@ -1891,13 +1904,32 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.equativ}
             }
-            2030 = TEXT
+            2030 = COA
             2030 {
-                value (
-                    tarteaucitron.user.screebId  = '{$ameos.tarteaucitron.services.screeb.screebId}';
-                    (tarteaucitron.job = tarteaucitron.job || []).push('screeb');
-                )
-                if.isTrue = {$ameos.tarteaucitron.services.screeb}
+
+                10 = TEXT
+                10 {
+                    value(
+                        tarteaucitron.user.screebId  = '{$ameos.tarteaucitron.services.screeb.screebId}';
+                    )
+                    if.isTrue = {$ameos.tarteaucitron.services.screeb.screebId}
+                }
+
+                20 = TEXT
+                20 {
+                    value(
+                        tarteaucitron.user.screebDontInit  = '{$ameos.tarteaucitron.services.screeb.screebDontInit}';
+                    )
+                    if.isTrue = {$ameos.tarteaucitron.services.screeb.screebDontInit}
+                }
+
+                30 = TEXT
+                30 {
+                    value(
+                        (tarteaucitron.job = tarteaucitron.job || []).push('screeb');
+                    )
+                    if.isTrue = {$ameos.tarteaucitron.services.screeb}
+                }
             }
             2040 = TEXT
             2040 {
@@ -1935,7 +1967,7 @@ page {
             2080 = TEXT
             2080 {
                 value (
-                    tarteaucitron.user.piximediaName  = '{$ameos.tarteaucitron.services.piximedia.piximediaName}';
+                    tarteaucitron.user.piximediaName = '{$ameos.tarteaucitron.services.piximedia.piximediaName}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('piximedia');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.piximedia}
@@ -1981,6 +2013,49 @@ page {
                     (tarteaucitron.job = tarteaucitron.job || []).push('gcmsecurity');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.gcmsecurity}
+            }
+            2150 = TEXT
+            2150 {
+                value (
+                    tarteaucitron.user.teadsBuyerPixelId = '{$ameos.tarteaucitron.services.teads.teadsBuyerPixelId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('teads');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.teads}
+            }
+            2160 = TEXT
+            2160 {
+                value (
+                    tarteaucitron.user.thetradedeskAdvertiserId = '{$ameos.tarteaucitron.services.thetradedesk.thetradedeskAdvertiserId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('thetradedesk');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.thetradedesk}
+            }
+            2170 = TEXT
+            2170 {
+                value (
+                    tarteaucitron.user.zohoWidgetCode = '{$ameos.tarteaucitron.services.zoho.zohoWidgetCode}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('zoho');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.zoho}
+            }
+            2180 = TEXT
+            2180 {
+                value (
+                    tarteaucitron.user.seamlessaccessInitiator = '{$ameos.tarteaucitron.services.seamlessaccess.seamlessaccessInitiator}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('seamlessaccess');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.seamlessaccess}
+            }
+            2190 = TEXT
+            2190 {
+                value (
+                    tarteaucitron.user.redditInit = '{$ameos.tarteaucitron.services.reddit.redditInit}';
+                    tarteaucitron.user.redditAAID = '{$ameos.tarteaucitron.services.reddit.redditAAID}';
+                    tarteaucitron.user.redditExternalId = '{$ameos.tarteaucitron.services.reddit.redditExternalId}';
+                    tarteaucitron.user.redditIDFA = '{$ameos.tarteaucitron.services.reddit.redditIDFA}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('reddit');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.reddit}
             }
             
         }
