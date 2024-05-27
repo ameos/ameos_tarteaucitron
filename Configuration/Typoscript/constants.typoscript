@@ -90,6 +90,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=bool; label=Force language (one of ar,bg,ca,cn,cs,da,de,et,el,en,es,fi,fr,hu,it,ja,lb,lt,lv,nl,no,oc,pl,pt,ro,ru,se,sk,sv,tr,uk,vi,zh)
 		tarteaucitronForceLanguage =
 
+		#cat=plugin.ameos_tarteaucitron.init; type=bool; label=Ask the consent for "Privacy by design" services : true/false
+		alwaysNeedConsent = false
+
 		services {
 			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Google jsapi
 			jsapi = 0
@@ -561,6 +564,10 @@ ameos {
 				matomoHost =
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Cloud Custom Js Path
 				matomoCustomJSPath =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Cloud Do Not Track Page Views : true to enable conf
+				matomoDontTrackPageView = 
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Cloud Full Tracking : true to enable conf
+				matomoFullTracking = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Matomo (privacy by design)
 			matomo = 0
@@ -1029,6 +1036,8 @@ ameos {
 			screeb{
 				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Screeb Id
 				screebId = 
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Do Not Initialise Screeb
+				screebDontInit =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Pipedrive
 			pipedrive = 0
@@ -1072,6 +1081,42 @@ ameos {
 			gcmfunctionality = 0
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - Security
 			gcmsecurity = 0
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Teads
+			teads = 0
+			teads{
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Teads Buyer Pixel Id
+				teadsBuyerPixelId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=TheTradeDesk
+			thetradedesk = 0
+			thetradedesk{
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=TheTradeDesk Advertiser Id
+				thetradedeskAdvertiserId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Zoho
+			zoho = 0
+			zoho {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Zoho Widget Code
+				zohoWidgetCode = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Seamlessaccess
+			seamlessaccess = 0
+			seamlessaccess {
+				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Seamlessaccess Login Initiator Url
+				seamlessaccessInitiator = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit
+			reddit = 0
+			reddit {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit Init
+				redditInit = 
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit redditAAID
+				redditAAID = 
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit redditExternalId
+				redditExternalId = 
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit redditIDFA
+				redditIDFA = 
+			}
 		}
 	}
 }
