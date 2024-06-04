@@ -7,6 +7,7 @@ use TYPO3\CMS\Core\Resource\FileInterface;
 use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperInterface;
 use TYPO3\CMS\Core\Resource\OnlineMedia\Helpers\OnlineMediaHelperRegistry;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 use Ameos\AmeosTarteaucitron\Utility\ArrayUtility;
 
 /*
@@ -59,13 +60,14 @@ class DailymotionRenderer implements \TYPO3\CMS\Core\Resource\Rendering\FileRend
      */
     protected function getOnlineMediaHelper(FileInterface $file)
     {
-        if ($this->onlineMediaHelper === null) {
+        if (!isset($this->onlineMediaHelper) || $this->onlineMediaHelper === null) {
             $orgFile = $file;
             if ($orgFile instanceof FileReference) {
                 $orgFile = $orgFile->getOriginalFile();
             }
             if ($orgFile instanceof File) {
-                $this->onlineMediaHelper = OnlineMediaHelperRegistry::getInstance()->getOnlineMediaHelper($orgFile);
+                $this->onlineMediaHelper = GeneralUtility::makeInstance(OnlineMediaHelperRegistry::class)
+                    ->getOnlineMediaHelper($orgFile);
             } else {
                 $this->onlineMediaHelper = false;
             }
