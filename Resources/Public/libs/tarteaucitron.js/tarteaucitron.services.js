@@ -38,6 +38,25 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// tolkaigenii
+tarteaucitron.services.tolkaigenii = {
+    "key": "tolkaigenii",
+    "type": "support",
+    "name": "Tolk.ai Genii",
+    "uri": "https://www.tolk.ai/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.tolkaiGeniiProject === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://genii-script.tolk.ai/lightchat.js', 'lightchat-bot', '', '', 'project-id', tarteaucitron.user.tolkaiGeniiProject);
+    }
+};
+
 // seamlessaccess
 tarteaucitron.services.seamlessaccess = {
     "key": "seamlessaccess",
@@ -2343,7 +2362,7 @@ tarteaucitron.services.clarity = {
     "name": "Clarity",
     "uri": "https://clarity.microsoft.com/",
     "needConsent": true,
-    "cookies": [],
+    "cookies": ['_clck', '_clsk', 'CLID', 'ANONCHK', 'MR', 'MUID', 'SM'],
     "js": function () {
         "use strict";
 
@@ -5310,6 +5329,11 @@ tarteaucitron.services.multiplegtag = {
                     gtag('config', ua, additional_config_info);
                 });
             });
+        }
+    },
+    "fallback": function () {
+        if (tarteaucitron.parameters.googleConsentMode === true) {
+            this.js();
         }
     }
 };

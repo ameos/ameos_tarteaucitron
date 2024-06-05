@@ -2057,7 +2057,14 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.reddit}
             }
-            
+            2200 = TEXT
+            2200 {
+                value (
+                    tarteaucitron.user.tolkaiGeniiProject = '{$ameos.tarteaucitron.services.tolkaigenii.tolkaiGeniiProject}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('tolkaigenii');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.tolkaigenii}
+            }
         }
     }
 }
