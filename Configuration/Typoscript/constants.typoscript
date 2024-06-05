@@ -410,7 +410,7 @@ ameos {
 			}
 			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=ContentSquare
 			contentsquare = 0
-			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=ContentSquare ID
+			#cat=plugin.ameos_tarteaucitron.services.apis; type=string; label=ContentSquare ID
 			contentsquare {
 				contentsquareID =
 			}
@@ -427,9 +427,9 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=LeadForensics
 			leadforensics =
 			leadforensics {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=LeadForensics Sf14gv
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=LeadForensics Sf14gv
 				leadforensicsSf14gv =
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=LeadForensics Identifier
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=LeadForensics Identifier
 				leadforensicsIidentifier =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Pingdom
@@ -528,9 +528,9 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Xiti SmartTag
 			xiti_smarttag = 0
 			xiti_smarttag {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Xiti SmartTag Local Path
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Xiti SmartTag Local Path
 				xiti_smarttagLocalPath =
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Xiti SmartTag Site Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Xiti SmartTag Site Id
 				xiti_smarttagSiteId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Google Analytics (gtag.js) [for multiple UA]
@@ -572,7 +572,7 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Matomo (privacy by design)
 			matomo = 0
 			matomo {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Matomo (privacy by design) Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo (privacy by design) Id
 				matomoId =
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Matomo Hostname
 				matomoHost =
@@ -580,15 +580,15 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Hotjar
 			hotjar = 0
 			hotjar {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=HotjarId
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=HotjarId
 				hotjarId =
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=HotjarSv
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=HotjarSv
 				HotjarSv = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Bing Ads Universal Event Tracking
 			bingads = 0
 			bingads {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Bing Ads Universal Event Tracking Tag
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Bing Ads Universal Event Tracking Tag
 				bingadsTag =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Matterport
@@ -596,31 +596,31 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Adform
 			adform = 0
 			adform {
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Adform
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Adform
 				adformpm =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Active Campaign
 			activecampaign = 0
 			activecampaign {
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Active Campaign Id
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Active Campaign Id
 				actid =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Tawk.to chat
 			tawkto = 0
 			tawkto {
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Tawk.to chat ID
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Tawk.to chat ID
 				tawktoId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=GetQuanty
 			getquanty = 0
 			getquanty {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=GetQuanty Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=GetQuanty Id
 				getguantyId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Emolytics
 			emolytics = 0
 			emolytics {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Emolytics Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Emolytics Id
 				emolyticsID =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.apis; type=boolean; label=Youtube (Js API)
@@ -628,25 +628,25 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Facil'ITI
 			faciliti = 0
 			faciliti {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Facil'ITI Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Facil'ITI Id
 				facilitiID =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Userlike
 			userlike = 0
 			userlike {
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Userlike Key
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Userlike Key
 				userlikekey =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.comments; type=boolean; label=Adobe Analytics
 			adobeanalytics = 0
 			adobeanalytics {
-				#cat=plugin.ameos_tarteaucitron.services.comments; type=boolean; label=Adobe Analytics Key
+				#cat=plugin.ameos_tarteaucitron.services.comments; type=string; label=Adobe Analytics Key
 				adobeanalyticskey =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Woopra
 			woopra = 0
 			woopra {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Woopra Domain
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Woopra Domain
 				woopraDomain =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Ausha
@@ -655,7 +655,7 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label= Intercom Chat
 			intercomChat = 0
 			intercomChat{
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label= Intercom Chat Key
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label= Intercom Chat Key
 				intercomKey =
 			}
 
@@ -695,14 +695,14 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Optimize
 			goptimize = 0
 			goptimize{
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Google Optimize ID
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Google Optimize ID
 				id =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin
 			marketomunchkin = 0
 			marketomunchkin{
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Marketo munchkin Key
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Marketo munchkin Key
 				marketomunchkinkey =
 			}
 
@@ -712,7 +712,7 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Affilae
 			affilae = 0
 			affilae{
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Affilae Pid
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Affilae Pid
 				pid =
 			}
 
@@ -725,14 +725,14 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Studizz
 			studizz = 0
 			studizz{
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Studizz Token
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Studizz Token
 				token =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Criteo One Tag
 			criteoonetag = 0
 			criteoonetag{
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Criteo One Tag Account
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Criteo One Tag Account
 				criteoonetagAccount = 
 			}
 
@@ -745,7 +745,7 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MT Captcha
 			mtcaptcha = 0
 			mtcaptcha {
-				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MT Captcha Sitekey
+				#cat=plugin.ameos_tarteaucitron.services.api; type=string; label=MT Captcha Sitekey
 				mtcaptchaSitekey = 
 			}
 
@@ -764,7 +764,7 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MyFeelBack (Skeepers)
 			myfeelback = 0
 			myfeelback {
-				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=MyFeelBack (Skeepers) ID
+				#cat=plugin.ameos_tarteaucitron.services.api; type=string; label=MyFeelBack (Skeepers) ID
 				myfeelbackId = 
 			}
 
@@ -774,35 +774,35 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=UserPilot
 			userpilot = 0
 			userpilot {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=UserPilot ID
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=UserPilot ID
 				userpilotToken = 
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piwik Pro
 			piwikpro = 0
 			piwikpro {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piwik Pro ID
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Piwik Pro ID
 				piwikProId = 
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Crisp Chat
 			crisp = 0
 			crisp {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Crisp Chat ID
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Crisp Chat ID
 				crispID = 
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=MicroAnalytics
 			microanalytics = 0
 			microanalytics {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=MicroAnalytics ID
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=MicroAnalytics ID
 				microanalyticsID = 
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Facebook (Customer Chat)
 			facebookcustomerchat = 0
 			facebookcustomerchat {
-				#cat=plugin.ameos_tarteaucitron.services.social; type=boolean; label=Facebook (Customer Chat) ID
+				#cat=plugin.ameos_tarteaucitron.services.social; type=string; label=Facebook (Customer Chat) ID
 				facebookChatID = 
 			}
 
@@ -812,21 +812,21 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Tiktok
 			tiktok = 0
 			tiktok {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Tiktok ID
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Tiktok ID
 				tiktokId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Klaviyo
 			klaviyo = 0
 			klaviyo {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Klaviyo Company ID
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label= Klaviyo Company ID
 				klaviyoCompanyId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label= Arc.io
 			arcio = 0
 			arcio {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Klaviyo Company ID
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label= Klaviyo Company ID
 				arcId =
 			}
 
@@ -836,14 +836,14 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label= Google Ads
 			googleads = 0
 			googleads {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Google Ads ID
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label= Google Ads ID
 				googleadsId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Google Adsense Automatic
 			adsenseauto = 0
 			adsenseauto {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Google Adsense Automatic Pub
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label= Google Adsense Automatic Pub
 				adsensecapub =
 			}
 
@@ -853,7 +853,7 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Plausible
 			plausible = 0
 			plausible {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Plausible Domain
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label= Plausible Domain
 				plausibleDomain =
 			}
 
@@ -866,14 +866,14 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Snapchat
 			snapchat = 0
 			snapchat {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Snapchat Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label= Snapchat Id
 				snapchatId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Matomo Tag Manager
 			matomotm = 0
 			matomotm {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Matomo Tag Manager Url
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label= Matomo Tag Manager Url
 				matomotmUrl =
 			}
 
@@ -883,42 +883,42 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Lead Forensics
 			leadforensics = 0
 			leadforensics {
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label= Lead Forensics ID
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label= Lead Forensics ID
 				leadforensicsId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Ubib Chatbot
 			ubib = 0
 			ubib {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Ubib Chatbot Id
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label= Ubib Chatbot Id
 				ubibId =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Wysistat (privacy by design)
 			wysistathightrack = 0
 			wysistathightrack {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label= Wysistat Nom (privacy by design)
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label= Wysistat Nom (privacy by design)
 				wysistatNom =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Robo Fabrica Chatbot
 			robofabrica = 0
 			robofabrica {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label= Robo Fabrica Chatbot Uuid
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label= Robo Fabrica Chatbot Uuid
 				robofabricaUuid =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Eulerian
 			eulerian = 0
 			eulerian {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Eulerian (Host)
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Eulerian (Host)
 				eulerianHost =
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Posthog
 			posthog = 0
 			posthog {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Posthog (Api Key)
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Posthog (Api Key)
 				posthogApiKey  =
 			}
 
@@ -931,31 +931,31 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=tolk.ai
 			tolkai = 0
 			tolkai {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=tolk.ai (Bot)
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=tolk.ai (Bot)
 				tolkaiBot =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Active Campaign 2023
 			activecampaignvgo = 0
 			activecampaignvgo{
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Active Campaign 2023 Account
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Active Campaign 2023 Account
 				activecampaignAccount =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=sendinblue
 			sendinblue = 0
 			sendinblue {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=sendinblue Key
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=sendinblue Key
 				sendinblueKey =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Collect Chat
 			collectchat = 0
 			collectchat {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Collect Chat Id
+				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Collect Chat Id
 				collectchatId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Force24
 			force24 = 0
 			force24 {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Force24 Tracking Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Force24 Tracking Id
 				force24trackingId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=Tiktok Video
@@ -963,19 +963,19 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Shinystat
 			shinystat = 0
 			shinystat {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Shinystat User
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Shinystat User
 				shinystatUser =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=ActiSTAT
 			actistat = 0
 			actistat {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=ActiSTAT Id
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=ActiSTAT Id
 				actistatId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Outbrain Amplify
 			outbrainamplify = 0
 			outbrainamplify {
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Outbrain Amplify Id
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Outbrain Amplify Id
 				outbrainamplifyId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=PlayPlay
@@ -983,43 +983,43 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace
 			adobeworkspace = 0
 			adobeworkspace {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace ID1
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Adobe - Analysis Workspace ID1
 				adobeworkspaceId1 =
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace ID2
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Adobe - Analysis Workspace ID2
 				adobeworkspaceId2 =
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Adobe - Analysis Workspace ID3
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Adobe - Analysis Workspace ID3
 				adobeworkspaceId3 =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Zoho PageSense
 			zohopagesense = 0
 			zohopagesense {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Zoho PageSense Project ID
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Zoho PageSense Project ID
 				zohoPageSenseProjectId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Leadinfo
 			leadinfo = 0
 			leadinfo {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Leadinfo ID
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Leadinfo ID
 				leadinfoId =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Eskimit
 			eskimi = 0
 			eskimi {
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Eskimit Init
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Eskimit Init
 				eskimiInit =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=ShareThis Sticky
 			sharethissticky = 0
 			sharethissticky {
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=ShareThis Sticky Property
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=ShareThis Sticky Property
 				sharethisStickyProperty =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piano Analytics
 			pianoanalytics = 0
 			pianoanalytics {
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piano Analytics Site (int)
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Piano Analytics Site (int)
 				pianoSite =
-				#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Piano Analytics SendData (true/false)
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Piano Analytics SendData (true/false)
 				pianoCollectDomain = 
 				pianoSendData = false
 			}
@@ -1028,31 +1028,31 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Equativ
 			equativ = 0
 			equativ{
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Equativ Id
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Equativ Id
 				equativId = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Screeb
 			screeb = 0
 			screeb{
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Screeb Id
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Screeb Id
 				screebId = 
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Do Not Initialise Screeb
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Do Not Initialise Screeb
 				screebDontInit =
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Pipedrive
 			pipedrive = 0
 			pipedrive{
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Pipedrive Company
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Pipedrive Company
 				pipedriveCompany = 
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Pipedrive Playbook
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Pipedrive Playbook
 				pipedrivePlaybook = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Dynatrace
 			dynatrace = 0
 			dynatrace{
-				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Dynatrace JS Path
+				#cat=plugin.ameos_tarteaucitron.services.api; type=string; label=Dynatrace JS Path
 				dynatraceJSPath = 
-				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Dynatrace Config
+				#cat=plugin.ameos_tarteaucitron.services.api; type=string; label=Dynatrace Config
 				dynatraceConfig = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Mixpanel
@@ -1060,13 +1060,13 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=FreshSales (CRM)
 			freshsalescrm = 0
 			freshsalescrm{
-				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=FreshSales (CRM)
+				#cat=plugin.ameos_tarteaucitron.services.api; type=string; label=FreshSales (CRM)
 				freshsalescrmId = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Piximedia
 			piximedia = 0
 			piximedia{
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Piximedia Name
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Piximedia Name
 				piximediaName = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Google Consent Mode v2 - Analytics
@@ -1084,38 +1084,44 @@ ameos {
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Teads
 			teads = 0
 			teads{
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Teads Buyer Pixel Id
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Teads Buyer Pixel Id
 				teadsBuyerPixelId = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=TheTradeDesk
 			thetradedesk = 0
 			thetradedesk{
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=TheTradeDesk Advertiser Id
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=TheTradeDesk Advertiser Id
 				thetradedeskAdvertiserId = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Zoho
 			zoho = 0
 			zoho {
-				#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Zoho Widget Code
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Zoho Widget Code
 				zohoWidgetCode = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Seamlessaccess
 			seamlessaccess = 0
 			seamlessaccess {
-				#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Seamlessaccess Login Initiator Url
+				#cat=plugin.ameos_tarteaucitron.services.api; type=string; label=Seamlessaccess Login Initiator Url
 				seamlessaccessInitiator = 
 			}
 			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit
 			reddit = 0
 			reddit {
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit Init
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Reddit Init
 				redditInit = 
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit redditAAID
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Reddit redditAAID
 				redditAAID = 
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit redditExternalId
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Reddit redditExternalId
 				redditExternalId = 
-				#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Reddit redditIDFA
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Reddit redditIDFA
 				redditIDFA = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Tolk.ai Genii
+			tolkaigenii = 0
+			tolkaigenii {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Tolk.ai Genii Project Id
+				tolkaiGeniiProject = 
 			}
 		}
 	}
