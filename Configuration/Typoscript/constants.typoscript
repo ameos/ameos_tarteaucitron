@@ -1123,6 +1123,8 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Tolk.ai Genii Project Id
 				tolkaiGeniiProject = 
 			}
+			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Genial.ly
+			genially = 0
 		}
 	}
 }
