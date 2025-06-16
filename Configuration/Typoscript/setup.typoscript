@@ -2065,6 +2065,13 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.tolkaigenii}
             }
+            2210 = TEXT
+            2210 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('genially');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.genially}
+            }
         }
     }
 }
