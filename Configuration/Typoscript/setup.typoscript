@@ -89,6 +89,10 @@ page {
                         "mandatory": {$ameos.tarteaucitron.mandatory}, /* Show a message about mandatory cookies */
                         "mandatoryCta": {$ameos.tarteaucitron.mandatoryCta}, /* Show the disabled accept button when mandatory on */
                         "googleConsentMode": {$ameos.tarteaucitron.googleConsentMode}, /* Enable Google Consent Mode v2 for Google ads and GA4 */
+                        "bingConsentMode": {$ameos.tarteaucitron.bingConsentMode}, /* Enable Bing Consent Mode for Clarity & Bing Ads */
+                        "softConsentMode": {$ameos.tarteaucitron.softConsentMode}, /* Enable Soft consent mode (consent is required to load the services) */
+                        "dataLayer": {$ameos.tarteaucitron.dataLayer}, /* Enable Datalayer Send an event on the Datalayer with the service status */
+                        "serverSide": {$ameos.tarteaucitron.serverSide}, /* Enable ServerSide side only, tags aren't loaded in client side */
                         "partnersList": {$ameos.tarteaucitron.partnersList}, /* Details the number of partners on the popup and middle banner */
                         "alwaysNeedConsent": {$ameos.tarteaucitron.alwaysNeedConsent}, /* Ask the consent for "Privacy by design" services */
                 )
@@ -2071,6 +2075,52 @@ page {
                     (tarteaucitron.job = tarteaucitron.job || []).push('genially');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.genially}
+            }
+
+            2220 = TEXT
+            2220 {
+                value (
+                    tarteaucitron.user.markerioProjectId = '{$ameos.tarteaucitron.services.markerio.markerioProjectId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('markerio');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.markerio}
+            }
+
+            2230 = TEXT
+            2230 {
+                value (
+                    tarteaucitron.user.dialogInsightId = '{$ameos.tarteaucitron.services.dialoginsight.dialogInsightId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('dialoginsight');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.dialoginsight}
+            }
+
+            2240 = TEXT
+            2240 {
+                value (
+                    tarteaucitron.user.skazeIdentifier = '{$ameos.tarteaucitron.services.skaze.skazeIdentifier}';
+                    tarteaucitron.user.skazeMore = AmeosTacSkazeMore;
+                    (tarteaucitron.job = tarteaucitron.job || []).push('skaze');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.skaze}
+            }
+
+            2250 = TEXT
+            2250 {
+                value (
+                    tarteaucitron.user.weplyId = '{$ameos.tarteaucitron.services.weply.weplyId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('weply');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.weply}
+            }
+
+            2260 = TEXT
+            2260 {
+                value (
+                    tarteaucitron.user.goldenbeesId = '{$ameos.tarteaucitron.services.goldenbees.goldenbeesId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('goldenbees');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.goldenbees}
             }
         }
     }

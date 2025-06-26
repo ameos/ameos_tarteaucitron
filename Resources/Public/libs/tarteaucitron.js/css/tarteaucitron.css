@@ -781,7 +781,8 @@ span#tarteaucitronDisclaimerAlert {
 #tarteaucitronAlertBig #tarteaucitronPrivacyUrl,
 #tarteaucitronAlertBig #tarteaucitronPrivacyUrlDialog,
 #tarteaucitronAlertBig #tarteaucitronDisclaimerAlert,
-#tarteaucitronAlertBig #tarteaucitronDisclaimerAlert strong {
+#tarteaucitronAlertBig #tarteaucitronDisclaimerAlert strong,
+#tarteaucitronAlertBig #tarteaucitronDisclaimerAlert .tarteaucitronPartnersList * {
     /*font: 15px verdana;*/
     color: #fff;
 }
@@ -1058,6 +1059,47 @@ span#tarteaucitronDisclaimerAlert {
 }
 
 /***
+ * Embeded cookies list
+ */
+#tarteaucitronServicesnoTitle_cookies #tarteaucitronServices_cookies .tarteaucitronHidden {
+    display:block!important;
+}
+#tarteaucitronServicesnoTitle_cookies #tarteaucitronCookiesList .tarteaucitronH3 {
+    padding: 8px 20px;
+    margin-top: 0!important
+}
+#tarteaucitronServicesnoTitle_cookies .tarteaucitronCookiesListLeft, #tarteaucitronServicesnoTitle_cookies .tarteaucitronCookiesListRight {
+    padding:10px 14px;
+    width: Calc(50% - 56px);
+    display:inline-block;
+    word-break: break-all;
+    vertical-align: top;
+}
+#tarteaucitronServicesnoTitle_cookies .tarteaucitronCookiesListRight {
+    font-family:monospace
+}
+#tarteaucitronServicesnoTitle_cookies .tarteaucitron-spacer-20 {
+    height:0;
+}
+#tarteaucitronServicesnoTitle_cookies .purgeBtn {
+    cursor:pointer
+}
+html body #tarteaucitronRoot #tarteaucitron #tarteaucitronServicesnoTitle_cookies:hover #tarteaucitronCookiesList ul li {
+    background:transparent!important
+}
+@media screen and (max-width: 767px) {
+    #tarteaucitronServicesnoTitle_cookies #tarteaucitron-toggle-group-cookies {
+        text-align:left;
+        padding:0 0 0 3px!important
+    }
+
+    html body #tarteaucitronRoot #tarteaucitronServicesnoTitle_cookies .tarteaucitronCookiesListLeft .purgeBtn {
+        display: inline!important;
+        width: auto!important
+    }
+}
+
+/***
  * Fallback activate link
  */
 .tac_activate {
@@ -1136,6 +1178,10 @@ a.tarteaucitronSelfLink {
     text-align: center!important;
     display: block;
     height:30px;
+}
+#tarteaucitronRoot a.tarteaucitronSelfLink img {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .tarteaucitronMainLine .tarteaucitronH2 {
