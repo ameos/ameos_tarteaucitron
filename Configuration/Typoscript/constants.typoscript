@@ -78,6 +78,18 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Enable Google Consent Mode v2 for Google ads and GA4 : true/false
 		googleConsentMode = false
 
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Enable Bing Consent Mode for Clarity & Bing Ads : true/false
+		bingConsentMode = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Soft consent mode (consent is required to load the services) : true/false
+		softConsentMode	 = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Send an event on the Datalayer with the service status : true/false
+		dataLayer = false
+		
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Enable ServerSide side only, tags aren't loaded in client side : true/false
+		serverSide = false
+		
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Details the number of partners on the popup and middle banner : true/false
 		partnersList = false
 
@@ -1125,6 +1137,36 @@ ameos {
 			}
 			#cat=plugin.ameos_tarteaucitron.services.api; type=boolean; label=Genial.ly
 			genially = 0
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Marker.io
+			markerio = 0
+			markerio {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Marker.io PROJECT_ID
+				markerioProjectId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Dialog Insight
+			dialoginsight = 0
+			dialoginsight {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Dialog Insight ID
+				dialogInsightId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Skaze
+			skaze = 0
+			skaze {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Skaze SITE_IDENTIFIER
+				skazeIdentifier = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Weply
+			weply = 0
+			weply {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Weply
+				weplyId = 
+			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=Golden Bees
+			goldenbees = 0
+			goldenbees {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Golden Bees Id
+				goldenbeesId = 
+			}
 		}
 	}
 }
