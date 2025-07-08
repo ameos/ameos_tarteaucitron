@@ -22,7 +22,7 @@ var tarteaucitronScriptsDiscover = document.getElementsByTagName('script'),
 
 
 var tarteaucitron = {
-    "version": "1.21.0",
+    "version": "1.22.0",
     "cdn": cdn,
     "user": {},
     "lang": {},
@@ -510,7 +510,7 @@ var tarteaucitron = {
                 // css for the middle bar TODO: add it on the css file
                 if (tarteaucitron.orientation === 'middle') {
                     var customThemeMiddle = document.createElement('style'),
-                        cssRuleMiddle = 'div#tarteaucitronRoot.tarteaucitronBeforeVisible:before {content: \'\';position: fixed;width: 100%;height: 100%;background: white;top: 0;left: 0;z-index: 999;opacity: 0.5;}div#tarteaucitronAlertBig:before {content: \'' + tarteaucitron.lang.middleBarHead + '\';font-size: 35px;}body #tarteaucitronRoot div#tarteaucitronAlertBig {width: 60%;min-width: 285px;height: auto;margin: auto;left: 50%;top: 50%;transform: translate(-50%, -50%);box-shadow: 0 0 9000px #000;border-radius: 20px;padding: 35px 25px;}span#tarteaucitronDisclaimerAlert {padding: 0 30px;}#tarteaucitronRoot span#tarteaucitronDisclaimerAlert {margin: 10px 0 30px;display: block;text-align: center;font-size: 21px;}@media screen and (max-width: 900px) {div#tarteaucitronAlertBig button {margin: 0 auto 10px!important;display: block!important;}}';
+                        cssRuleMiddle = 'div#tarteaucitronRoot.tarteaucitronBeforeVisible:before {content: \'\';position: fixed;width: 100%;height: 100%;background: white;top: 0;left: 0;z-index: 999;opacity: 0.5;}div#tarteaucitronAlertBig:before {content: \'' + tarteaucitron.lang.middleBarHead + '\';font-size: 35px;}body #tarteaucitronRoot div#tarteaucitronAlertBig {width: 60%;min-width: 285px;height: fit-content;margin: auto;top:0;left:0;bottom:0;right:0;box-shadow: 0 0 9000px #000;border-radius: 20px;padding: 35px 25px;}span#tarteaucitronDisclaimerAlert {padding: 0 30px;}#tarteaucitronRoot span#tarteaucitronDisclaimerAlert {margin: 10px 0 30px;display: block;text-align: center;font-size: 21px;}@media screen and (max-width: 900px) {div#tarteaucitronAlertBig button {margin: 0 auto 10px!important;display: block!important;}}';
 
                     customThemeMiddle.type = 'text/css';
                     if (customThemeMiddle.styleSheet) {
@@ -554,6 +554,10 @@ var tarteaucitron = {
                     if (tarteaucitron.lang[a].title < tarteaucitron.lang[b].title) { return -1; }
                     return 0;
                 });
+
+                if(!/^<\s*(p|ul)(\s|>)/i.test(tarteaucitron.lang.disclaimer)) {
+                    tarteaucitron.lang.disclaimer = '<p>'+tarteaucitron.lang.disclaimer+'</p>'
+                }
 
                 // Step 3: prepare the html
                 html += '<div role="heading" aria-level="2" id="tac_title" class="tac_visually-hidden">' + tarteaucitron.lang.title + '</div>';
@@ -664,7 +668,7 @@ var tarteaucitron = {
                         html += '               <span class="asCatToggleBtn" data-cat="tarteaucitronInlineDetails' + cat[i] + '">' + tarteaucitron.lang[cat[i]].title + '</span>';
                     }
                     html += '            </div>';
-                    html += '            <div id="tarteaucitronDetails' + cat[i] + '" class="tarteaucitronDetails '+ (tarteaucitron.parameters.showDetailsOnClick ? 'tarteaucitronInfoBox' : 'tarteaucitronDetailsInline')+'">';
+                    html += '            <div id="tarteaucitronDetails' + cat[i] + '" class="tarteaucitronDetails '+ (tarteaucitron.parameters.showDetailsOnClick ? 'tarteaucitronInfoBox' : 'tarteaucitronDetailsInline')+'" role="paragraph">';
                     html += '               ' + tarteaucitron.lang[cat[i]].details;
                     html += '            </div>';
                     html += '         <ul id="tarteaucitronServices_' + cat[i] + '"></ul></li>';
@@ -816,6 +820,8 @@ var tarteaucitron = {
                             // Append tarteaucitron: #tarteaucitronRoot last-child of the body
                             body.appendChild(div, body);
                         }
+
+                        tarteaucitron.userInterface.addClass("tarteaucitronRoot", "tarteaucitronSize-" + tarteaucitron.parameters.orientation);
 
                         div.setAttribute('data-nosnippet', 'true');
                         div.setAttribute('lang', language);
@@ -1100,6 +1106,7 @@ var tarteaucitron = {
                     if(tarteaucitron.events.load) {
                         tarteaucitron.events.load();
                     }
+
                 }, 500);
 
             });
@@ -1152,7 +1159,12 @@ var tarteaucitron = {
             html += '       </div>';
             if (tarteaucitron.parameters.moreInfoLink == true) {
 
-                var link = 'https://tarteaucitron.io/service/' + service.key + '/';
+                var link;
+                if (tarteaucitron.getLanguage() === 'fr') {
+                    link = 'https://tarteaucitron.io/service/' + service.key + '/';
+                } else {
+                    link = 'https://tarteaucitron.io/en/service-details/' + service.key + '/';
+                }
                 if (service.readmoreLink !== undefined && service.readmoreLink !== '') {
                     link = service.readmoreLink;
                 }
@@ -1758,6 +1770,7 @@ var tarteaucitron = {
             tarteaucitron.userInterface.css(c + 'Icon', 'display', 'none');
             tarteaucitron.userInterface.css(c + 'AlertBig',   'display', 'block');
             tarteaucitron.userInterface.addClass(c + 'Root',   'tarteaucitronBeforeVisible');
+            tarteaucitron.userInterface.css('tac_title', 'display', 'block');
 
             //ie compatibility
             var tacOpenAlertEvent;
@@ -1794,6 +1807,10 @@ var tarteaucitron = {
                 tacCloseAlertEvent.initEvent("tac.close_alert", true, true);
             }
             //end ie compatibility
+
+            if (tarteaucitron.parameters.showAlertSmall === false && tarteaucitron.parameters.showIcon === false) {
+                tarteaucitron.userInterface.css('tac_title', 'display', 'none');
+            }
 
             if (typeof(window.dispatchEvent) === 'function') {window.dispatchEvent(tacCloseAlertEvent);}
         },
