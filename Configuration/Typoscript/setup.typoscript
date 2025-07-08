@@ -54,6 +54,7 @@ page {
 
                         "showAlertSmall": {$ameos.tarteaucitron.showAlertSmall}, /* Show the small banner on bottom right */
                         "cookieslist": {$ameos.tarteaucitron.cookieslist}, /* Show the cookie list */
+                        "cookieslistEmbed": {$ameos.tarteaucitron.cookieslistEmbed}, /* Display the cookie list in the control panel */
 
                         "closePopup": {$ameos.tarteaucitron.closePopup}, /* Show a close X on the banner */
 
@@ -1609,6 +1610,7 @@ page {
             1720 {
                 value (
                     tarteaucitron.user.plausibleDomain = '{$ameos.tarteaucitron.services.plausible.plausibleDomain}';
+                    tarteaucitron.user.plausibleEndpoint = '{$ameos.tarteaucitron.services.plausible.plausibleEndpoint}';
                     (tarteaucitron.job = tarteaucitron.job || []).push('plausible');
 
                 )
@@ -2121,6 +2123,14 @@ page {
                     (tarteaucitron.job = tarteaucitron.job || []).push('goldenbees');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.goldenbees}
+            }
+
+            2270 = TEXT
+            2270 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('fillout');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.fillout}
             }
         }
     }

@@ -36,6 +36,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Shows the list of installed cookies : true/false
 		cookieslist = false
 
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Display the cookie list in the control panel : true/false
+		cookieslistEmbed = false
+
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show a close X on the banner : true/false
 		closePopup = false
 
@@ -867,6 +870,7 @@ ameos {
 			plausible {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label= Plausible Domain
 				plausibleDomain =
+				plausibleEndpoint = plausible.io
 			}
 
 			#cat=plugin.ameos_tarteaucitron.services.video; type=boolean; label=  Videas
