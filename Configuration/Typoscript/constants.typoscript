@@ -1171,6 +1171,8 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=Golden Bees Id
 				goldenbeesId = 
 			}
+			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Golden Bees
+			fillout = 0
 		}
 	}
 }
