@@ -35,6 +35,33 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// madmetrics
+tarteaucitron.services.madmetrics = {
+    "key": "madmetrics",
+    "type": "ads",
+    "name": "MadMetrics",
+    "uri": "https://www.keyade.com/fr/politique-de-confidentialite/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.madmetricsHostname === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://static.madmetrics.com/ktck_seo_acd_pv-min.js', '', function() {
+            var clientId = tarteaucitron.user.madmetricsClientId,
+                siteId = tarteaucitron.user.madmetricsSiteId,
+                directId = tarteaucitron.user.madmetricsDirectId,
+                referalId = tarteaucitron.user.madmetricsReferalId;
+            var _kTck = new KaTracker( clientId, siteId, directId, referalId );
+            _kTck.setBridge('https://' + tarteaucitron.user.madmetricsHostname + '/k_redirect_md.php');
+            _kTck.track();
+        });
+    }
+};
+
 // fillout
 tarteaucitron.services.fillout = {
     "key": "fillout",
@@ -3997,7 +4024,12 @@ tarteaucitron.services.hubspot = {
             return;
         }
 
-        tarteaucitron.addScript('//js.hs-scripts.com/' + tarteaucitron.user.hubspotId + '.js', 'hs-script-loader');
+        var tac_businessUnitId = "";
+        if (tarteaucitron.user.hubspotBusinessUnitId !== undefined && tarteaucitron.user.hubspotBusinessUnitId !== null && tarteaucitron.user.hubspotBusinessUnitId !== "") {
+            tac_businessUnitId = "?businessUnitId=" + tarteaucitron.user.hubspotBusinessUnitId;
+        }
+
+        tarteaucitron.addScript('//js.hs-scripts.com/' + tarteaucitron.user.hubspotId + '.js' + tac_businessUnitId, 'hs-script-loader');
     }
 };
 
@@ -4674,7 +4706,7 @@ tarteaucitron.services.spotify = {
                 spotify_id = tarteaucitron.getElemAttr(x, "spotifyID"),
                 spotify_width = tarteaucitron.getElemAttr(x, "width"),
                 spotify_height = tarteaucitron.getElemAttr(x, "height"),
-                styleAttr = "",
+                styleAttr = "border-radius:12px;",
                 spotify_frame;
 
             if (spotify_id === "") {
