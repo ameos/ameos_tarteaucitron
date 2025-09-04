@@ -2132,6 +2132,15 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.fillout}
             }
+
+            2280 = TEXT
+            2280 {
+                value (
+                    tarteaucitron.user.madmetricsHostname = '{$ameos.tarteaucitron.services.madmetrics.madmetricsHostname}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('madmetrics');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.madmetrics}
+            }
         }
     }
 }
