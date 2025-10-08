@@ -22,7 +22,7 @@ var tarteaucitronScriptsDiscover = document.getElementsByTagName('script'),
 
 
 var tarteaucitron = {
-    "version": "1.25.0",
+    "version": "1.26.0",
     "cdn": cdn,
     "user": {},
     "lang": {},
@@ -311,11 +311,18 @@ var tarteaucitron = {
             window.uetq = window.uetq || [];
             window.uetq.push('consent', 'default', {'ad_storage': 'denied'});
 
+            window.clarity = window.clarity || function () {
+                (window.clarity.q = window.clarity.q || []).push(arguments);
+            };
+
             document.addEventListener('clarity_consentModeOk', function () {
-                window.uetq.push('consent', 'update', {'ad_storage': 'granted'});
+                window.clarity('consentv2', {
+                    ad_Storage: "granted",
+                    analytics_Storage: "granted"
+                });
             }, { once: true });
             document.addEventListener('clarity_consentModeKo', function () {
-                window.uetq.push('consent', 'update', {'ad_storage': 'denied'});
+                window.clarity('consent', false);
             }, { once: true });
             document.addEventListener('bingads_consentModeOk', function () {
                 window.uetq.push('consent', 'update', {'ad_storage': 'granted'});
