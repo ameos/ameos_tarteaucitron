@@ -29,8 +29,6 @@ if ($typo3Version >= 11000000) {
     $configuration = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('ameos_tarteaucitron');
 } elseif ($typo3Version >= 9002000) {
     $configuration = $GLOBALS['TYPO3_CONF_VARS']['EXTENSIONS']['ameos_tarteaucitron'];
-} else {
-    $configuration = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['ameos_tarteaucitron']);
 }
 
 if ($configuration['xclass_youtube'] == '1') {
