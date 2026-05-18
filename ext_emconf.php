@@ -14,7 +14,7 @@ $EM_CONF['ameos_tarteaucitron'] = array (
     'title' => 'AMEOS - TarteAuCitron (GDPR cookie banner and tracking management / French RGPD compatible)',
     'description' => 'Integrates tarteaucitron.js in TYPO3 (see : https://tarteaucitron.io )',
     'category' => 'frontend',
-    'version' => '3.11.0',
+    'version' => '4.0.0',
     'state' => 'stable',
     'uploadfolder' => false,
     'createDirs' => '',
@@ -25,7 +25,7 @@ $EM_CONF['ameos_tarteaucitron'] = array (
     'constraints' => [
       'conflicts' => [],
       'suggests' => ['ameos_dailymotion' => '1.0.0-2.9.99'],
-      'depends' => ['typo3' => '9.5.0-13.99.99'],
+      'depends' => ['typo3' => '10.4.0-13.99.99'],
     ],
     'clearcacheonload' => true,
 );
