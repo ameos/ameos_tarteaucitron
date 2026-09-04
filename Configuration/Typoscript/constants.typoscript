@@ -27,11 +27,17 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show service detail on click : true/false
 		showDetailsOnClick = true
 
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Default state for services : Default state for services (true - wait - false)
+		serviceDefaultState = wait
+
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Display a message if an adblocker is found : true/false
 		adblocker = false
 
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Shows a small banner at the bottom right of the screen : true/false
 		showAlertSmall = false
+
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Show the title in the banner top/bottom : true/false
+		showTitleBanner = false
 
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Shows the list of installed cookies : true/false
 		cookieslist = false
