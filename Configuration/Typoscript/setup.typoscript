@@ -51,14 +51,16 @@ page {
 
                         "groupServices": {$ameos.tarteaucitron.groupServices}, /* Group services by category */
                         "showDetailsOnClick": {$ameos.tarteaucitron.showDetailsOnClick}, /* Group services by category */
+                        "serviceDefaultState": {$ameos.tarteaucitron.serviceDefaultState}, /* Default state for services (true - wait - false)*/
 
                         "showAlertSmall": {$ameos.tarteaucitron.showAlertSmall}, /* Show the small banner on bottom right */
+                        "showTitleBanner": {$ameos.tarteaucitron.showTitleBanner}, /* Show the title in the banner top/bottom */
                         "cookieslist": {$ameos.tarteaucitron.cookieslist}, /* Show the cookie list */
                         "cookieslistEmbed": {$ameos.tarteaucitron.cookieslistEmbed}, /* Display the cookie list in the control panel */
 
                         "closePopup": {$ameos.tarteaucitron.closePopup}, /* Show a close X on the banner */
 
-                        "showIcon": {$ameos.tarteaucitron.closePopup}, /* Show cookie icon to manage cookies */
+                        "showIcon": {$ameos.tarteaucitron.showIcon}, /* Show cookie icon to manage cookies */
                 )
 
                 30 = TEXT
