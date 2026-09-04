@@ -51,7 +51,7 @@ page {
 
                         "groupServices": {$ameos.tarteaucitron.groupServices}, /* Group services by category */
                         "showDetailsOnClick": {$ameos.tarteaucitron.showDetailsOnClick}, /* Group services by category */
-                        "serviceDefaultState": {$ameos.tarteaucitron.serviceDefaultState}, /* Default state for services (true - wait - false)*/
+                        "serviceDefaultState": "{$ameos.tarteaucitron.serviceDefaultState}", /* Default state for services (true - wait - false)*/
 
                         "showAlertSmall": {$ameos.tarteaucitron.showAlertSmall}, /* Show the small banner on bottom right */
                         "showTitleBanner": {$ameos.tarteaucitron.showTitleBanner}, /* Show the title in the banner top/bottom */
