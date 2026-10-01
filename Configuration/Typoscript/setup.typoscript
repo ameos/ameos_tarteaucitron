@@ -26,7 +26,29 @@ page {
                 value = tarteaucitronForceLanguage = '{$ameos.tarteaucitron.tarteaucitronForceLanguage}';
                 if.isTrue = {$ameos.tarteaucitron.tarteaucitronForceLanguage}
             }
-            
+
+            /* Services still loaded in client side when serverSide mode is enabled */
+            7 = TEXT
+            7 {
+                value = {$ameos.tarteaucitron.serverSideExclude}
+                split {
+                    token = ,
+                    cObjNum = 1
+                    1 {
+                        current = 1
+                        trim = 1
+                        replacement.10 {
+                            search = /[^a-zA-Z0-9_-]/
+                            replace =
+                            useRegExp = 1
+                        }
+                        wrap = '|',
+                    }
+                }
+                wrap = var tarteaucitronServerSideExclude = [|];
+                if.isTrue = {$ameos.tarteaucitron.serverSideExclude}
+            }
+
             10 = COA
             10 {
                 wrap = tarteaucitron.init({|});
@@ -99,6 +121,7 @@ page {
                         "mandatoryCta": {$ameos.tarteaucitron.mandatoryCta}, /* Show the disabled accept button when mandatory on */
                         "googleConsentMode": {$ameos.tarteaucitron.googleConsentMode}, /* Enable Google Consent Mode v2 for Google ads and GA4 */
                         "bingConsentMode": {$ameos.tarteaucitron.bingConsentMode}, /* Enable Bing Consent Mode for Clarity & Bing Ads */
+                        "piwikConsentMode": {$ameos.tarteaucitron.piwikConsentMode}, /* Enable Piwik Pro Consent Mode */
                         "softConsentMode": {$ameos.tarteaucitron.softConsentMode}, /* Enable Soft consent mode (consent is required to load the services) */
                         "dataLayer": {$ameos.tarteaucitron.dataLayer}, /* Enable Datalayer Send an event on the Datalayer with the service status */
                         "serverSide": {$ameos.tarteaucitron.serverSide}, /* Enable ServerSide side only, tags aren't loaded in client side */
@@ -2190,6 +2213,41 @@ page {
                     (tarteaucitron.job = tarteaucitron.job || []).push('brevochat');
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.brevochat}
+            }
+
+            2350 = TEXT
+            2350 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('tidycal');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.tidycal}
+            }
+
+            2360 = TEXT
+            2360 {
+                value (
+                    (tarteaucitron.job = tarteaucitron.job || []).push('slido');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.slido}
+            }
+
+            2370 = TEXT
+            2370 {
+                value (
+                    tarteaucitron.user.userwayId = '{$ameos.tarteaucitron.services.userway.userwayId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('userway');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.userway}
+            }
+
+            2380 = TEXT
+            2380 {
+                value (
+                    tarteaucitron.user.statableSiteId = '{$ameos.tarteaucitron.services.statable.statableSiteId}';
+                    tarteaucitron.user.statableHost = '{$ameos.tarteaucitron.services.statable.statableHost}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('statable');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.statable}
             }
         }
     }
