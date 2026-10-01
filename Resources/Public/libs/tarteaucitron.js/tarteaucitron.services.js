@@ -35,6 +35,105 @@ tarteaucitron.services.iframe = {
     }
 };
 
+// tidycal
+tarteaucitron.services.tidycal = {
+    "key": "tidycal",
+    "type": "support",
+    "name": "TidyCal",
+    "uri": "https://tidycal.com/privacy-policy",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        tarteaucitron.addScript('https://asset-tidycal.b-cdn.net/js/embed.js');
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'tidycal';
+        tarteaucitron.fallback(['tidycal-embed'], function (elem) {
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// slido
+tarteaucitron.services.slido = {
+    "key": "slido",
+    "type": "support",
+    "name": "Slido Event",
+    "uri": "https://www.slido.com/",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+        tarteaucitron.fallback(['tac_slido'], function (x) {
+            var frame_title = (tarteaucitron.getElemAttr(x,"title")) ? tarteaucitron.getElemAttr(x,"title") : '',
+                width = tarteaucitron.getElemAttr(x,"width"),
+                height = tarteaucitron.getElemAttr(x,"height"),
+                allowfullscreen = tarteaucitron.getElemAttr(x,"allowfullscreen"),
+                slidoEvent = tarteaucitron.getElemAttr(x,"slidoEvent"),
+                style = tarteaucitron.getElemAttr(x,"style"),
+                url = "https://app.sli.do/event/" + slidoEvent;
+
+            var styleAttr = (width !== "" ? "width:" + tarteaucitron.getStyleSize(width) + ";" : "") + (height !== "" ? "height:" + tarteaucitron.getStyleSize(height) + ";" : "") + (style !== "" ? style : "");
+
+            return '<iframe title="' + frame_title + '" src="' + url + '" style="' + styleAttr + '" allowtransparency' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe>';
+        });
+    },
+    "fallback": function () {
+        "use strict";
+        var id = 'slido';
+        tarteaucitron.fallback(['tac_slido'], function (elem) {
+            elem.style.width = tarteaucitron.getStyleSize(tarteaucitron.getElemAttr(elem, 'width'));
+            elem.style.height = tarteaucitron.getStyleSize(tarteaucitron.getElemAttr(elem, 'height'));
+            return tarteaucitron.engage(id);
+        });
+    }
+};
+
+// userway
+tarteaucitron.services.userway = {
+    "key": "userway",
+    "type": "support",
+    "name": "Userway",
+    "uri": "https://userway.org",
+    "needConsent": true,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.userwayId === undefined) {
+            return;
+        }
+
+        tarteaucitron.addScript('https://cdn.userway.org/widget.js', '', '', '', 'data-account', tarteaucitron.user.userwayId);
+    }
+};
+
+// statable
+tarteaucitron.services.statable = {
+    "key": "statable",
+    "type": "analytic",
+    "name": "Statable",
+    "uri": "https://statable.com/privacy",
+    "needConsent": false,
+    "cookies": [],
+    "js": function () {
+        "use strict";
+
+        if (tarteaucitron.user.statableSiteId === undefined) {
+            return;
+        }
+
+        if (tarteaucitron.user.statableHost === undefined) {
+            tarteaucitron.user.statableHost = 'statable.com';
+        }
+
+        tarteaucitron.addScript('https://' + tarteaucitron.user.statableHost + '/js/' + tarteaucitron.user.statableSiteId + '/s.js');
+    }
+};
+
 // brevochat
 tarteaucitron.services.brevochat = {
     "key": "brevochat",
@@ -1767,6 +1866,13 @@ tarteaucitron.services.piwikpro = {
                 }
             }(i[c])
         }(window, "ppms", ["tm", "cm"]);
+    },
+    "fallback": function() {
+        if (tarteaucitron.parameters.piwikConsentMode === true) {
+            if (tarteaucitron.parameters.softConsentMode === false) {
+                this.js();
+            }
+        }
     }
 };
 
@@ -7149,7 +7255,7 @@ tarteaucitron.services.gallica = {
 // crisp
 tarteaucitron.services.crisp = {
     "key": "crisp",
-    "type": "other",
+    "type": "support",
     "name": "Crisp Chat",
     "uri": "https://help.crisp.chat/en/article/crisp-chatbox-cookie-ip-policy-1147xor/",
     "needConsent": false,
@@ -7165,6 +7271,16 @@ tarteaucitron.services.crisp = {
         window.CRISP_WEBSITE_ID = tarteaucitron.user.crispID;
 
         tarteaucitron.addScript('https://client.crisp.chat/l.js');
+
+        var theCookies = document.cookie.split(';');
+        for (var i = 1; i <= theCookies.length; i++) {
+            var cookie = theCookies[i - 1].split('=');
+            var cookieName = cookie[0].trim();
+
+            if (cookieName.indexOf('crisp-client') === 0) {
+                tarteaucitron.services.crisp.cookies.push(cookieName);
+            }
+        }
     }
 };
 

@@ -93,6 +93,9 @@ ameos {
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Enable Bing Consent Mode for Clarity & Bing Ads : true/false
 		bingConsentMode = false
 
+		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Enable Piwik Pro Consent Mode : true/false
+		piwikConsentMode = false
+
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Soft consent mode (consent is required to load the services) : true/false
 		softConsentMode	 = false
 
@@ -101,7 +104,10 @@ ameos {
 		
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Enable ServerSide side only, tags aren't loaded in client side : true/false
 		serverSide = false
-		
+
+		#cat=plugin.ameos_tarteaucitron.init; type=string; label=Services excluded from the ServerSide mode (still loaded in client side) : comma separated list of service keys (ex: youtube,vimeo)
+		serverSideExclude =
+
 		#cat=plugin.ameos_tarteaucitron.init; type=boolean; label=Details the number of partners on the popup and middle banner : true/false
 		partnersList = false
 
@@ -805,10 +811,10 @@ ameos {
 				piwikProId = 
 			}
 
-			#cat=plugin.ameos_tarteaucitron.services.other; type=boolean; label=Crisp Chat
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Crisp Chat
 			crisp = 0
 			crisp {
-				#cat=plugin.ameos_tarteaucitron.services.other; type=string; label=Crisp Chat ID
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Crisp Chat ID
 				crispID = 
 			}
 
@@ -1224,7 +1230,25 @@ ameos {
 			brevochat = 0
 			brevochat {
 				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Brevo Conversations Id
-				brevoConversationsId  = 
+				brevoConversationsId  =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=TidyCal (needs a div with class tidycal-embed and data-path attribute in the content)
+			tidycal = 0
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Slido Event (needs a div with class tac_slido and slidoEvent attribute in the content)
+			slido = 0
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Userway
+			userway = 0
+			userway {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Userway Account Id
+				userwayId  =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.stats; type=boolean; label=Statable
+			statable = 0
+			statable {
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Statable Site Id
+				statableSiteId  =
+				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Statable Host
+				statableHost  = statable.com
 			}
 		}
 	}
