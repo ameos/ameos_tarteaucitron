@@ -2249,6 +2249,24 @@ page {
                 )
                 if.isTrue = {$ameos.tarteaucitron.services.statable}
             }
+
+            2390 = TEXT
+            2390 {
+                value (
+                    tarteaucitron.user.openaiId = '{$ameos.tarteaucitron.services.openai.openaiId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('openai');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.openai}
+            }
+
+            2400 = TEXT
+            2400 {
+                value (
+                    tarteaucitron.user.userflowId = '{$ameos.tarteaucitron.services.userflow.userflowId}';
+                    (tarteaucitron.job = tarteaucitron.job || []).push('userflow');
+                )
+                if.isTrue = {$ameos.tarteaucitron.services.userflow}
+            }
         }
     }
 }

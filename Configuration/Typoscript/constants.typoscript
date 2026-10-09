@@ -1250,6 +1250,18 @@ ameos {
 				#cat=plugin.ameos_tarteaucitron.services.stats; type=string; label=Statable Host
 				statableHost  = statable.com
 			}
+			#cat=plugin.ameos_tarteaucitron.services.ads; type=boolean; label=OpenAI (ads pixel)
+			openai = 0
+			openai {
+				#cat=plugin.ameos_tarteaucitron.services.ads; type=string; label=OpenAI Pixel Id
+				openaiId  =
+			}
+			#cat=plugin.ameos_tarteaucitron.services.support; type=boolean; label=Userflow
+			userflow = 0
+			userflow {
+				#cat=plugin.ameos_tarteaucitron.services.support; type=string; label=Userflow Token
+				userflowId  =
+			}
 		}
 	}
 }
