@@ -1,3 +1,6 @@
+<img width="1500" height="500" alt="tarteaucitronio" src="https://github.com/user-attachments/assets/f97925d4-3c9d-4ba9-af96-daa3365b691f" />
+
+
 # tarteaucitron.js — Open-source cookie consent manager
 
 [![jsDelivr downloads](https://data.jsdelivr.com/v1/package/npm/tarteaucitronjs/badge)](https://www.jsdelivr.com/package/npm/tarteaucitronjs)
@@ -22,9 +25,11 @@ Use it to manage consent for analytics, advertising, embedded videos, social wid
 - **Consent-based loading:** keep configured services requiring consent blocked until permission is granted, with explicit consent enabled.
 - **Content placeholders:** display a fallback for supported embedded content while consent is pending or refused.
 - **Loading without a page refresh:** load supported services when visitors accept them.
-- **Customizable interface:** configure the banner layout, texts, colors and consent options.
+- **Customizable interface:** configure the banner layout, texts, colors and consent options, or fully customize its appearance using CSS.
 - **Accessibility options:** adjust the panel's position in the document and provide a way to reopen consent preferences.
 - **Consent Mode integrations:** support Google Consent Mode v2, Bing Consent Mode and Piano Analytics Consent Mode.
+
+<img width="1194" height="839" alt="screenshot-3" src="https://github.com/user-attachments/assets/3ad11276-fc39-4349-b0d3-6cb70f943285" />
 
 ## Open source or Pro?
 
@@ -40,11 +45,50 @@ Initialize tarteaucitron.js, add the services used on your website and adapt the
 
 ### tarteaucitron.io Pro — managed service
 
-Choose the Pro service for automatic detection of supported services, an online configuration dashboard and consent statistics.
+Choose the Pro service for a simpler integration and additional features:
+
+- Automatic detection of supported third-party services.
+- Online configuration dashboard.
+- Consent statistics.
+- 50+ ready-to-use design themes.
+- Dedicated WordPress plugin.
+- Unlimited websites and unlimited traffic.
+- Hosted in France.
+
+<img width="1206" height="832" alt="screenshot-5" src="https://github.com/user-attachments/assets/fd1bfa4f-b853-49d7-8a5c-6ed68472de44" />
+
 
 The open-source library remains free. The Pro service is a separate paid offering.
 
-[Explore tarteaucitron.io Pro](https://tarteaucitron.io/).
+A 7-day free trial is available, with no credit card required and no automatic renewal.
+
+[Explore tarteaucitron.io Pro](https://tarteaucitron.io/en/).
+
+### Design themes — Pro
+
+Choose from 50+ ready-to-use themes directly from the tarteaucitron.io Pro dashboard, without editing CSS.
+
+Each theme customizes the entire consent interface: the cookie banner, consent panel, buttons, service descriptions, cookie list and permanent icon.
+
+The collection covers eight categories:
+
+- Accessibility and readability
+- Sports
+- Professions and industries
+- Nature and landscapes
+- Creative and playful
+- Minimal and elegant
+- Retro and technical
+- Events and seasonal designs
+
+<img width="1121" height="689" alt="screenshot-2" src="https://github.com/user-attachments/assets/f4a2ad8e-8db5-47f4-af5a-793fa7ba5d22" />
+
+
+All themes maintain equal visual prominence for accept and reject buttons.
+
+[Explore and try all themes in the interactive gallery](https://tarteaucitron.io/en/demonstration-tarteaucitron-templates/).
+
+These ready-to-use themes are exclusive to the Pro service. The open-source version retains its existing CSS customization options.
 
 ## Consent and configuration
 

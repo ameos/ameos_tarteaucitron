@@ -1,26 +1,39 @@
 Javascript Callbacks
-============
+====================
 
-There are some Javascript Callbacks that allows you to perform some actions after third parties JS libraries are loaded on the pages.
-Thoses callbacks triggers events on the document.
-Thus you can register you own javascript to perform after actions after those event are triggerd in the browser
+There are some Javascript Callbacks that allow you to perform some actions after third parties JS libraries are loaded on the pages.
+Those callbacks trigger events on the document.
+Thus you can register your own javascript to perform actions after those events are triggered in the browser.
 
-Exemple
+Example
 ^^^^^^^
 
 ::
 
-	function AmeosTacScriptcallback(){
-		$(document).trigger('script-loaded');
-	}
+	document.addEventListener('gtag-loaded', function () {
+		// gtag.js is loaded and consent has been given
+	});
 
 Available callbacks
 ^^^^^^^^^^^^^^^^^^^
 
-* AmeosTacClickyMore triggers 'clicky-loaded'
-* AmeosTacGajsMore triggers 'gajs-loaded'
-* AmeosTacGtagMore triggers 'gtag-loaded'
-* AmeosTacMapscallback triggers 'maps-loaded'
-* AmeosTacAnalyticsMore triggers 'analytics-loaded'
-* AmeosTacXitiMore triggers 'xiti-loaded'
-* AmeosTacFacebookPixelMore triggers 'facebookpixel-loaded'
+=============================  ===================  ========================
+Callback                       Service              Event
+=============================  ===================  ========================
+AmeosTacMapscallback           gmaps                'maps-loaded'
+AmeosTacClickyMore             clicky               'clicky-loaded'
+AmeosTacGajsMore               gajs                 'gajs-loaded'
+AmeosTacGtagMore               gtag                 'gtag-loaded'
+AmeosTacAnalyticsPrepare       analytics            'analytics-prepare'
+AmeosTacAnalyticsMore          analytics            'analytics-loaded'
+AmeosTacXitiMore               xiti                 'xiti-loaded'
+AmeosTacFacebookPixelMore      facebookpixel        'facebookpixel-loaded'
+AmeosTacatMore                 atinternet,          'atinternet-loaded'
+                               atinternethightrack
+AmeosTacCriteoonetagMore       criteoonetag         'criteoonetag-loaded'
+AmeosTiktokMore                tiktok               'tiktok-loaded'
+AmeosSnapchatMore              snapchat             'snapchat-loaded'
+AmeosTacSkazeMore              skaze                'skaze-loaded'
+tacRecaptchaOnLoad             recaptcha            'recaptcha-loaded'
+matomoMore                     matomo               'matomo-loaded'
+=============================  ===================  ========================
