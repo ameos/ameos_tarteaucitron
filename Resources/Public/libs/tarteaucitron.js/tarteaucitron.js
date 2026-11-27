@@ -22,7 +22,7 @@ var tarteaucitronScriptsDiscover = document.getElementsByTagName('script'),
 
 
 var tarteaucitron = {
-    "version": "1.37.0",
+    "version": "1.38.0",
     "cdn": cdn,
     "user": {},
     "lang": {},
@@ -524,6 +524,7 @@ var tarteaucitron = {
                 window.addEventListener('tac.root_available', function () {
                     if (typeof tarteaucitron_block !== 'undefined') {
                         tarteaucitron_block.unblock(/www\.googletagmanager\.com\/gtag\/js/);
+                        tarteaucitron_block.unblock(/www\.googletagmanager\.com\/gtag\/destination/);
                         tarteaucitron_block.unblock(/www\.googleadservices\.com\/pagead\/conversion/);
                         tarteaucitron_block.unblock(/AW-/);
                         tarteaucitron_block.unblock(/google-analytics\.com\/analytics\.js/);
@@ -535,6 +536,16 @@ var tarteaucitron = {
 
         // piwik consent mode
         if (tarteaucitron.parameters.piwikConsentMode === true) {
+            if (typeof ppms !== 'undefined' && typeof ppms?.cm?.api === 'function') {
+                ppms.cm.api(
+                    'setInitialComplianceSettings',
+                    {
+                        consents: ['analytics']
+                    },
+                    console.log,
+                    console.error
+                );
+            }
             document.addEventListener('piwikpro_consentModeOk', function () {
                 if (typeof ppms !== 'undefined' && typeof ppms?.cm?.api === 'function') {
                     ppms.cm.api(
@@ -554,9 +565,13 @@ var tarteaucitron = {
             document.addEventListener('piwikpro_consentModeKo', function () {
                 if (typeof ppms !== 'undefined' && typeof ppms?.cm?.api === 'function') {
                     ppms.cm.api(
-                        "setInitialComplianceSettings",
+                        'setComplianceSettings',
                         {
-                            consents: ["analytics"],
+                            consents: {
+                                analytics: {
+                                    status: 0
+                                }
+                            }
                         },
                         console.log,
                         console.error
@@ -1408,7 +1423,9 @@ var tarteaucitron = {
                     }
 
                     if (property == "display" && value == "block" && id == "tarteaucitronAlertBig" && (tarteaucitron.parameters.orientation == "middle"|| tarteaucitron.parameters.orientation == "popup")) {
-                        tarteaucitron.userInterface.focusTrap('tarteaucitronAlertBig');
+                        setTimeout(function() {
+                            tarteaucitron.userInterface.focusTrap('tarteaucitronAlertBig');
+                        }, 150);
                     }
                 }
             }
@@ -1742,7 +1759,9 @@ var tarteaucitron = {
             if (document.getElementsByTagName('body')[0].classList !== undefined) {
                 document.getElementsByTagName('body')[0].classList.add('tarteaucitron-modal-open');
             }
-            tarteaucitron.userInterface.focusTrap('tarteaucitron');
+            setTimeout(function() {
+                tarteaucitron.userInterface.focusTrap('tarteaucitron');
+            }, 150);
             tarteaucitron.userInterface.jsSizing('main');
 
             //ie compatibility

@@ -3029,6 +3029,7 @@ tarteaucitron.services.dailymotion = {
                 showinfo = tarteaucitron.getElemAttr(x, "showinfo"),
                 autoplay = tarteaucitron.getElemAttr(x, "autoplay"),
                 api = tarteaucitron.getElemAttr(x, "api"),
+                playerId = tarteaucitron.getElemAttr(x, "playerId"),
                 params = 'info=' + showinfo + '&autoPlay=' + autoplay + '&api=' + api;
 
             if (video_id === "") {
@@ -3043,7 +3044,12 @@ tarteaucitron.services.dailymotion = {
             if (embed_type === "" || !['video', 'playlist'].includes(embed_type)) {
                 embed_type = "video";
             }
-            video_frame = '<iframe title="' + frame_title + '" src="//www.dailymotion.com/embed/' + embed_type + '/' + video_id + '?' + params + '" style="' + styleAttr + '" ' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe>';
+
+            if (playerId !== "") {
+                video_frame = '<iframe title="' + frame_title + '" src="https://geo.dailymotion.com/player/' + playerId + '.html?' + params + '&' + embed_type + '=' + video_id + '" style="' + styleAttr + '" ' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe>';
+            } else {
+                video_frame = '<iframe title="' + frame_title + '" src="//www.dailymotion.com/embed/' + embed_type + '/' + video_id + '?' + params + '" style="' + styleAttr + '" ' + (allowfullscreen == '0' ? '' : ' webkitallowfullscreen mozallowfullscreen allowfullscreen') + '></iframe>';
+            }
             return video_frame;
         });
     },
@@ -4316,10 +4322,10 @@ tarteaucitron.services.instagram = {
             }
 
             if (embed_width !== "") {
-                styleAttr = 'width:' + tarteaucitron.getStyleSize(embed_width) + ';';
+                styleAttr += 'width:' + tarteaucitron.getStyleSize(embed_width) + ';';
             }
             if (embed_height !== "") {
-                styleAttr = 'height:' + tarteaucitron.getStyleSize(embed_height) + ';';
+                styleAttr += 'height:' + tarteaucitron.getStyleSize(embed_height) + ';';
             }
 
             post_frame = '<iframe title="' + frame_title + '" src="//www.instagram.com/' + post_link + '/embed" style="' + styleAttr + '"></iframe>';
@@ -5774,6 +5780,10 @@ tarteaucitron.services.facebookpixel = {
         n.version = '2.0';
         n.queue = [];
         tarteaucitron.addScript('https://connect.facebook.net/en_US/fbevents.js');
+        // Must be set before init, otherwise the pixel never loads the Conversions API Gateway plugin
+        if (typeof tarteaucitron.user.facebookpixelOpenBridge === 'string') {
+            fbq('set', 'openbridge', tarteaucitron.user.facebookpixelId, tarteaucitron.user.facebookpixelOpenBridge);
+        }
         fbq('init', tarteaucitron.user.facebookpixelId);
         fbq('track', 'PageView');
 
